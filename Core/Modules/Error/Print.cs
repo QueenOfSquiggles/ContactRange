@@ -127,12 +127,7 @@ public static class Print {
   /// </summary>
   /// <param name="msg">the text of the message to send</param>
   /// <param name="className">the metadata of the class</param>
-  public static void Debug(string msg, string className = "") =>
-#if DEBUG
-    // Nice little QOL so I don't forget my random print statements
-    DisplayMessage(new Msg(msg, className).SetLevel(LOG_DEBUG).Color(DEBUG_COLOUR).Italics().SetType("DEBUG"));
-#endif
-
+  public static void Debug(string msg, string className = "") => DisplayMessage(new Msg(msg, className).SetLevel(LOG_DEBUG).Color(DEBUG_COLOUR).Italics().SetType("DEBUG"));
 
   /// <summary>
   /// A generic method for displaying a `Msg` which is a builder for formatted messages. All other print calls redirect here while applying custom formatting. This is exposed to allow custom messaging to be written as well. Additionally, all calls to this method will be appended to the squiggles log file.
@@ -167,10 +162,13 @@ public static class Print {
       StackFrame externalFrame = null;
       foreach (var f in stack.GetFrames()) {
         var declaringType = f.GetMethod()?.DeclaringType;
+        if (declaringType is null) {
+          continue;
+        }
         if (declaringType != typeof(Print)) {
           coreFrame ??= f;
         }
-        if (!declaringType.Namespace.Contains("Squiggles.Core") && !declaringType.Namespace.StartsWith("Godot")) {
+        if (declaringType.Namespace is not null && !declaringType.Namespace.Contains("Squiggles.Core") && !declaringType.Namespace.StartsWith("Godot")) {
           externalFrame ??= f;
         }
 
@@ -202,6 +200,9 @@ public static class Print {
   }
 
   private static string GetSimplifiedStackFrame(StackFrame frame) {
+    if (frame is null) {
+      return "{{NULL STACK FRAME}}";
+    }
     var method = frame.GetMethod();
     return $"at\t\t{method.DeclaringType.FullName}::{method.Name}()" + (frame.HasSource() ?
     $"\n\t-\t{frame.GetFileName()}:{frame.GetFileLineNumber}" :

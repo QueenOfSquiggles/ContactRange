@@ -11,7 +11,7 @@ using System;
 public partial class WorldEnvSettingsCompliant : WorldEnvironment {
 
   public override void _Ready() {
-    Environment ??= ThisIsYourMainScene.Config?.DefaultEnvironment;
+    Environment = ThisIsYourMainScene.Config?.DefaultEnvironment;
     ApplyGraphicsSettings();
     Graphics.Instance.OnGraphicsSettingsChanged += ApplyGraphicsSettings;
   }

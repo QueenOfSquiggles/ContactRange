@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://d0rwje40embmb"]
+
+[resource]
+background_mode = 1
+ambient_light_color = Color(0.290196, 0.290196, 0.290196, 1)
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0105
+volumetric_fog_albedo = Color(0.494118, 0.494118, 0.494118, 1)

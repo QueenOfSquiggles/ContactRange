@@ -1,16 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=11 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
+[ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
 [ext_resource type="Texture2D" uid="uid://ckx0v4wb2a30p" path="res://Game/Assets/Sprites/sprite_player.png" id="2_egfwr"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="3_7mb8g"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/State.cs" id="4_ioeev"]
+[ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
+[ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i5rib"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraCombat")]
+script = ExtResource("1_min2i")
+_playerFSM = NodePath("PlayerStateMachine")
+_playerStateExplore = NodePath("PlayerStateMachine/StateExplore")
+_playerStateCombat = NodePath("PlayerStateMachine/StateCombat")
+_playerStateCutscene = NodePath("PlayerStateMachine/StateCutscene")
+_cameraFSM = NodePath("CameraArm/CameraStateMachine")
+_cameraStateIdle = NodePath("CameraArm/CameraStateMachine/StateIdle")
+_cameraStateMoving = NodePath("CameraArm/CameraStateMachine/StateMoving")
+_cameraCombat = NodePath("CameraArm/CameraStateMachine/StateCombat")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_i5rib")
@@ -20,6 +32,7 @@ shape = SubResource("CapsuleShape3D_i5rib")
 [node name="BackFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(0.260904, 0, 0, 0, 0.260904, 0, 0, 0, 0.260904, 0.161718, 0, 0)
 material_override = ExtResource("1_l7wkv")
+billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
@@ -28,6 +41,7 @@ texture = ExtResource("2_egfwr")
 [node name="RightFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(-1.14045e-08, 0, 0.260904, 0, 0.260904, 0, -0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
 material_override = ExtResource("1_l7wkv")
+billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
@@ -36,6 +50,7 @@ texture = ExtResource("2_egfwr")
 [node name="FrontFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(-0.260904, 0, -2.2809e-08, 0, 0.260904, 0, 2.2809e-08, 0, -0.260904, 0.161718, 0, 0)
 material_override = ExtResource("1_l7wkv")
+billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
@@ -44,16 +59,22 @@ texture = ExtResource("2_egfwr")
 [node name="LeftFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(-1.14045e-08, 0, -0.260904, 0, 0.260904, 0, 0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
 material_override = ExtResource("1_l7wkv")
+billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
 texture = ExtResource("2_egfwr")
 
-[node name="PlayerStateMachine" type="Node" parent="."]
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
 script = ExtResource("3_7mb8g")
+_initialState = NodePath("StateExplore")
 
-[node name="StateExplore" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("4_ioeev")
+[node name="StateExplore" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_vcam", "_actor")]
+script = ExtResource("5_6iq0t")
+_vcam = NodePath("../../CameraArm/SpringArm3D/ThirdPersonCamera")
+_actor = NodePath("../..")
+_movementAcceleration = 10.0
+_movementDeceleration = 50.0
 
 [node name="StateCombat" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_ioeev")
@@ -62,11 +83,40 @@ script = ExtResource("4_ioeev")
 script = ExtResource("4_ioeev")
 
 [node name="CameraArm" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386622, 0)
+transform = Transform3D(0.969016, 0, 0.246999, 0, 1, 0, -0.246999, 0, 0.969016, -0.00339079, 0.398626, -0.00134277)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraArm"]
 shape = SubResource("SphereShape3D_7wqgi")
 spring_length = 5.0
 
 [node name="ThirdPersonCamera" type="Marker3D" parent="CameraArm/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0156013, 0, 4.25183)
 script = ExtResource("5_7vxki")
+_allowVCamChildren = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraArm/SpringArm3D/ThirdPersonCamera"]
+
+[node name="CameraStateMachine" type="Node" parent="CameraArm" node_paths=PackedStringArray("_initialState")]
+script = ExtResource("3_7mb8g")
+_initialState = NodePath("StateIdle")
+
+[node name="StateIdle" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_vcam", "_rotationY", "_rotationX")]
+script = ExtResource("7_57tf4")
+_actor = NodePath("../../..")
+_vcam = NodePath("../../SpringArm3D/ThirdPersonCamera")
+_rotationY = NodePath("../..")
+_rotationX = NodePath("../..")
+
+[node name="StateMoving" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_vcam", "_rotationY", "_rotationX")]
+script = ExtResource("7_57tf4")
+_actor = NodePath("../../..")
+_vcam = NodePath("../../SpringArm3D/ThirdPersonCamera")
+_rotationY = NodePath("../../..")
+_rotationX = NodePath("../..")
+_extraSensitivityScalar = 0.3
+_maxAngleDegrees = 45.0
+_minAngleDegrees = -45.0
+_isActiveDuringMovement = true
+
+[node name="StateCombat" type="Node" parent="CameraArm/CameraStateMachine"]
+script = ExtResource("4_ioeev")
