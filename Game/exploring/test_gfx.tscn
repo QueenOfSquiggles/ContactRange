@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxyujgef8b1jh"]
+
+[ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_6ub7m"]
+[ext_resource type="Texture2D" uid="uid://b0kmgsqo4syyl" path="res://icon.png" id="2_tkt0g"]
+
+[node name="TestGFX" type="Node3D"]
+
+[node name="BackFace" type="Sprite3D" parent="."]
+material_override = ExtResource("1_6ub7m")
+shaded = true
+double_sided = false
+texture = ExtResource("2_tkt0g")
+
+[node name="LeftFace" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("1_6ub7m")
+shaded = true
+double_sided = false
+texture = ExtResource("2_tkt0g")
+
+[node name="FrontFace" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("1_6ub7m")
+shaded = true
+double_sided = false
+texture = ExtResource("2_tkt0g")
+
+[node name="RightFace" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("1_6ub7m")
+shaded = true
+double_sided = false
+texture = ExtResource("2_tkt0g")

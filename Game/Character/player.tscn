@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg6vu21n6mice"]
+
+[ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
+[ext_resource type="Texture2D" uid="uid://ckx0v4wb2a30p" path="res://Game/Assets/Sprites/sprite_player.png" id="2_egfwr"]
+[ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="3_7mb8g"]
+[ext_resource type="Script" path="res://Core/Modules/FSM/State.cs" id="4_ioeev"]
+[ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i5rib"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_i5rib")
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="BackFace" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.260904, 0, 0, 0, 0.260904, 0, 0, 0, 0.260904, 0.161718, 0, 0)
+material_override = ExtResource("1_l7wkv")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("2_egfwr")
+
+[node name="RightFace" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(-1.14045e-08, 0, 0.260904, 0, 0.260904, 0, -0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
+material_override = ExtResource("1_l7wkv")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("2_egfwr")
+
+[node name="FrontFace" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(-0.260904, 0, -2.2809e-08, 0, 0.260904, 0, 2.2809e-08, 0, -0.260904, 0.161718, 0, 0)
+material_override = ExtResource("1_l7wkv")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("2_egfwr")
+
+[node name="LeftFace" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(-1.14045e-08, 0, -0.260904, 0, 0.260904, 0, 0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
+material_override = ExtResource("1_l7wkv")
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("2_egfwr")
+
+[node name="PlayerStateMachine" type="Node" parent="."]
+script = ExtResource("3_7mb8g")
+
+[node name="StateExplore" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_ioeev")
+
+[node name="StateCombat" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_ioeev")
+
+[node name="StateCutscene" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_ioeev")
+
+[node name="CameraArm" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386622, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraArm"]
+shape = SubResource("SphereShape3D_7wqgi")
+spring_length = 5.0
+
+[node name="ThirdPersonCamera" type="Marker3D" parent="CameraArm/SpringArm3D"]
+script = ExtResource("5_7vxki")

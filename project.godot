@@ -11,9 +11,23 @@ config_version=5
 [application]
 
 config/name="ContactRange"
-config/features=PackedStringArray("4.1", "Forward Plus")
+run/main_scene="res://Core/this_is_your_main_scene.tscn"
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.png"
+
+[autoload]
+
+Scenes="*res://Core/Scenes/Utility/Autoload/scenes.tscn"
+BGM="*res://Core/Scenes/Utility/Autoload/bgm.tscn"
 
 [dotnet]
 
 project/assembly_name="ContactRange"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/squiggles_core_autoloads/plugin.cfg")
+
+[gui]
+
+theme/custom="res://Core/Assets/Theme/default_theme.tres"
