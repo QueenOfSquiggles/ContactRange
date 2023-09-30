@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=13 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -8,10 +8,14 @@
 [ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
 [ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
+[ext_resource type="Script" path="res://Core/Modules/Interaction/InteractionSensor.cs" id="9_4exsv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i5rib"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_81c7x"]
+radius = 2.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraCombat")]
 script = ExtResource("1_min2i")
@@ -100,16 +104,18 @@ _allowVCamChildren = true
 script = ExtResource("3_7mb8g")
 _initialState = NodePath("StateIdle")
 
-[node name="StateIdle" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_vcam", "_rotationY", "_rotationX")]
+[node name="StateIdle" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_spritesRoot", "_vcam", "_rotationY", "_rotationX")]
 script = ExtResource("7_57tf4")
 _actor = NodePath("../../..")
+_spritesRoot = NodePath("../../../Sprites")
 _vcam = NodePath("../../SpringArm3D/ThirdPersonCamera")
 _rotationY = NodePath("../..")
 _rotationX = NodePath("../..")
 
-[node name="StateMoving" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_vcam", "_rotationY", "_rotationX")]
+[node name="StateMoving" type="Node" parent="CameraArm/CameraStateMachine" node_paths=PackedStringArray("_actor", "_spritesRoot", "_vcam", "_rotationY", "_rotationX")]
 script = ExtResource("7_57tf4")
 _actor = NodePath("../../..")
+_spritesRoot = NodePath("../../../Sprites")
 _vcam = NodePath("../../SpringArm3D/ThirdPersonCamera")
 _rotationY = NodePath("../../..")
 _rotationX = NodePath("../..")
@@ -120,3 +126,11 @@ _isActiveDuringMovement = true
 
 [node name="StateCombat" type="Node" parent="CameraArm/CameraStateMachine"]
 script = ExtResource("4_ioeev")
+
+[node name="InteractionSensor" type="Area3D" parent="." node_paths=PackedStringArray("_derivedPosition")]
+script = ExtResource("9_4exsv")
+_derivedPosition = NodePath("..")
+_autoSelectObjects = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionSensor"]
+shape = SubResource("CylinderShape3D_81c7x")

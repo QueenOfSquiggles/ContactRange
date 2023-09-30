@@ -8,6 +8,7 @@ using Squiggles.Core.Scenes.Utility.Camera;
 public partial class StateCameraControls : State {
 
   [Export] private CharacterBody3D _actor;
+  [Export] private Node3D _spritesRoot;
   [Export] private VirtualCamera _vcam;
   [Export] private Node3D _rotationY;
   [Export] private Node3D _rotationX;
@@ -20,8 +21,10 @@ public partial class StateCameraControls : State {
   private const float CAM_SENSITIVITY_SCALAR = 0.0003f;
 
   public override void EnterState() {
-    Print.Debug($"Camera Controller State: {Name}");
     SetProcess(true);
+    var camForward = _vcam.GlobalTransform.Forward();
+    camForward.Y = 0;
+    _spritesRoot.LookAt(_spritesRoot.GlobalPosition + camForward, Vector3.Up);
   }
 
   public override void ExitState() => SetProcess(false);

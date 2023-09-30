@@ -27,5 +27,7 @@ public partial class Player : CharacterBody3D {
     };
     _cameraStateIdle.OnStateFinished += () => _cameraFSM.ChangeState(_cameraStateMoving);
     _cameraStateMoving.OnStateFinished += () => _cameraFSM.ChangeState(_cameraStateIdle);
+
+    Input.MouseMode = Input.MouseModeEnum.Captured;
   }
 }
