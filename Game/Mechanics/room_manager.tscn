@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7g536tu4rgcr"]
+
+[ext_resource type="Script" path="res://Game/Mechanics/RoomManager.cs" id="1_ykyfa"]
+
+[node name="Room" type="Area3D" node_paths=PackedStringArray("_adjacentRooms", "_timer")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ykyfa")
+_adjacentRooms = []
+_timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

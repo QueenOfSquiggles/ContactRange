@@ -23,7 +23,7 @@ AllowPlayersToReloadLastSave = true
 
 [resource]
 script = ExtResource("1_rwjxr")
-PlayScene = "res://Game/Level/ShipLevel.tscn"
+PlayScene = "res://Game/Level/ship_level.tscn"
 GameLogo = ExtResource("1_56bxt")
 EnableReticle = false
 EnableColourCorrection = true

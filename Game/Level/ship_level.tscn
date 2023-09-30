@@ -1,0 +1,223 @@
+[gd_scene load_steps=19 format=3 uid="uid://cr60x3q8js7s3"]
+
+[ext_resource type="Script" path="res://Game/Mechanics/ShipManager.cs" id="1_lbdyg"]
+[ext_resource type="PackedScene" uid="uid://ceoitjyqpk3d7" path="res://Game/Assets/Models/main_ship_overview.glb" id="1_vcpbn"]
+[ext_resource type="PackedScene" uid="uid://cg6vu21n6mice" path="res://Game/Character/player.tscn" id="2_fmw8l"]
+[ext_resource type="Script" path="res://Core/Scenes/UI/Menus/pause_menu_controller.gd" id="3_l1qx2"]
+[ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="4_x7abh"]
+[ext_resource type="PackedScene" uid="uid://b7g536tu4rgcr" path="res://Game/Mechanics/room_manager.tscn" id="5_v25jk"]
+[ext_resource type="Script" path="res://Core/Modules/Camera/CameraBrain.cs" id="5_wwj5n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11fc2"]
+size = Vector3(9.4474, 4.28421, 13.0125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4764"]
+size = Vector3(7.39749, 8.78444, 15.8651)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8qud"]
+size = Vector3(20.5882, 4.45664, 13.103)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k622h"]
+size = Vector3(12.3894, 5.27258, 12.3886)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ynlew"]
+size = Vector3(12.6564, 6.31938, 19.4287)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srnqn"]
+size = Vector3(8.64527, 4.55565, 8.37784)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jj2fy"]
+size = Vector3(12, 4.50374, 11.7674)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnmu3"]
+size = Vector3(12.3009, 5.26907, 12.3023)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gysok"]
+size = Vector3(12.0738, 4.60184, 11.9953)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrdcx"]
+size = Vector3(12.0727, 5.24283, 19.7135)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r024g"]
+size = Vector3(8.0232, 4.50581, 8.02317)
+
+[node name="ShipLevel" type="Node3D"]
+
+[node name="ShipManager" type="Node" parent="."]
+script = ExtResource("1_lbdyg")
+
+[node name="main_ship_overview" parent="." instance=ExtResource("1_vcpbn")]
+metadata/_edit_group_ = true
+
+[node name="Ship Hull" parent="main_ship_overview" index="0"]
+visible = false
+
+[node name="CameraBrain" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0154, -1, -27.0406)
+current = true
+script = ExtResource("5_wwj5n")
+
+[node name="Player" parent="." instance=ExtResource("2_fmw8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87983, -1, 15.7134)
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("3_l1qx2")
+
+[node name="Rooms" type="Node3D" parent="."]
+
+[node name="CaptainsQuarters" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.044208)
+_adjacentRooms = [NodePath("../Biomass")]
+_combatCamera = NodePath("VirtualCamera")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/CaptainsQuarters"]
+shape = SubResource("BoxShape3D_11fc2")
+
+[node name="VirtualCamera" type="Marker3D" parent="Rooms/CaptainsQuarters"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 7.442, 0)
+script = ExtResource("4_x7abh")
+
+[node name="Biomass" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.7803)
+_roomName = "biomass_room"
+_adjacentRooms = [NodePath("../CaptainsQuarters"), NodePath("../MainStorage")]
+_combatCamera = NodePath("VirtualCamera2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Biomass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.490194)
+shape = SubResource("BoxShape3D_t4764")
+
+[node name="VirtualCamera2" type="Marker3D" parent="Rooms/Biomass"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 5.722, -0.749)
+script = ExtResource("4_x7abh")
+
+[node name="MainStorage" parent="Rooms" node_paths=PackedStringArray("_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31.7803)
+_roomName = "main_storage"
+_combatCamera = NodePath("VirtualCamera3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/MainStorage"]
+shape = SubResource("BoxShape3D_i8qud")
+
+[node name="VirtualCamera3" type="Marker3D" parent="Rooms/MainStorage"]
+transform = Transform3D(1, 0, 0, -3.55271e-15, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.882, 0.289)
+script = ExtResource("4_x7abh")
+
+[node name="Cafeteria" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1393, 0, -31.7803)
+_roomName = "cafeteria"
+_adjacentRooms = [NodePath("../MainStorage"), NodePath("../EastCrewQuarters"), NodePath("../EastThruster")]
+_combatCamera = NodePath("VirtualCamera4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Cafeteria"]
+shape = SubResource("BoxShape3D_k622h")
+
+[node name="VirtualCamera4" type="Marker3D" parent="Rooms/Cafeteria"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 6.864, 0)
+script = ExtResource("4_x7abh")
+
+[node name="EastCrewQuarters" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8209, 0, -15.0412)
+_roomName = "east_crew_quarters"
+_adjacentRooms = [NodePath("../Cafeteria"), NodePath("../SensorArray")]
+_combatCamera = NodePath("VirtualCamera5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/EastCrewQuarters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.178253)
+shape = SubResource("BoxShape3D_ynlew")
+
+[node name="VirtualCamera5" type="Marker3D" parent="Rooms/EastCrewQuarters"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 9.515, 0)
+script = ExtResource("4_x7abh")
+
+[node name="SensorArray" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9138, 0, 0.00541449)
+_roomName = "sensor_array"
+_adjacentRooms = [NodePath("../EastCrewQuarters")]
+_combatCamera = NodePath("VirtualCamera6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/SensorArray"]
+shape = SubResource("BoxShape3D_srnqn")
+
+[node name="VirtualCamera6" type="Marker3D" parent="Rooms/SensorArray"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0.305, 4.92, 0.035)
+script = ExtResource("4_x7abh")
+
+[node name="EastThruster" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8671, 0, -45.8994)
+_roomName = "east_thruster"
+_adjacentRooms = [NodePath("../Cafeteria")]
+_combatCamera = NodePath("VirtualCamera7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/EastThruster"]
+shape = SubResource("BoxShape3D_jj2fy")
+
+[node name="VirtualCamera7" type="Marker3D" parent="Rooms/EastThruster"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, -0.01, 6.5, -0.05)
+script = ExtResource("4_x7abh")
+
+[node name="WestThruster" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2811, 0, -45.9124)
+_roomName = "west_thruster"
+_adjacentRooms = [NodePath("../WestCrewQuarters")]
+_combatCamera = NodePath("VirtualCamera8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/WestThruster"]
+shape = SubResource("BoxShape3D_hnmu3")
+
+[node name="VirtualCamera8" type="Marker3D" parent="Rooms/WestThruster"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.055, 6.97, -0.16)
+script = ExtResource("4_x7abh")
+
+[node name="WestCrewQuarters" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1212, 0, -31.7291)
+_roomName = "west_crew_quarters"
+_adjacentRooms = [NodePath("../WestThruster"), NodePath("../MainStorage"), NodePath("../Engineering")]
+_combatCamera = NodePath("VirtualCamera9")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/WestCrewQuarters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.229237)
+shape = SubResource("BoxShape3D_gysok")
+
+[node name="VirtualCamera9" type="Marker3D" parent="Rooms/WestCrewQuarters"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.105, 6.45, -0.14)
+script = ExtResource("4_x7abh")
+
+[node name="Engineering" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3834, 0, -14.8508)
+_roomName = "engineering_workshop"
+_adjacentRooms = [NodePath("../MedicalBay"), NodePath("../WestCrewQuarters")]
+_combatCamera = NodePath("VirtualCamera10")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Engineering"]
+shape = SubResource("BoxShape3D_yrdcx")
+
+[node name="VirtualCamera10" type="Marker3D" parent="Rooms/Engineering"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, 8.66, 0)
+script = ExtResource("4_x7abh")
+
+[node name="MedicalBay" parent="Rooms" node_paths=PackedStringArray("_adjacentRooms", "_combatCamera") instance=ExtResource("5_v25jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1894, 0, 0.0952511)
+_roomName = "medical_bay"
+_adjacentRooms = [NodePath("../Engineering")]
+_combatCamera = NodePath("VirtualCamera11")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/MedicalBay"]
+shape = SubResource("BoxShape3D_r024g")
+
+[node name="VirtualCamera11" type="Marker3D" parent="Rooms/MedicalBay"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.165, 4.9, -0.62)
+script = ExtResource("4_x7abh")
+
+[editable path="main_ship_overview"]

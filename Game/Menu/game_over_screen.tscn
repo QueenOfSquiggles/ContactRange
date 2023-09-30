@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://76hdycthuxh"]
+
+[ext_resource type="Script" path="res://Game/Menu/GameOverScreen.cs" id="1_vf10o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s7iiq"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ndum7"]
+font_size = 20
+
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("_deathMessage")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vf10o")
+_mainMenu = "res://Core/Scenes/UI/Menus/main_menu.tscn"
+_deathMessage = NodePath("Reason")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DeathNotice" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -130.0
+offset_right = 20.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have died!"
+label_settings = SubResource("LabelSettings_s7iiq")
+
+[node name="Reason" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[Insert Death Reason Here]"
+label_settings = SubResource("LabelSettings_ndum7")
+
+[node name="BtnTryAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 60.0
+offset_right = 50.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try Again"
+
+[node name="BtnMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 113.0
+offset_right = 50.5
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="BtnTryAgain" to="." method="DoTryAgain"]
+[connection signal="pressed" from="BtnMainMenu" to="." method="ReturnMainMenu"]

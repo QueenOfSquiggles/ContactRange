@@ -1,30 +1,89 @@
-[gd_scene load_steps=10 format=3 uid="uid://blg5mfqmtllv"]
+[gd_scene load_steps=9 format=3 uid="uid://ydtho7tbl1kg"]
 
-[ext_resource type="PackedScene" uid="uid://dy8t3bb43p5ol" path="res://Game/Assets/Models/ship_door.glb" id="1_6ypqj"]
-[ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="2_2bqkh"]
+[ext_resource type="PackedScene" uid="uid://dy8t3bb43p5ol" path="res://Game/Assets/Models/ship_door.glb" id="1_kctt0"]
+[ext_resource type="Script" path="res://Game/Mechanics/ShipDoor.cs" id="2_014tb"]
 
-[sub_resource type="Animation" id="Animation_yrhll"]
-resource_name = "DoorOpen"
-length = 3.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3thn6"]
+shading_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s0ir0"]
+_surfaces = [{
+"aabb": AABB(-1.02887, -1.59145, -0.12501, 2.05773, 3.1829, 0.250021),
+"attribute_data": PackedByteArray(0, 0, 0, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 64, 63, 0, 0, 192, 62, 0, 0, 64, 63, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 192, 62, 0, 0, 0, 63, 0, 0, 32, 63, 0, 0, 0, 63, 0, 0, 32, 63, 0, 0, 0, 63, 0, 0, 32, 63, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 128, 62, 0, 0, 192, 62, 0, 0, 0, 0, 0, 0, 192, 62, 0, 0, 128, 63, 0, 0, 32, 63, 0, 0, 64, 63, 0, 0, 32, 63, 0, 0, 64, 63, 0, 0, 96, 63, 0, 0, 0, 63, 0, 0, 32, 63, 0, 0, 128, 62, 0, 0, 32, 63, 0, 0, 128, 62, 0, 0, 32, 63, 0, 0, 128, 62, 0, 0, 32, 63, 0, 0, 0, 0, 0, 0, 32, 63, 0, 0, 128, 63, 0, 0, 96, 63, 0, 0, 128, 62),
+"format": 4119,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 6, 0, 3, 0, 0, 0, 3, 0, 12, 0, 14, 0, 22, 0, 15, 0, 14, 0, 15, 0, 1, 0, 4, 0, 18, 0, 21, 0, 4, 0, 21, 0, 13, 0, 8, 0, 11, 0, 20, 0, 8, 0, 20, 0, 5, 0, 10, 0, 17, 0, 23, 0, 10, 0, 23, 0, 19, 0, 2, 0, 16, 0, 9, 0, 2, 0, 9, 0, 7, 0),
+"primitive": 3,
+"vertex_count": 24,
+"vertex_data": PackedByteArray(246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 190, 0, 128, 0, 0, 255, 255, 255, 191, 246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 190, 0, 0, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 190, 255, 255, 255, 255, 0, 128, 255, 255, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 62, 0, 128, 0, 0, 255, 255, 255, 191, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 62, 255, 127, 255, 127, 0, 128, 255, 255, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 62, 255, 255, 0, 128, 0, 128, 255, 255, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 190, 0, 128, 0, 0, 255, 255, 255, 191, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 190, 255, 255, 255, 255, 0, 128, 255, 255, 230, 177, 131, 63, 178, 180, 203, 191, 178, 2, 0, 190, 255, 255, 0, 128, 0, 128, 255, 255, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 190, 255, 255, 255, 255, 0, 128, 255, 255, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 190, 0, 128, 255, 255, 0, 0, 255, 191, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 190, 255, 255, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 62, 0, 128, 0, 0, 255, 255, 255, 191, 246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 62, 255, 127, 255, 127, 0, 128, 255, 255, 246, 177, 131, 191, 178, 180, 203, 191, 178, 2, 0, 62, 0, 0, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 190, 0, 0, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 190, 255, 255, 255, 255, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 190, 0, 128, 255, 255, 0, 0, 255, 191, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 62, 255, 127, 255, 127, 0, 128, 255, 255, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 62, 0, 128, 255, 255, 0, 0, 255, 191, 230, 177, 131, 63, 176, 180, 203, 63, 178, 2, 0, 62, 255, 255, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 62, 255, 127, 255, 127, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 62, 0, 0, 0, 128, 0, 128, 255, 255, 246, 177, 131, 191, 176, 180, 203, 63, 178, 2, 0, 62, 0, 128, 255, 255, 0, 0, 255, 191)
+}]
+
+[sub_resource type="Animation" id="Animation_i4r8n"]
+resource_name = "DoorClose"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("ship_door:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(-0.1, -0.0666667, -0.0333333, -1.49012e-09, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 4, 0)]
+"values": [Vector3(0, 3, 0), Vector3(0, 2.99015, 0), Vector3(0, 2.96061, 0), Vector3(0, 2.91138, 0), Vector3(0, 2.84245, 0), Vector3(0, 2.75382, 0), Vector3(0, 2.64551, 0), Vector3(0, 2.5175, 0), Vector3(0, 2.36979, 0), Vector3(0, 2.20239, 0), Vector3(0, 2.0153, 0), Vector3(0, 1.80851, 0), Vector3(0, 1.58203, 0), Vector3(0, 1.33586, 0), Vector3(0, 1.06999, 0), Vector3(0, 0.784424, 0), Vector3(0, 0.479167, 0), Vector3(0, 0.154216, 0), Vector3(0, 0.0908201, 0), Vector3(0, 0.242106, 0), Vector3(0, 0.373698, 0), Vector3(0, 0.485596, 0), Vector3(0, 0.5778, 0), Vector3(0, 0.650309, 0), Vector3(0, 0.703125, 0), Vector3(0, 0.736247, 0), Vector3(0, 0.749675, 0), Vector3(0, 0.743408, 0), Vector3(0, 0.717448, 0), Vector3(0, 0.671794, 0), Vector3(0, 0.606445, 0), Vector3(0, 0.521403, 0), Vector3(0, 0.416667, 0), Vector3(0, 0.292236, 0), Vector3(0, 0.148112, 0), Vector3(0, 0.00773096, 0), Vector3(0, 0.0820312, 0), Vector3(0, 0.136637, 0), Vector3(0, 0.171549, 0), Vector3(0, 0.186768, 0), Vector3(0, 0.182292, 0), Vector3(0, 0.158122, 0), Vector3(0, 0.114258, 0), Vector3(0, 0.0506997, 0), Vector3(0, 0.014323, 0), Vector3(0, 0.0402832, 0), Vector3(0, 0.0465496, 0), Vector3(0, 0.0331216, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
 }
 
-[sub_resource type="Animation" id="Animation_32yfx"]
+[sub_resource type="Animation" id="Animation_18gtu"]
+resource_name = "DoorOpen"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ship_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.60123e-07, 0), Vector3(0, 8.32394e-06, 0), Vector3(0, 6.32099e-05, 0), Vector3(0, 0.000266366, 0), Vector3(0, 0.000812884, 0), Vector3(0, 0.00202272, 0), Vector3(0, 0.00437189, 0), Vector3(0, 0.00852371, 0), Vector3(0, 0.01536, 0), Vector3(0, 0.0260123, 0), Vector3(0, 0.0418931, 0), Vector3(0, 0.0647269, 0), Vector3(0, 0.0965819, 0), Vector3(0, 0.1399, 0), Vector3(0, 0.197531, 0), Vector3(0, 0.272759, 0), Vector3(0, 0.369337, 0), Vector3(0, 0.49152, 0), Vector3(0, 0.64409, 0), Vector3(0, 0.832393, 0), Vector3(0, 1.06237, 0), Vector3(0, 1.34058, 0), Vector3(0, 1.65942, 0), Vector3(0, 1.93763, 0), Vector3(0, 2.16761, 0), Vector3(0, 2.35591, 0), Vector3(0, 2.50848, 0), Vector3(0, 2.63066, 0), Vector3(0, 2.72724, 0), Vector3(0, 2.80247, 0), Vector3(0, 2.8601, 0), Vector3(0, 2.90342, 0), Vector3(0, 2.93527, 0), Vector3(0, 2.95811, 0), Vector3(0, 2.97399, 0), Vector3(0, 2.98464, 0), Vector3(0, 2.99148, 0), Vector3(0, 2.99563, 0), Vector3(0, 2.99798, 0), Vector3(0, 2.99919, 0), Vector3(0, 2.99973, 0), Vector3(0, 2.99994, 0), Vector3(0, 2.99999, 0), Vector3(0, 3, 0), Vector3(0, 3, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rw2pk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("ship_door:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,47 +93,37 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbfbi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4t6m"]
 _data = {
-"DoorOpen": SubResource("Animation_yrhll"),
-"RESET": SubResource("Animation_32yfx")
+"DoorClose": SubResource("Animation_i4r8n"),
+"DoorOpen": SubResource("Animation_18gtu"),
+"RESET": SubResource("Animation_rw2pk")
 }
 
-[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_1fxbr"]
-size = Vector3(2.02865, 3.10383, 0.142006)
+[node name="ShipDoor" type="Node3D"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nwyst"]
+[node name="ship_door" parent="." instance=ExtResource("1_kctt0")]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ily6v"]
-shading_mode = 0
-albedo_color = Color(0.0509804, 1, 0, 1)
+[node name="StaticBody3D" parent="ship_door/ShipDoorPart" index="0" node_paths=PackedStringArray("_anim", "_selectionMesh")]
+script = ExtResource("2_014tb")
+_anim = NodePath("../../../AnimationPlayer")
+_selectionMesh = NodePath("../SelectionMesh")
 
-[sub_resource type="BoxMesh" id="BoxMesh_qlvom"]
-size = Vector3(0.2, 0.2, 0.4)
-
-[node name="ShipDoor" instance=ExtResource("1_6ypqj")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_fbfbi")
-}
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="2"]
-occluder = SubResource("BoxOccluder3D_1fxbr")
-
-[node name="InteractiveTrigger" type="Area3D" parent="." index="3"]
-script = ExtResource("2_2bqkh")
-CustomName = "Door"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractiveTrigger" index="0"]
-shape = SubResource("BoxShape3D_nwyst")
-
-[node name="SelectMesh" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660912, 1.03485, 0)
+[node name="SelectionMesh" type="MeshInstance3D" parent="ship_door/ShipDoorPart" index="1"]
 visible = false
-material_override = SubResource("StandardMaterial3D_ily6v")
-mesh = SubResource("BoxMesh_qlvom")
+material_override = SubResource("StandardMaterial3D_3thn6")
+mesh = SubResource("ArrayMesh_s0ir0")
 
-[connection signal="OnDeselected" from="InteractiveTrigger" to="SelectMesh" method="set_visible" flags=18 binds= [false]]
-[connection signal="OnInteracted" from="InteractiveTrigger" to="AnimationPlayer" method="play" flags=18 binds= ["DoorOpen"]]
-[connection signal="OnSelected" from="InteractiveTrigger" to="SelectMesh" method="set_visible" flags=18 binds= [true]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_s4t6m")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="AnimationPlayer" method="play" binds= ["DoorClose"]]
+
+[editable path="ship_door"]

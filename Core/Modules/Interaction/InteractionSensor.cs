@@ -29,6 +29,13 @@ public partial class InteractionSensor : Area3D {
   /// </summary>
   public Node3D CurrentInteraction { get; private set; }
 
+  public override void _Ready() {
+    AreaEntered += OnAreaEnter;
+    AreaExited += OnAreaExit;
+    BodyEntered += OnBodyEnter;
+    BodyExited += OnBodyExit;
+  }
+
   private void OnAreaEnter(Area3D _) => RefreshCurrent();
   private void OnAreaExit(Area3D _) => RefreshCurrent();
 
@@ -53,9 +60,7 @@ public partial class InteractionSensor : Area3D {
       EmitSignal(nameof(OnCurrentInteractionChange));
     }
     else {
-      if (_derivedPosition is null) {
-        return;
-      }
+      _derivedPosition ??= this;
 
       var n_current = options[0];
       var dist = float.MaxValue;

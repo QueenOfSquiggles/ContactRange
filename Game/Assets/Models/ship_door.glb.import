@@ -30,7 +30,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:ShipDoor_001": {
+"PATH:ShipDoorPart": {
 "generate/physics": true
 }
 }

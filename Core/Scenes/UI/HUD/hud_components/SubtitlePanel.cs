@@ -2,6 +2,7 @@ namespace Squiggles.Core.Scenes.UI.HUD;
 
 using Godot;
 using Squiggles.Core.Events;
+using Squiggles.Core.Extension;
 
 public partial class SubtitlePanel : HBoxContainer {
 
@@ -26,6 +27,7 @@ public partial class SubtitlePanel : HBoxContainer {
     Visible = text.Length > 0;
     var target_colour = Visible ? Colors.White : Colors.Transparent;
     _tween?.Kill();
+    _tween = GetTree().CreateTween().SetSC4XStyle();
     _tween.TweenProperty(this, "modulate", target_colour, _fadeDuration);
   }
 

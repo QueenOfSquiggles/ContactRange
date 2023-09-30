@@ -29,6 +29,20 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"ShipCeil": {
+"use_external/enabled": true,
+"use_external/path": "res://Game/Assets/Materials/ship_ceiling_pbr.tres"
+},
+"ShipFloor": {
+"use_external/enabled": true,
+"use_external/path": "res://Game/Assets/Materials/ship_floor_pbr.tres"
+},
+"ShipWall": {
+"use_external/enabled": true,
+"use_external/path": "res://Game/Assets/Materials/ship_wal_pbr.tres"
+}
+},
 "nodes": {
 "PATH:Biomass": {
 "generate/navmesh": 1,
@@ -68,9 +82,6 @@ _subresources={
 },
 "PATH:SensorArray": {
 "generate/navmesh": 1,
-"generate/occluder": 1
-},
-"PATH:Ship Hull": {
 "generate/occluder": 1
 }
 }
