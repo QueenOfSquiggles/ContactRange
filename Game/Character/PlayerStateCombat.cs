@@ -12,6 +12,9 @@ public partial class PlayerStateCombat : State {
   [Export(PropertyHint.File, "*.tscn")] private string _gameOverScene = "res://Game/Menu/game_over_screen.tscn";
   [Export] private CharStatManager _stats;
   [Export] private CharacterBody3D _actor;
+  [Export] private AnimationPlayer _anim;
+  [Export] private Area3D _killbox;
+  [Export] private Node3D _heldItem;
 
   [ExportGroup("Movement", "_movement")]
   [Export] private float _movementSpeed = 4.0f;
@@ -33,6 +36,7 @@ public partial class PlayerStateCombat : State {
   public override void _Ready() {
     base._Ready();
     _combatSprite.Visible = false;
+    _killbox.BodyEntered += HandleKillboxBody;
   }
 
   public override void EnterState() {
@@ -55,10 +59,10 @@ public partial class PlayerStateCombat : State {
   }
 
   private void HandleAttacks() {
-    if (Input.IsActionJustPressed("interact")) {
-      Print.Debug("If this was a real attack, you would be dead <|:/");
+    if (!Input.IsActionJustPressed("interact") || _anim.IsPlaying()) {
+      return;
     }
-
+    _anim.Play("SwingAttack");
   }
 
 
@@ -81,5 +85,16 @@ public partial class PlayerStateCombat : State {
     var similarity = (moveDir.Dot(_actor.Velocity.Normalized()) * 0.5f) + 0.5f;
     _actor.Velocity = moveDir * _movementSpeed;
     _actor.MoveAndSlide();
+
+    if (moveDir.LengthSquared() > 0.2f) {
+      _heldItem.LookAt(_heldItem.GlobalPosition + moveDir, Vector3.Up);
+    }
+  }
+
+  private void HandleKillboxBody(Node3D body) {
+    if (body == _actor) { return; } // don't hurt yourself out there kiddo!
+    var enemyStats = body.GetComponent<CharStatManager>();
+    if (enemyStats is null || !enemyStats.HasStat("Health")) { return; }
+    enemyStats.ModifyStaticStat("Health", -1);
   }
 }

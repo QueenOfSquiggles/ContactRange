@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://qif5hjoqm546"]
+
+[ext_resource type="Texture2D" uid="uid://blvuhn2t6snl1" path="res://Game/Assets/Sprites/alien_scout_sprite_sheet.png" id="1_3xrol"]
+[ext_resource type="Script" path="res://Game/Enemy/AlienScout.cs" id="1_pqc4a"]
+[ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatManager.cs" id="2_0ky0k"]
+[ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatFloat.cs" id="3_f8v4e"]
+[ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="4_t88p2"]
+[ext_resource type="Script" path="res://Game/Enemy/AlienStateAttacking.cs" id="6_b835o"]
+[ext_resource type="Script" path="res://Game/Enemy/AlienStateHitRecover.cs" id="7_0vx8u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yow06"]
+
+[sub_resource type="Animation" id="Animation_4a6vo"]
+resource_name = "Moving"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_vkon4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrd3t"]
+_data = {
+"Moving": SubResource("Animation_4a6vo"),
+"RESET": SubResource("Animation_vkon4")
+}
+
+[node name="AlienScout" type="CharacterBody3D" node_paths=PackedStringArray("_fsm", "_stateAttacking", "_stateRecover") groups=["alien"]]
+script = ExtResource("1_pqc4a")
+_splatterVFXScene = "res://Game/Enemy/VFX/alien_splatter.tscn"
+_fsm = NodePath("FiniteStateMachine")
+_stateAttacking = NodePath("FiniteStateMachine/StateAttacking")
+_stateRecover = NodePath("FiniteStateMachine/StateHitRecover")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yow06")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 1
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("1_3xrol")
+hframes = 2
+
+[node name="CharStatManager" type="Node" parent="."]
+script = ExtResource("2_0ky0k")
+
+[node name="Health" type="Node" parent="CharStatManager"]
+script = ExtResource("3_f8v4e")
+StoredValue = 4.0
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
+script = ExtResource("4_t88p2")
+_initialState = NodePath("StateAttacking")
+
+[node name="StateAttacking" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
+script = ExtResource("6_b835o")
+_actor = NodePath("../..")
+
+[node name="StateHitRecover" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
+script = ExtResource("7_0vx8u")
+_actor = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Moving"
+libraries = {
+"": SubResource("AnimationLibrary_yrd3t")
+}
+
+[connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]

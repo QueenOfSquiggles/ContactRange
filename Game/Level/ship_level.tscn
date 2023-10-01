@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cr60x3q8js7s3"]
+[gd_scene load_steps=21 format=3 uid="uid://cr60x3q8js7s3"]
 
 [ext_resource type="Script" path="res://Game/Mechanics/ShipManager.cs" id="1_lbdyg"]
 [ext_resource type="PackedScene" uid="uid://ceoitjyqpk3d7" path="res://Game/Assets/Models/main_ship_overview.glb" id="1_vcpbn"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="4_x7abh"]
 [ext_resource type="PackedScene" uid="uid://b7g536tu4rgcr" path="res://Game/Mechanics/room_manager.tscn" id="5_v25jk"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/CameraBrain.cs" id="5_wwj5n"]
+[ext_resource type="PackedScene" uid="uid://qif5hjoqm546" path="res://Game/Enemy/alien_scout.tscn" id="8_gg5mh"]
+[ext_resource type="PackedScene" uid="uid://bu7y02mwcyrd" path="res://Game/Enemy/VFX/alien_splatter.tscn" id="9_q5w7g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_11fc2"]
 size = Vector3(9.4474, 4.28421, 13.0125)
@@ -220,4 +222,11 @@ shape = SubResource("BoxShape3D_r024g")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.165, 4.9, -0.62)
 script = ExtResource("4_x7abh")
 
+[node name="AlienScout" parent="." instance=ExtResource("8_gg5mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6987, -1, -3.01222)
+
+[node name="AlienSplatter" parent="." instance=ExtResource("9_q5w7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06453, -1, 2.89662)
+
 [editable path="main_ship_overview"]
+[editable path="AlienSplatter"]

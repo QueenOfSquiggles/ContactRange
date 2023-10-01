@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bokxoeqmv6r1k"]
+
+[ext_resource type="Texture2D" uid="uid://wuucbv3gjr2j" path="res://Game/Assets/GUI/player_health_bar/BG.PNG" id="1_am620"]
+[ext_resource type="Texture2D" uid="uid://djlm15bhxjggx" path="res://Game/Assets/GUI/player_health_bar/FG.PNG" id="2_iolo4"]
+[ext_resource type="Texture2D" uid="uid://binem87rgckhx" path="res://Game/Assets/GUI/player_health_bar/Bar.PNG" id="3_2xthq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4g8hu"]
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerHealthBar" type="TextureProgressBar"]
+offset_right = 105.0
+offset_bottom = 105.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("1_am620")
+texture_over = ExtResource("2_iolo4")
+texture_progress = ExtResource("3_2xthq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "99%"
+label_settings = SubResource("LabelSettings_4g8hu")

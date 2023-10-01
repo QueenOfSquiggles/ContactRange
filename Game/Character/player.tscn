@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=23 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -28,7 +28,140 @@ radius = 0.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_vjigb"]
 size = Vector3(2.41307, 1, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat")]
+[sub_resource type="Animation" id="Animation_umlae"]
+resource_name = "SwingAttack"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItemController/AttackRotation:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.66519, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItemController/AttackRotation/Killbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(0.75, 0.75, 0.75), Vector3(0.75, 0.75, 0.75), Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_i1oyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItemController/AttackRotation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItemController/AttackRotation/Killbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv8hl"]
+_data = {
+"RESET": SubResource("Animation_i1oyt"),
+"SwingAttack": SubResource("Animation_umlae")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat") groups=["player"]]
 collision_layer = 5
 script = ExtResource("1_min2i")
 _playerLight = NodePath("OmniLight3D")
@@ -55,10 +188,13 @@ _heldItem = NodePath("../../HeldItemController")
 _movementAcceleration = 10.0
 _movementDeceleration = 50.0
 
-[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_combatSprite")]
+[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_killbox", "_heldItem", "_combatSprite")]
 script = ExtResource("6_xyxc0")
 _stats = NodePath("../../CharStatManager")
 _actor = NodePath("../..")
+_anim = NodePath("../../AnimationPlayer")
+_killbox = NodePath("../../HeldItemController/AttackRotation/Killbox")
+_heldItem = NodePath("../../HeldItemController")
 _combatSprite = NodePath("../../Sprites/TopFace")
 
 [node name="StateCutscene" type="Node" parent="PlayerStateMachine"]
@@ -181,21 +317,30 @@ StoredValue = 1.0
 
 [node name="HeldItemController" type="Node3D" parent="."]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="HeldItemController"]
+[node name="AttackRotation" type="Node3D" parent="HeldItemController"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="HeldItemController/AttackRotation"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("SphereShape3D_j6780")
 spring_length = 1.945
 
-[node name="Sprite3D" type="Sprite3D" parent="HeldItemController/SpringArm3D"]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+[node name="Sprite3D" type="Sprite3D" parent="HeldItemController/AttackRotation/SpringArm3D"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 8.07454e-08, 0, 1.84724)
 billboard = 1
 shaded = true
 texture = ExtResource("4_qyf3c")
 
-[node name="Area3D" type="Area3D" parent="HeldItemController"]
+[node name="Killbox" type="Area3D" parent="HeldItemController/AttackRotation"]
+monitoring = false
+monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HeldItemController/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeldItemController/AttackRotation/Killbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925215, 0, 0)
 shape = SubResource("BoxShape3D_vjigb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wv8hl")
+}
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]
