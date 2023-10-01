@@ -3,6 +3,8 @@ using Squiggles.Core.CharStats;
 using Squiggles.Core.Error;
 using Squiggles.Core.Extension;
 using Squiggles.Core.FSM;
+using Squiggles.Core.Scenes.Character;
+using Squiggles.Core.Scenes.Registration;
 using Squiggles.Core.Scenes.Utility;
 using Squiggles.Core.Scenes.Utility.Camera;
 using System;
@@ -13,6 +15,7 @@ public partial class PlayerStateCombat : State {
   [Export] private CharStatManager _stats;
   [Export] private CharacterBody3D _actor;
   [Export] private AnimationPlayer _anim;
+  [Export] private InventoryManager _inventory;
   [Export] private Area3D _killbox;
   [Export] private Node3D _heldItem;
 
@@ -23,6 +26,7 @@ public partial class PlayerStateCombat : State {
   private VirtualCamera _vcam;
   private Vector2 _inputVector;
   private bool _isOxygenAvailable = true;
+  private int _damage = 1;
 
   public void ConsumeRoomData(RoomManager room) {
     _vcam = room.RoomCamera;
@@ -47,6 +51,14 @@ public partial class PlayerStateCombat : State {
   public override void EnterState() {
     SetPhysicsProcess(true);
     _combatSprite.Visible = true;
+
+    _damage = 1;
+    _inventory.DoForSlots((slot, id, qty) => {
+      var item = RegistrationManager.GetResource<Item>(id);
+      if (item is not null && item.IsWeapon && item.DamageValue > _damage) {
+        _damage = item.DamageValue; // uses highest damage value weapon
+      }
+    });
   }
   public override void ExitState() {
     SetPhysicsProcess(false);

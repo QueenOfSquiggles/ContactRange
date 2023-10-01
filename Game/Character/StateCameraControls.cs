@@ -37,15 +37,13 @@ public partial class StateCameraControls : State {
       return;
     }
 
-    var amount = Input.GetVector("joystick_look_left", "joystick_look_right", "joystick_look_down", "joystick_look_up") * CAM_SENSITIVITY_SCALAR * Controls.Instance.ControllerLookSensitivity * _extraSensitivityScalar;
-    if (amount.LengthSquared() < 0.2f) {
+    var amount = Input.GetVector("joystick_look_left", "joystick_look_right", "joystick_look_down", "joystick_look_up");
+    if (amount.LengthSquared() < 0.1f) {
       return; // assume joystick noise
     }
-    _rotationY.RotateY(amount.X);
-
-    var rot = _rotationX.Rotation;
-    rot.X = Mathf.Clamp(amount.Y + rot.X, Mathf.DegToRad(_minAngleDegrees), Mathf.DegToRad(_maxAngleDegrees));
-    _rotationX.Rotation = rot;
+    amount *= CAM_SENSITIVITY_SCALAR * Controls.Instance.ControllerLookSensitivity * _extraSensitivityScalar; // scale down after noide filtering
+    amount.X *= -1;// flip horizontal. More intuitive
+    DoCameraLook(amount);
   }
 
   public override void _UnhandledInput(InputEvent @event) {

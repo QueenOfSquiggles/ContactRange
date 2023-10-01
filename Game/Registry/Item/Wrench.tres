@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dyntonmmhacgn"]
+
+[ext_resource type="Script" path="res://Game/Items/Item.cs" id="1_5l2rg"]
+[ext_resource type="Texture2D" uid="uid://ciq8uu1uqixej" path="res://Game/Assets/Items/wrench.png" id="1_oi2vt"]
+
+[resource]
+script = ExtResource("1_5l2rg")
+Name = "Wrench"
+Texture = ExtResource("1_oi2vt")
+IsWeapon = true
+IsHealth = false
+DamageValue = 2
+HealValue = 0

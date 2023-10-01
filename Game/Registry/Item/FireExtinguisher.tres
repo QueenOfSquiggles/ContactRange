@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cmn54ipxkq27t"]
+
+[ext_resource type="Texture2D" uid="uid://be6hmf8oc8x1u" path="res://Game/Assets/Items/fire_extionguisher.png" id="1_8jbta"]
+[ext_resource type="Script" path="res://Game/Items/Item.cs" id="2_drf0l"]
+
+[resource]
+script = ExtResource("2_drf0l")
+Name = "Fire Extinguisher"
+Texture = ExtResource("1_8jbta")
+IsWeapon = false
+IsHealth = false
+DamageValue = 0
+HealValue = 0

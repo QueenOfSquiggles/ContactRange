@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=29 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b1v2k5cosyaap" path="res://Game/Assets/GUI/player_oxygen_bar/BG.PNG" id="16_7x4py"]
 [ext_resource type="Texture2D" uid="uid://fty010we4nl3" path="res://Game/Assets/GUI/player_oxygen_bar/FG.PNG" id="17_6xixi"]
 [ext_resource type="Texture2D" uid="uid://bv1scgt7wvdj8" path="res://Game/Assets/GUI/player_oxygen_bar/Bar.PNG" id="18_hwtd5"]
+[ext_resource type="PackedScene" uid="uid://janjfsv1wkri" path="res://Game/GUI/player_inventory_display.tscn" id="19_5ylr8"]
+[ext_resource type="PackedScene" uid="uid://bfhnnq6qcwafo" path="res://Core/Scenes/Character/Player/inventory_manager.tscn" id="19_sw61u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
 
@@ -92,7 +94,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.5, 0.5, 0.5)]
+"values": [Vector3(0.1, 0.1, 0.1)]
 }
 
 [sub_resource type="Animation" id="Animation_umlae"]
@@ -153,10 +155,10 @@ tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.5, 0.5, 0.5), Vector3(0.75, 0.75, 0.75), Vector3(0.75, 0.75, 0.75), Vector3(0.5, 0.5, 0.5)]
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(0.16, 0.16, 0.16), Vector3(0.1, 0.1, 0.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv8hl"]
@@ -165,11 +167,13 @@ _data = {
 "SwingAttack": SubResource("Animation_umlae")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_inventory", "_heldWeapon", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat") groups=["player"]]
 collision_layer = 5
 script = ExtResource("1_min2i")
 _playerLight = NodePath("OmniLight3D")
 _stats = NodePath("CharStatManager")
+_inventory = NodePath("InventoryManager")
+_heldWeapon = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D")
 _playerFSM = NodePath("PlayerStateMachine")
 _playerStateExplore = NodePath("PlayerStateMachine/StateExplore")
 _playerStateCombat = NodePath("PlayerStateMachine/StateCombat")
@@ -178,6 +182,7 @@ _cameraFSM = NodePath("CameraArm/CameraStateMachine")
 _cameraStateIdle = NodePath("CameraArm/CameraStateMachine/StateIdle")
 _cameraStateMoving = NodePath("CameraArm/CameraStateMachine/StateMoving")
 _cameraStateCombat = NodePath("PlayerStateMachine/StateCombat")
+_gameOverScene = "res://Game/Menu/game_over_screen.tscn"
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
 script = ExtResource("3_7mb8g")
@@ -196,7 +201,7 @@ _movementDeceleration = 50.0
 script = ExtResource("6_xyxc0")
 _stats = NodePath("../../CharStatManager")
 _actor = NodePath("../..")
-_anim = NodePath("../../AnimationPlayer")
+_anim = NodePath("../../AttackAnim")
 _killbox = NodePath("../../HeldItemController/AttackRotation/Killbox")
 _heldItem = NodePath("../../HeldItemController")
 _combatSprite = NodePath("../../Sprites/TopFace")
@@ -301,25 +306,6 @@ shape = SubResource("CylinderShape3D_81c7x")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 10.0
 
-[node name="CharStatManager" type="Node" parent="."]
-script = ExtResource("2_v15vt")
-
-[node name="Health" type="Node" parent="CharStatManager"]
-script = ExtResource("3_w5dyv")
-StoredValue = 5.0
-
-[node name="MaxHealth" type="Node" parent="CharStatManager"]
-script = ExtResource("3_w5dyv")
-StoredValue = 5.0
-
-[node name="AirMax" type="Node" parent="CharStatManager"]
-script = ExtResource("3_w5dyv")
-StoredValue = 10.0
-
-[node name="AirRegen" type="Node" parent="CharStatManager"]
-script = ExtResource("3_w5dyv")
-StoredValue = 1.0
-
 [node name="HeldItemController" type="Node3D" parent="."]
 
 [node name="AttackRotation" type="Node3D" parent="HeldItemController"]
@@ -330,10 +316,9 @@ shape = SubResource("SphereShape3D_j6780")
 spring_length = 1.945
 
 [node name="Sprite3D" type="Sprite3D" parent="HeldItemController/AttackRotation/SpringArm3D"]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 8.07454e-08, 0, 1.84724)
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 8.07454e-08, 0, 1.84724)
 billboard = 1
 shaded = true
-texture = ExtResource("4_qyf3c")
 
 [node name="Killbox" type="Area3D" parent="HeldItemController/AttackRotation"]
 monitoring = false
@@ -343,7 +328,7 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925215, 0, 0)
 shape = SubResource("BoxShape3D_vjigb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AttackAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wv8hl")
 }
@@ -387,4 +372,28 @@ _valueKey = "air"
 _valueMaxKey = "AirMax"
 _pollForDynStat = true
 
+[node name="PlayerInventoryDisplay" parent="." instance=ExtResource("19_5ylr8")]
+
+[node name="CharStatManager" type="Node" parent="."]
+script = ExtResource("2_v15vt")
+
+[node name="Health" type="Node" parent="CharStatManager"]
+script = ExtResource("3_w5dyv")
+StoredValue = 5.0
+
+[node name="MaxHealth" type="Node" parent="CharStatManager"]
+script = ExtResource("3_w5dyv")
+StoredValue = 5.0
+
+[node name="AirMax" type="Node" parent="CharStatManager"]
+script = ExtResource("3_w5dyv")
+StoredValue = 30.0
+
+[node name="AirRegen" type="Node" parent="CharStatManager"]
+script = ExtResource("3_w5dyv")
+StoredValue = 1.0
+
+[node name="InventoryManager" parent="." instance=ExtResource("19_sw61u")]
+
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]
+[connection signal="SlotUpdate" from="InventoryManager" to="." method="HandleSlotUpdate"]

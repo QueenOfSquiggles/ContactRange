@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cnolrjx55kql1"]
+
+[ext_resource type="Texture2D" uid="uid://c4gogbws2p2qt" path="res://Game/Assets/Items/sensor_reconfig_disk.png" id="1_rdlkv"]
+[ext_resource type="Script" path="res://Game/Items/Item.cs" id="2_5oa7r"]
+
+[resource]
+script = ExtResource("2_5oa7r")
+Name = "Sensor Reconfiguration Disc"
+Texture = ExtResource("1_rdlkv")
+IsWeapon = false
+IsHealth = false
+DamageValue = 0
+HealValue = 0

@@ -34,6 +34,7 @@ public partial class InteractionSensor : Area3D {
     AreaExited += OnAreaExit;
     BodyEntered += OnBodyEnter;
     BodyExited += OnBodyExit;
+    RefreshCurrent();
   }
 
   private void OnAreaEnter(Area3D _) => RefreshCurrent();
@@ -53,7 +54,7 @@ public partial class InteractionSensor : Area3D {
       if (CurrentInteraction == null) {
         return;
       }
-      if (_autoSelectObjects && CurrentInteraction is ISelectable sel) {
+      if (_autoSelectObjects && CurrentInteraction is ISelectable sel && IsInstanceValid(CurrentInteraction)) {
         sel.OnDeselect();
       }
       CurrentInteraction = null;
@@ -77,7 +78,7 @@ public partial class InteractionSensor : Area3D {
         return;
       }
 
-      if (_autoSelectObjects && CurrentInteraction is ISelectable sel1) {
+      if (_autoSelectObjects && CurrentInteraction is not null && IsInstanceValid(CurrentInteraction) && CurrentInteraction is ISelectable sel1) {
         sel1.OnDeselect();
       }
 

@@ -18,11 +18,11 @@ public partial class RoomManager : Area3D {
   [Export] private RoomManager[] _adjacentRooms;
   [Export] private VirtualCamera _combatCamera;
   [Export] private Marker3D _spawnPoint;
-  [Export] private float _timeInfectAdjacent = 30.0f;
-  [Export] private float _timeKillLifeSupport = 60.0f;
-  [Export] private float _chanceInfectAdjacent = 0.25f;
-  [Export] private int _minAliens = 1;
-  [Export] private int _maxAliens = 2;
+  private float _timeInfectAdjacent = 30.0f;
+  private float _timeKillLifeSupport = 60.0f;
+  private float _chanceInfectAdjacent = 0.25f;
+  private int _minAliens = 1;
+  private int _maxAliens = 2;
   private readonly Dictionary<string, float> _spawnTable = new() {
     {"res://Game/Enemy/alien_scout.tscn", 1.0f},
   };
@@ -50,6 +50,10 @@ public partial class RoomManager : Area3D {
         Print.Debug($"[{_roomName}] aliens: {_alienCount}");
       }
     };
+    var diff = GameplaySettings.GetFloat("difficulty") / 10f;
+    _chanceInfectAdjacent = diff;
+    _timeKillLifeSupport = Mathf.Lerp(120, 30, diff);
+    _timeInfectAdjacent = Mathf.Lerp(60, 15, diff);
   }
 
   private void HandlePlayerEnter(Player player) {
@@ -63,36 +67,57 @@ public partial class RoomManager : Area3D {
     _combatCamera.PushVCam();
     // spawn aliens
     var count = _rand.NextRange(_maxAliens, _minAliens);
-    count = 1;
     _alienCount = 0;
-    Print.Debug($"Spawning {count} aliens in {_roomName}. Generating from {_minAliens}-{_maxAliens}");
-    for (var i = 0; i < count; i++) {
-      var scene = GD.Load<PackedScene>("res://Game/Enemy/alien_scout.tscn");
-      var node = scene.Instantiate() as Node3D;
-      AddChild(node);
-      node.GlobalPosition = _spawnPoint.GlobalPosition;
-      node.TreeExited += HandleAlienDie;
-      _alienCount++;
-    }
+    SpawnWave(count);
+    // safety check to avoid hard lock bugs
     var foundAliens = GetChildren().Where((node) => node.IsInGroup("alien")).ToList();
     _alienCount = foundAliens.Count;
   }
 
-  private void HandleAlienDie() {
+  private void SpawnWave(int count) {
+
+    Print.Debug($"Spawning {count} aliens in {_roomName}. Generating from {_minAliens}-{_maxAliens}");
+    var circle = Mathf.Pi * 2f;
+    var angle = circle / ((float)count); // is it really redundant?????
+    var distBetween = 2.5f;
+    var adjacentAngles = (circle - angle) / 2f;
+    var distanceOut = 1.5f; // eddge case where  triangle of infinite length is made when spawning few aliens
+    if (angle < Mathf.DegToRad(90f)) {
+      distanceOut = distBetween * Mathf.Sin(adjacentAngles) / Mathf.Sin(angle);
+    }
+
+    Print.Debug($"Spawning conditions: angle={Mathf.RadToDeg(angle):N2}d, ring radius={distanceOut}m");
+    var currentAngle = 0f;
+    for (var i = 0; i < count; i++) {
+      var path = _spawnTable.Keys.ElementAt(_rand.Next() % _spawnTable.Keys.Count);
+      var scene = GD.Load<PackedScene>(path);
+      var node = scene.Instantiate() as Node3D;
+      AddChild(node);
+      var offset = new Vector3(Mathf.Cos(currentAngle) * distanceOut, 0f, Mathf.Sin(currentAngle) * distanceOut);
+      node.GlobalPosition = _spawnPoint.GlobalPosition + offset;
+      node.TreeExited += HandleAlienDie;
+      _alienCount++;
+      currentAngle += angle;
+    }
+  }
+
+  private async void HandleAlienDie() {
+    await Task.Delay(100); // give .1 seconds for alien count to update
     var foundAliens = GetChildren().Where((node) => node.IsInGroup("alien")).ToList();
     _alienCount = foundAliens.Count;
     Print.Debug($"[{_roomName}] aliens: {_alienCount}");
     if (_alienCount <= 0) {
-      if (_roomName != "east_crew_quarters" || ShipManager.GetFlagFor("ship_systems_restored")) {
-        // until all ship systems are resotored, disallow clearing the east crew quarters
-        ShipManager.UpdateStatusFor(_roomName, 0); // cleared rooms reset to zero
+      // until all ship systems are resotored, disallow clearing the east crew quarters
+      var nextStatus = ShipManager.GetStatusFor(_roomName) - 1;
+      if (_roomName == "east_crew_quarters" && !ShipManager.GetFlagFor("ship_systems_restored")) {
+        nextStatus = Math.Max(nextStatus, 1); // east crew quarters cannot go lower than 1 until systems restored
       }
+      ShipManager.UpdateStatusFor(_roomName, nextStatus); // cleared rooms reduce by one
       HandleCombatEnd();
     }
   }
 
   private void HandleCombatEnd() {
-    if (!_isCombatActive) { return; } // avoids duplicate calls
     _combatCamera.PopVCam();
     OnCombatOver?.Invoke();
     _isCombatActive = false;
@@ -110,19 +135,19 @@ public partial class RoomManager : Area3D {
         break;
       case 1: // aliens are added
         _minAliens = 1;
-        _minAliens = 2;
+        _maxAliens = 2;
         GetNewTimer(_timeInfectAdjacent).Timeout += DoInfection;
 
         break;
       case 2: // life support removed
         _minAliens = 3;
-        _minAliens = 6;
+        _maxAliens = 7;
         break;
       default:
         Print.Warn("Unhandled room status!!!!!", this);
         break;
     }
-    Print.Debug($"[{_roomName}] {(HasAliens ? "aliens" : "")} {(HasOxygen ? "" : "no_o2")}");
+    Print.Debug($"[{_roomName}] {(HasAliens ? "aliens" : "[s]~~aliens~~[/s]")} {(HasOxygen ? "O2" : "[s]~~O2~~[/s]")}");
   }
 
   private void DoInfection() {
@@ -130,22 +155,28 @@ public partial class RoomManager : Area3D {
     var rand = new Random();
     var available = _adjacentRooms.Where((room) => ShipManager.GetStatusFor(room.RoomName) == 0).ToList();
     if (available.Count > 0) {
+      var target = available[rand.Next() % available.Count];
       if (rand.PercentChance(_chanceInfectAdjacent)) {
-        var target = available[rand.Next() % available.Count];
         ShipManager.UpdateStatusFor(target.RoomName, 1);
-      }
-      else {
-        // try again. Provides some variance in rate of infection. Aslo creates another slider for difficulty
+        // try to do another infection.
+        Print.Debug($"[{_roomName}] infected {target.RoomName}");
         GetNewTimer(_timeInfectAdjacent).Timeout += DoInfection;
-
+        return;
       }
+      // try again. Provides some variance in rate of infection. Aslo creates another slider for difficulty
+      Print.Debug($"[{_roomName}] failed to spread infection to {target.RoomName}");
+      GetNewTimer(_timeInfectAdjacent).Timeout += DoInfection;
+      return;
     }
-    // prep for next stage
-    GetNewTimer(_timeKillLifeSupport).Timeout += () => ShipManager.UpdateStatusFor(_roomName, 2);
+    else {
+      // move to next stage once all adjacent are infected.
+      // prep for next stage
+      Print.Debug($"[{_roomName}] all available rooms infected. cutting off O2 supply");
+      GetNewTimer(_timeKillLifeSupport).Timeout += () => ShipManager.UpdateStatusFor(_roomName, 2);
+    }
   }
 
   private SceneTreeTimer GetNewTimer(float time) {
-    _timer?.Dispose();
     _timer = GetTree().CreateTimer(time, false);
     return _timer;
   }

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://jp25e16d5qe1"]
+
+[ext_resource type="Texture2D" uid="uid://doy58las8epqd" path="res://Game/Assets/Items/fuel_can.png" id="1_5e8k5"]
+[ext_resource type="Script" path="res://Game/Items/Item.cs" id="2_w2avc"]
+
+[resource]
+script = ExtResource("2_w2avc")
+Name = "Thruster Fuel"
+Texture = ExtResource("1_5e8k5")
+IsWeapon = false
+IsHealth = false
+DamageValue = 0
+HealValue = 0

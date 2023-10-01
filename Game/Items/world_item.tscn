@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://icxt2o6p052n"]
+
+[ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="1_5rny4"]
+[ext_resource type="Script" path="res://Game/Items/WorldItem.cs" id="1_udrhh"]
+[ext_resource type="Texture2D" uid="uid://c7lphyspobdd2" path="res://Core/Assets/Theme/grey_arrowDownWhite.png" id="3_bawbg"]
+[ext_resource type="Texture2D" uid="uid://ciq8uu1uqixej" path="res://Game/Assets/Items/wrench.png" id="3_p6vu8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o54iq"]
+
+[node name="WorldItem" type="Node3D" node_paths=PackedStringArray("_sprite")]
+script = ExtResource("1_udrhh")
+_sprite = NodePath("ItemIcon")
+
+[node name="InteractiveTrigger" type="Area3D" parent="."]
+script = ExtResource("1_5rny4")
+CustomName = "ITEM"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractiveTrigger"]
+shape = SubResource("SphereShape3D_o54iq")
+
+[node name="ItemIcon" type="Sprite3D" parent="."]
+transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0, 0)
+billboard = 2
+shaded = true
+texture = ExtResource("3_p6vu8")
+
+[node name="SelectionSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613856, 0)
+visible = false
+pixel_size = 0.0205
+billboard = 1
+alpha_cut = 1
+alpha_scissor_threshold = 0.225
+texture = ExtResource("3_bawbg")
+
+[connection signal="OnDeselected" from="InteractiveTrigger" to="SelectionSprite" method="set_visible" binds= [false]]
+[connection signal="OnInteracted" from="InteractiveTrigger" to="." method="HandleInteract"]
+[connection signal="OnSelected" from="InteractiveTrigger" to="SelectionSprite" method="set_visible" binds= [true]]

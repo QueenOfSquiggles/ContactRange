@@ -5,5 +5,6 @@
 [node name="Room" type="Area3D" node_paths=PackedStringArray("_adjacentRooms")]
 collision_layer = 0
 collision_mask = 4
+reverb_bus_enabled = true
 script = ExtResource("1_ykyfa")
 _adjacentRooms = []

@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpyi4cm40c554"]
+
+[ext_resource type="Material" uid="uid://dvq2x62knaaa4" path="res://Core/Assets/Materials/GUI/blur_layer.tres" id="1_t0eaf"]
+[ext_resource type="PackedScene" uid="uid://0r3ppw03qawu" path="res://Game/GUI/player_inv_slot_display.tscn" id="2_rcxf5"]
+
+[node name="PlayerInventoryInteractive" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur Background" type="ColorRect" parent="."]
+material = ExtResource("1_t0eaf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slots" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -342.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="BtnSlot1" parent="Slots" instance=ExtResource("2_rcxf5")]
+layout_mode = 2
+
+[node name="BtnSlot2" parent="Slots" instance=ExtResource("2_rcxf5")]
+layout_mode = 2
+
+[node name="BtnSlot3" parent="Slots" instance=ExtResource("2_rcxf5")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 68.0
+offset_right = 128.0
+offset_bottom = 100.0
+text = "Return"

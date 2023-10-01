@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://76hdycthuxh"]
+[gd_scene load_steps=6 format=3 uid="uid://76hdycthuxh"]
 
 [ext_resource type="Script" path="res://Game/Menu/GameOverScreen.cs" id="1_vf10o"]
+[ext_resource type="PackedScene" uid="uid://ci8q8yf6jrc8n" path="res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn" id="2_c48oc"]
+[ext_resource type="PackedScene" uid="uid://b8y0v225qjej4" path="res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn" id="3_4qjit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s7iiq"]
 font_size = 32
@@ -77,6 +79,11 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Try Again"
 
+[node name="UIEffects" parent="BtnTryAgain" instance=ExtResource("2_c48oc")]
+
+[node name="RequestFocusOnParent" parent="BtnTryAgain" instance=ExtResource("3_4qjit")]
+visibility_target = NodePath("../../ColorRect")
+
 [node name="BtnMainMenu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -91,6 +98,10 @@ offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Return to Main Menu"
+
+[node name="UIEffects2" parent="BtnMainMenu" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("2_c48oc")]
+_sfxSelect = NodePath("../../BtnTryAgain/UIEffects/Select")
+_sfxClick = NodePath("../../BtnTryAgain/UIEffects/Click")
 
 [connection signal="pressed" from="BtnTryAgain" to="." method="DoTryAgain"]
 [connection signal="pressed" from="BtnMainMenu" to="." method="ReturnMainMenu"]

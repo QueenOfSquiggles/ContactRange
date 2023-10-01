@@ -4,6 +4,7 @@ using Godot;
 using Squiggles.Core.Data;
 using Squiggles.Core.Error;
 using Squiggles.Core.Events;
+using Squiggles.Core.Scenes.Utility;
 
 
 public partial class ShipManager : Node {
@@ -17,7 +18,6 @@ public partial class ShipManager : Node {
 
   private static readonly Dictionary<string, int> _statusRooms = new() {
     {"captain_quarters", 0},
-    {"biomass_room", 0},
     {"main_storage", 0},
     {"west_crew_quarters", 0},
     {"west_thruster", 0},
@@ -46,6 +46,14 @@ public partial class ShipManager : Node {
   public static void UpdateStatusFor(string key, int value) {
     _statusRooms[key] = value;
     OnRoomStatusUpdated?.Invoke(key, value);
+    foreach (var roomStatus in _statusRooms.Values) {
+      if (roomStatus != 2) {
+        return; // any room not completely overrun cancels
+      }
+    }
+    // all rooms infected
+    LastDeathMessage = "Aliens overtook the ship! Make sure to push them back when you can!!!";
+    SceneTransitions.LoadSceneAsync("res://Game/Menu/game_over_screen.tscn");
   }
 
   public static void UpdateFlag(string key, bool value) {

@@ -1,16 +1,28 @@
-[gd_resource type="Resource" script_class="SquigglesCoreConfigFile" load_steps=10 format=3 uid="uid://b08krd8tp3xxr"]
+[gd_resource type="Resource" script_class="SquigglesCoreConfigFile" load_steps=12 format=3 uid="uid://b08krd8tp3xxr"]
 
 [ext_resource type="Texture2D" uid="uid://b0kmgsqo4syyl" path="res://icon.png" id="1_56bxt"]
 [ext_resource type="Environment" uid="uid://d0rwje40embmb" path="res://game_environment.tres" id="1_etob1"]
 [ext_resource type="Script" path="res://Core/MetaConfig/SquigglesCoreConfigFile.cs" id="1_rwjxr"]
 [ext_resource type="Script" path="res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/GameplayOptionsSettings.cs" id="2_iuqrw"]
 [ext_resource type="Script" path="res://Core/MetaConfig/SlotInfoProviderResource.cs" id="3_8ohry"]
+[ext_resource type="Script" path="res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/OptionSlider.cs" id="3_p5wxs"]
 [ext_resource type="Script" path="res://Core/MetaConfig/SaveSlotSettings.cs" id="4_ctkeh"]
+
+[sub_resource type="Resource" id="Resource_c68e4"]
+script = ExtResource("3_p5wxs")
+DefaultValue = 2.5
+MinValue = 1.0
+MaxValue = 10.0
+StepValue = 0.5
+AllowLesser = false
+AllowGreater = false
+InMenuName = "Game Difficulty"
+InternalName = "difficulty"
 
 [sub_resource type="Resource" id="Resource_vrqsf"]
 script = ExtResource("2_iuqrw")
 GameplayMouseMode = 2
-OptionsArray = Array[Object]([])
+OptionsArray = Array[Object]([SubResource("Resource_c68e4")])
 
 [sub_resource type="Resource" id="Resource_bxvqg"]
 script = ExtResource("3_8ohry")
@@ -31,8 +43,8 @@ DefaultEnvironment = ExtResource("1_etob1")
 RemapControlsNames = PackedStringArray()
 HideUIMappings = true
 GameplayConfig = SubResource("Resource_vrqsf")
-RegistryPathPattern = "res://Game/Registries/%s/"
-RegistryTypes = PackedStringArray()
+RegistryPathPattern = "res://Game/Registry/%s/"
+RegistryTypes = PackedStringArray("Item")
 AuthorName = "Queen Of Squiggles"
 AuthorGamesURL = ""
 SaveSlotHandlingSettings = SubResource("Resource_iosgp")

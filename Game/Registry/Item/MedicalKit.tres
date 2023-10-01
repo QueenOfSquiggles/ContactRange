@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dcw1ds2xut5vd"]
+
+[ext_resource type="Texture2D" uid="uid://irmakd8d4ns8" path="res://Game/Assets/Items/med_kit.png" id="1_x35hd"]
+[ext_resource type="Script" path="res://Game/Items/Item.cs" id="2_obtnb"]
+
+[resource]
+script = ExtResource("2_obtnb")
+Name = "Medical Kit"
+Texture = ExtResource("1_x35hd")
+IsWeapon = false
+IsHealth = true
+DamageValue = 0
+HealValue = 2
