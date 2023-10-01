@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=30 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b1v2k5cosyaap" path="res://Game/Assets/GUI/player_oxygen_bar/BG.PNG" id="16_7x4py"]
 [ext_resource type="Texture2D" uid="uid://fty010we4nl3" path="res://Game/Assets/GUI/player_oxygen_bar/FG.PNG" id="17_6xixi"]
 [ext_resource type="Texture2D" uid="uid://bv1scgt7wvdj8" path="res://Game/Assets/GUI/player_oxygen_bar/Bar.PNG" id="18_hwtd5"]
+[ext_resource type="PackedScene" uid="uid://dpyi4cm40c554" path="res://Game/GUI/player_inventory_interactive.tscn" id="18_yy23o"]
 [ext_resource type="PackedScene" uid="uid://janjfsv1wkri" path="res://Game/GUI/player_inventory_display.tscn" id="19_5ylr8"]
 [ext_resource type="PackedScene" uid="uid://bfhnnq6qcwafo" path="res://Core/Scenes/Character/Player/inventory_manager.tscn" id="19_sw61u"]
 
@@ -188,20 +189,23 @@ _gameOverScene = "res://Game/Menu/game_over_screen.tscn"
 script = ExtResource("3_7mb8g")
 _initialState = NodePath("StateExplore")
 
-[node name="StateExplore" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_vcam", "_actor", "_interactionSensor", "_heldItem")]
+[node name="StateExplore" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_vcam", "_actor", "_interactionSensor", "_heldItem", "_inventoryDisplay", "_inventoryData")]
 script = ExtResource("5_6iq0t")
 _vcam = NodePath("../../CameraArm/SpringArm3D/ThirdPersonCamera")
 _actor = NodePath("../..")
 _interactionSensor = NodePath("../../InteractionSensor")
 _heldItem = NodePath("../../HeldItemController")
+_inventoryDisplay = NodePath("../../PlayerInventoryInteractive")
+_inventoryData = NodePath("../../InventoryManager")
 _movementAcceleration = 10.0
 _movementDeceleration = 50.0
 
-[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_killbox", "_heldItem", "_combatSprite")]
+[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_inventory", "_killbox", "_heldItem", "_combatSprite")]
 script = ExtResource("6_xyxc0")
 _stats = NodePath("../../CharStatManager")
 _actor = NodePath("../..")
 _anim = NodePath("../../AttackAnim")
+_inventory = NodePath("../../InventoryManager")
 _killbox = NodePath("../../HeldItemController/AttackRotation/Killbox")
 _heldItem = NodePath("../../HeldItemController")
 _combatSprite = NodePath("../../Sprites/TopFace")
@@ -210,7 +214,7 @@ _combatSprite = NodePath("../../Sprites/TopFace")
 script = ExtResource("4_ioeev")
 
 [node name="CameraArm" type="Node3D" parent="."]
-transform = Transform3D(0.969016, 0, 0.246999, 0, 1, 0, -0.246999, 0, 0.969016, -0.00339079, 0.398626, -0.00134277)
+transform = Transform3D(0.969016, 0, 0.246999, 0, 1, 0, -0.246999, 0, 0.969016, -0.00339079, 1.13238, -0.00134277)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraArm"]
 shape = SubResource("SphereShape3D_7wqgi")
@@ -249,9 +253,11 @@ _minAngleDegrees = -45.0
 _isActiveDuringMovement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 shape = SubResource("CapsuleShape3D_i5rib")
 
 [node name="Sprites" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 
 [node name="BackFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(0.260904, 0, 0, 0, 0.260904, 0, 0, 0, 0.260904, 0.161718, 0, 0)
@@ -296,6 +302,7 @@ double_sided = false
 texture = ExtResource("4_qyf3c")
 
 [node name="InteractionSensor" type="Area3D" parent="." node_paths=PackedStringArray("_derivedPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 script = ExtResource("9_4exsv")
 _derivedPosition = NodePath("..")
 _autoSelectObjects = true
@@ -304,9 +311,11 @@ _autoSelectObjects = true
 shape = SubResource("CylinderShape3D_81c7x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 omni_range = 10.0
 
 [node name="HeldItemController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 
 [node name="AttackRotation" type="Node3D" parent="HeldItemController"]
 
@@ -373,6 +382,9 @@ _valueMaxKey = "AirMax"
 _pollForDynStat = true
 
 [node name="PlayerInventoryDisplay" parent="." instance=ExtResource("19_5ylr8")]
+
+[node name="PlayerInventoryInteractive" parent="." instance=ExtResource("18_yy23o")]
+visible = false
 
 [node name="CharStatManager" type="Node" parent="."]
 script = ExtResource("2_v15vt")

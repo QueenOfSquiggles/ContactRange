@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bwwwjarpq43n8"]
 
-[ext_resource type="Texture2D" uid="uid://dhlsyq6qn3brv" path="res://Game/Assets/Items/coffee.png" id="1_a42ht"]
+[ext_resource type="Texture2D" uid="uid://dhlsyq6qn3brv" path="res://Game/Assets/Items/captains_coffee_sprite.png" id="1_a42ht"]
 [ext_resource type="Script" path="res://Game/Items/Item.cs" id="2_e3orv"]
 
 [resource]

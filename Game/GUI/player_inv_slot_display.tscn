@@ -12,12 +12,15 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(3, 3)
 
-[node name="PlayerInventorySlotDisplay" type="Button"]
+[node name="PlayerInventorySlotDisplay" type="Button" node_paths=PackedStringArray("_buttonsRoot", "_label", "_btnUse")]
 custom_minimum_size = Vector2(256, 256)
 icon = ExtResource("1_hy8av")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_wtpbu")
+_buttonsRoot = NodePath("Control/VBoxContainer")
+_label = NodePath("Label")
+_btnUse = NodePath("Control/VBoxContainer/BtnUse")
 
 [node name="Control" type="Panel" parent="."]
 clip_children = 1
@@ -29,17 +32,20 @@ offset_top = -125.0
 offset_bottom = -253.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7n3u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 146.0
-offset_bottom = 150.0
+offset_top = -45.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 2
 
 [node name="BtnUse" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -64,3 +70,6 @@ label_settings = SubResource("LabelSettings_wkbfa")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[connection signal="pressed" from="Control/VBoxContainer/BtnUse" to="." method="DoUse"]
+[connection signal="pressed" from="Control/VBoxContainer/BtnDrop" to="." method="DoDrop"]

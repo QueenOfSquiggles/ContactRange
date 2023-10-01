@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpyi4cm40c554"]
+[gd_scene load_steps=5 format=3 uid="uid://dpyi4cm40c554"]
 
+[ext_resource type="Script" path="res://Game/GUI/PlayerInventoryInteractive.cs" id="1_l5fs6"]
 [ext_resource type="Material" uid="uid://dvq2x62knaaa4" path="res://Core/Assets/Materials/GUI/blur_layer.tres" id="1_t0eaf"]
 [ext_resource type="PackedScene" uid="uid://0r3ppw03qawu" path="res://Game/GUI/player_inv_slot_display.tscn" id="2_rcxf5"]
+[ext_resource type="PackedScene" uid="uid://b8y0v225qjej4" path="res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn" id="5_8182c"]
 
-[node name="PlayerInventoryInteractive" type="Control"]
+[node name="PlayerInventoryInteractive" type="Control" node_paths=PackedStringArray("_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l5fs6")
+_slots = [NodePath("Slots/BtnSlot1"), NodePath("Slots/BtnSlot2"), NodePath("Slots/BtnSlot3")]
 
 [node name="Blur Background" type="ColorRect" parent="."]
 material = ExtResource("1_t0eaf")
@@ -35,16 +39,10 @@ alignment = 1
 [node name="BtnSlot1" parent="Slots" instance=ExtResource("2_rcxf5")]
 layout_mode = 2
 
+[node name="RequestFocusOnParent" parent="Slots/BtnSlot1" instance=ExtResource("5_8182c")]
+
 [node name="BtnSlot2" parent="Slots" instance=ExtResource("2_rcxf5")]
 layout_mode = 2
 
 [node name="BtnSlot3" parent="Slots" instance=ExtResource("2_rcxf5")]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 68.0
-offset_right = 128.0
-offset_bottom = 100.0
-text = "Return"

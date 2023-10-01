@@ -4,6 +4,7 @@ using Squiggles.Core.Events;
 using Squiggles.Core.Extension;
 using Squiggles.Core.FSM;
 using Squiggles.Core.Interaction;
+using Squiggles.Core.Scenes.Character;
 using Squiggles.Core.Scenes.Utility.Camera;
 
 public partial class PlayerStateExplore : State {
@@ -12,16 +13,21 @@ public partial class PlayerStateExplore : State {
   [Export] private CharacterBody3D _actor;
   [Export] private InteractionSensor _interactionSensor;
   [Export] private Node3D _heldItem;
+  [Export] private PlayerInventoryInteractive _inventoryDisplay;
+  [Export] private InventoryManager _inventoryData;
 
   [ExportGroup("Movement", "_movement")]
   [Export] private float _movementSpeed = 4.0f;
   [Export] private float _movementAcceleration = 2.0f;
   [Export] private float _movementDeceleration = 1.0f;
 
+  private bool _isInventoryOpen;
+
   private Vector2 _inputVector;
   public override void _Ready() {
     base._Ready();
     _interactionSensor.OnCurrentInteractionChange += HandleInteractionChanged;
+    _inventoryDisplay.Visible = false;
   }
   public override void _ExitTree() => _interactionSensor.OnCurrentInteractionChange -= HandleInteractionChanged;
 
@@ -29,8 +35,10 @@ public partial class PlayerStateExplore : State {
   public override void ExitState() => SetPhysicsProcess(false);
 
   public override void _PhysicsProcess(double delta) {
-    HandleMovement((float)delta);
-    HandleInteraction();
+    if (!_isInventoryOpen) {
+      HandleMovement((float)delta);
+      HandleInteraction();
+    }
   }
 
   private void HandleInteraction() {
@@ -72,6 +80,24 @@ public partial class PlayerStateExplore : State {
     }
     else {
       EventBus.GUI.TriggerUnableToInteract();
+    }
+  }
+
+  public override void _UnhandledInput(InputEvent @event) {
+    if (!IsActive) { return; }
+    if (@event.IsActionPressed("open_inventory")) {
+      if (_inventoryDisplay.Visible) {
+        _inventoryDisplay.Visible = false;
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+        _isInventoryOpen = false;
+      }
+      else {
+        _inventoryDisplay.ReadInventory(_inventoryData);
+        _inventoryDisplay.Visible = true;
+        _isInventoryOpen = true;
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+      }
+      this.HandleInput();
     }
   }
 

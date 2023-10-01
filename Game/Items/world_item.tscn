@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://icxt2o6p052n"]
+[gd_scene load_steps=5 format=3 uid="uid://icxt2o6p052n"]
 
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="1_5rny4"]
 [ext_resource type="Script" path="res://Game/Items/WorldItem.cs" id="1_udrhh"]
 [ext_resource type="Texture2D" uid="uid://c7lphyspobdd2" path="res://Core/Assets/Theme/grey_arrowDownWhite.png" id="3_bawbg"]
-[ext_resource type="Texture2D" uid="uid://ciq8uu1uqixej" path="res://Game/Assets/Items/wrench.png" id="3_p6vu8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o54iq"]
 
@@ -22,7 +21,6 @@ shape = SubResource("SphereShape3D_o54iq")
 transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0, 0)
 billboard = 2
 shaded = true
-texture = ExtResource("3_p6vu8")
 
 [node name="SelectionSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613856, 0)

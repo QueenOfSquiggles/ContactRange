@@ -79,12 +79,17 @@ public partial class Player : CharacterBody3D {
   }
 
   private void HandleSlotUpdate(int slot, string item, int quantity) {
-    if (item != "") {
+    var dmg = 0;
+    Item best = null;
+    _inventory.DoForSlots((slot, item, qty) => {
       var data = RegistrationManager.GetResource<Item>(item);
-      if (data.IsWeapon) {
-        _heldWeapon.Texture = data.Texture;
+      if (data is not null && data.IsWeapon && data.DamageValue > dmg) {
+        dmg = data.DamageValue;
+        best = data;
       }
-    }
+    });
+    _heldWeapon.Texture = best?.Texture; // null prop so if no weapons, null texture
+
     EventBus.GUI.TriggerUpdatePlayeInventoryDisplay(slot, item, quantity);
   }
 }
