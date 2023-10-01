@@ -82,6 +82,7 @@ _initialState = NodePath("StateAttacking")
 [node name="StateAttacking" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
 script = ExtResource("6_b835o")
 _actor = NodePath("../..")
+_attackSpeed = 0.5
 
 [node name="StateHitRecover" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
 script = ExtResource("7_0vx8u")

@@ -48,7 +48,7 @@ public partial class InteractionSensor : Area3D {
     var options = new List<Node3D>();
     options.AddRange(GetOverlappingBodies());
     options.AddRange(GetOverlappingAreas());
-    options = options.FindAll((Node3D n) => n is IInteractable inter && inter.GetIsActive()).ToList();
+    options = options.Where((n) => n is not null && n is IInteractable inter && inter.GetIsActive()).Where((node) => IsInstanceValid(node)).ToList();
 
     if (options.Count <= 0) {
       if (CurrentInteraction == null) {
@@ -78,17 +78,20 @@ public partial class InteractionSensor : Area3D {
         return;
       }
 
-      if (_autoSelectObjects && CurrentInteraction is not null && IsInstanceValid(CurrentInteraction) && CurrentInteraction is ISelectable sel1) {
-        sel1.OnDeselect();
+      if (_autoSelectObjects && CurrentInteraction is not null && IsInstanceValid(CurrentInteraction)) {
+        CurrentInteraction.TreeExited -= RefreshCurrent;
+        if (CurrentInteraction is ISelectable sel1) {
+          sel1.OnDeselect();
+        }
       }
 
       CurrentInteraction = n_current;
+      CurrentInteraction.TreeExited += RefreshCurrent;
       if (_autoSelectObjects && CurrentInteraction is ISelectable sel2) {
         sel2.OnSelect();
       }
 
       EmitSignal(nameof(OnCurrentInteractionChange));
     }
-
   }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=31 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b0kmgsqo4syyl" path="res://icon.png" id="4_qyf3c"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
+[ext_resource type="Texture2D" uid="uid://b5b5d4477nwml" path="res://Game/Assets/Sprites/player_fist.png" id="5_d68xr"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateCombat.cs" id="6_xyxc0"]
 [ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractionSensor.cs" id="9_4exsv"]
@@ -200,7 +201,7 @@ _inventoryData = NodePath("../../InventoryManager")
 _movementAcceleration = 10.0
 _movementDeceleration = 50.0
 
-[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_inventory", "_killbox", "_heldItem", "_combatSprite")]
+[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_inventory", "_killbox", "_heldItem", "_heldWeaponSprite", "_combatSprite")]
 script = ExtResource("6_xyxc0")
 _stats = NodePath("../../CharStatManager")
 _actor = NodePath("../..")
@@ -208,6 +209,8 @@ _anim = NodePath("../../AttackAnim")
 _inventory = NodePath("../../InventoryManager")
 _killbox = NodePath("../../HeldItemController/AttackRotation/Killbox")
 _heldItem = NodePath("../../HeldItemController")
+_playerFistTexture = ExtResource("5_d68xr")
+_heldWeaponSprite = NodePath("../../HeldItemController/AttackRotation/SpringArm3D/Sprite3D")
 _combatSprite = NodePath("../../Sprites/TopFace")
 
 [node name="StateCutscene" type="Node" parent="PlayerStateMachine"]

@@ -18,9 +18,18 @@ public partial class PlayerInventoryInteractive : Control {
     //     RegistrationManager.ReloadRegistries();
     // #endif
 
-    //     _slots[0].SetItem("Coffee", 0);
-    //     _slots[1].SetItem("Fire Extinguisher", 1);
-    //     _slots[2].SetItem("Wrench", 2);
+    // assigns index and clears value
+    _slots[0].SetItem("", 0);
+    _slots[1].SetItem("", 1);
+    _slots[2].SetItem("", 2);
+
+    VisibilityChanged += () => {
+      if (Visible) {
+        foreach (var slot in _slots) {
+          slot.OnDeactivateSlot();
+        }
+      }
+    };
 
     foreach (var slot in _slots) {
       slot.OnDrop += (slot, item) => {
@@ -48,7 +57,7 @@ public partial class PlayerInventoryInteractive : Control {
     if (GetTree().GetFirstNodeInGroup("player") is not Player player) { return; }
     var worldItem = GD.Load("res://Game/Items/world_item.tscn") as PackedScene;
     var item = worldItem.Instantiate() as WorldItem;
-    item.ItemID = itemID;
+    item.SetItem(itemID);
     player.GetParent().AddChild(item);
     var random = new Random();
     var dist = 1.5f;

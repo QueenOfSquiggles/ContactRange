@@ -28,7 +28,7 @@ public partial class AlienScout : CharacterBody3D {
         // death
         var packed = await GetVFX(_splatterVFXScene);
         var node = packed.Instantiate() as Node3D;
-        GetParent().AddChild(node);
+        GetParent()?.AddChild(node);
         node.GlobalPosition = GlobalPosition;
         node.Rotation = new Vector3(0f, new Random().NextGuass() * 2f * Mathf.Pi, 0f);
         QueueFree();

@@ -99,6 +99,10 @@ public partial class PlayerStateExplore : State {
       }
       this.HandleInput();
     }
+    if (_isInventoryOpen && @event.IsAction("ui_cancel")) {
+      Print.Debug($"{Name} handled 'ui_cancel'");
+      this.HandleInput(); // prevents pause menu
+    }
   }
 
 }

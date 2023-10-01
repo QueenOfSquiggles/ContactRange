@@ -28,9 +28,10 @@ public partial class AlienStateAttacking : State {
     if (data is null) { return; }
 
     if (data.GetCollider() is Player player) {
+      var flag = _timer is null || _timer.TimeLeft <= 0.0f;
       _timer ??= GetTree().CreateTimer(_attackSpeed);
       EmitSignal(nameof(OnStateFinished)); // try to retreat for a moment anyway
-      if (_timer.TimeLeft <= 0.0f) {
+      if (flag) {
         var stats = player.GetComponent<CharStatManager>();
         stats?.ModifyStaticStat("Health", -_damage); // delta must be negative to reduce bc that's how math works.
       }

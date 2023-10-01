@@ -18,6 +18,8 @@ public partial class PlayerStateCombat : State {
   [Export] private InventoryManager _inventory;
   [Export] private Area3D _killbox;
   [Export] private Node3D _heldItem;
+  [Export] private Texture2D _playerFistTexture;
+  [Export] private Sprite3D _heldWeaponSprite;
 
   [ExportGroup("Movement", "_movement")]
   [Export] private float _movementSpeed = 4.0f;
@@ -53,16 +55,22 @@ public partial class PlayerStateCombat : State {
     _combatSprite.Visible = true;
 
     _damage = 1;
+    var texture = _playerFistTexture;
     _inventory.DoForSlots((slot, id, qty) => {
       var item = RegistrationManager.GetResource<Item>(id);
       if (item is not null && item.IsWeapon && item.DamageValue > _damage) {
         _damage = item.DamageValue; // uses highest damage value weapon
+        texture = item.Texture;
       }
     });
+    _heldWeaponSprite.Texture = texture;
   }
   public override void ExitState() {
     SetPhysicsProcess(false);
     _combatSprite.Visible = false;
+    if (_heldWeaponSprite.Texture == _playerFistTexture) {
+      _heldWeaponSprite.Texture = null; // put those fists away outside of fights
+    }
   }
 
   public override void _PhysicsProcess(double delta) {

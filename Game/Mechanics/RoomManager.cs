@@ -103,7 +103,7 @@ public partial class RoomManager : Area3D {
 
   private async void HandleAlienDie() {
     await Task.Delay(100); // give .1 seconds for alien count to update
-    var foundAliens = GetChildren().Where((node) => node.IsInGroup("alien")).ToList();
+    var foundAliens = GetChildren().Where((node) => node is not null && IsInstanceValid(node) && node.IsInGroup("alien")).ToList();
     _alienCount = foundAliens.Count;
     Print.Debug($"[{_roomName}] aliens: {_alienCount}");
     if (_alienCount <= 0) {

@@ -24,6 +24,11 @@ public partial class AlienStateHitRecover : State {
 
   public override void _PhysicsProcess(double delta) {
     _actor.Velocity = _direction * _speed;
+    var result = _actor.MoveAndCollide(_actor.Velocity, true);
+    if (result is not null) {
+      _direction = _direction.Reflect(result.GetNormal()).Normalized();
+    }
+    _actor.Velocity = _direction * _speed;
     _actor.MoveAndSlide();
 
     _timer -= (float)delta;
