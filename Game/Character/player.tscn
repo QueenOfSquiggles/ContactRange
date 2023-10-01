@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=27 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
@@ -14,6 +14,10 @@
 [ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractionSensor.cs" id="9_4exsv"]
 [ext_resource type="Script" path="res://Game/Character/CameraStateCombat.cs" id="10_xc8ya"]
+[ext_resource type="PackedScene" uid="uid://bokxoeqmv6r1k" path="res://Game/GUI/player_health_bar.tscn" id="15_nl8j6"]
+[ext_resource type="Texture2D" uid="uid://b1v2k5cosyaap" path="res://Game/Assets/GUI/player_oxygen_bar/BG.PNG" id="16_7x4py"]
+[ext_resource type="Texture2D" uid="uid://fty010we4nl3" path="res://Game/Assets/GUI/player_oxygen_bar/FG.PNG" id="17_6xixi"]
+[ext_resource type="Texture2D" uid="uid://bv1scgt7wvdj8" path="res://Game/Assets/GUI/player_oxygen_bar/Bar.PNG" id="18_hwtd5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
 
@@ -27,6 +31,69 @@ radius = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vjigb"]
 size = Vector3(2.41307, 1, 1)
+
+[sub_resource type="Animation" id="Animation_i1oyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeldItemController/AttackRotation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeldItemController/AttackRotation/Killbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
 
 [sub_resource type="Animation" id="Animation_umlae"]
 resource_name = "SwingAttack"
@@ -90,69 +157,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.5, 0.5, 0.5), Vector3(0.75, 0.75, 0.75), Vector3(0.75, 0.75, 0.75), Vector3(0.5, 0.5, 0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_i1oyt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HeldItemController/AttackRotation:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HeldItemController/AttackRotation/Killbox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.5, 0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wv8hl"]
@@ -286,8 +290,9 @@ billboard = 1
 double_sided = false
 texture = ExtResource("4_qyf3c")
 
-[node name="InteractionSensor" type="Area3D" parent="."]
+[node name="InteractionSensor" type="Area3D" parent="." node_paths=PackedStringArray("_derivedPosition")]
 script = ExtResource("9_4exsv")
+_derivedPosition = NodePath("..")
 _autoSelectObjects = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionSensor"]
@@ -342,5 +347,44 @@ shape = SubResource("BoxShape3D_vjigb")
 libraries = {
 "": SubResource("AnimationLibrary_wv8hl")
 }
+
+[node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("_stats") instance=ExtResource("15_nl8j6")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -504.0
+offset_top = -105.0
+offset_right = -399.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+_stats = NodePath("../CharStatManager")
+_responseTime = 0.2
+_valueKey = "Health"
+_valueMaxKey = "MaxHealth"
+
+[node name="PlayerOxygenBar" parent="." node_paths=PackedStringArray("_stats") instance=ExtResource("15_nl8j6")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -105.0
+offset_right = -253.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_under = ExtResource("16_7x4py")
+texture_over = ExtResource("17_6xixi")
+texture_progress = ExtResource("18_hwtd5")
+tint_progress = Color(0.541176, 0.541176, 0.541176, 1)
+_stats = NodePath("../CharStatManager")
+_responseTime = 0.01
+_valueKey = "air"
+_valueMaxKey = "AirMax"
+_pollForDynStat = true
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]

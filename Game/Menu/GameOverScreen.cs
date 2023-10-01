@@ -1,4 +1,5 @@
 using Godot;
+using Squiggles.Core.Data;
 using Squiggles.Core.Error;
 using Squiggles.Core.Scenes;
 using Squiggles.Core.Scenes.Utility;
@@ -19,6 +20,7 @@ public partial class GameOverScreen : Control {
   }
 
   public void ReturnMainMenu() {
+    SaveData.CurrentSaveSlot.DeleteSaveSlot(); // clear old data for a fresh start
     var file = _mainMenu;
     SceneTransitions.LoadSceneAsync(file, false, "lime");
   }

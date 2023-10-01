@@ -16,8 +16,8 @@ public partial class ShipManager : Node {
   public static string LastDeathMessage = "";
 
   private static readonly Dictionary<string, int> _statusRooms = new() {
-    {"captain_quarters", 1},
-    {"biomass_room", 2},
+    {"captain_quarters", 0},
+    {"biomass_room", 0},
     {"main_storage", 0},
     {"west_crew_quarters", 0},
     {"west_thruster", 0},
@@ -37,6 +37,7 @@ public partial class ShipManager : Node {
     {"east_thruster_fire_extinguished", false},
     {"west_thruster_refueled", false},
     {"east_thruster_refueled", false},
+    {"ship_systems_restored", false},
     {"aliens_exterminated", false},
   };
 

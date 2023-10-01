@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu7y02mwcyrd"]
+[gd_scene load_steps=9 format=3 uid="uid://bu7y02mwcyrd"]
 
 [ext_resource type="Texture2D" uid="uid://dpt3vcua8euj3" path="res://Game/Assets/VFX/alien_blood_particle0.png" id="1_w5rc8"]
 [ext_resource type="Script" path="res://Core/Modules/Sequencing/ParticleOneshotHack.gd" id="2_m4psr"]
 [ext_resource type="Texture2D" uid="uid://icorr7kg24r0" path="res://Game/Assets/VFX/alien_splatter.png" id="3_kjinj"]
+
+[sub_resource type="Gradient" id="Gradient_2whab"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j7nok"]
+gradient = SubResource("Gradient_2whab")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0j85w"]
 emission_shape = 1
@@ -12,14 +17,17 @@ initial_velocity_min = 1.0
 initial_velocity_max = 8.0
 angular_velocity_min = -180.0
 angular_velocity_max = 180.0
-turbulence_enabled = true
+scale_min = 0.75
+scale_max = 1.75
+color = Color(0.682353, 0.682353, 0.682353, 1)
+color_initial_ramp = SubResource("GradientTexture1D_j7nok")
 turbulence_noise_strength = 0.45
 turbulence_noise_scale = 2.5
 turbulence_noise_speed = Vector3(0, 1, 0)
 turbulence_initial_displacement_min = -0.5
 turbulence_initial_displacement_max = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f81jo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cnla"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 1
@@ -33,14 +41,16 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_btn26"]
-material = SubResource("StandardMaterial3D_f81jo")
+material = SubResource("StandardMaterial3D_7cnla")
 
 [node name="AlienSplatter" type="Node3D"]
 
 [node name="VFXParticlesGPU" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44314, 0)
 amount = 50
+lifetime = 3.0
 explosiveness = 1.0
+randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0j85w")
 draw_pass_1 = SubResource("QuadMesh_btn26")
 script = ExtResource("2_m4psr")

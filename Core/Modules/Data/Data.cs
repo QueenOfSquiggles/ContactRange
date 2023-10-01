@@ -435,6 +435,9 @@ public class DataPath {
     if (err != Error.Ok) {
       Print.Error($"Failed to delete save slot! Error: {err}", typeof(SaveData).FullName);
     }
+    else {
+      Print.Debug($"Successfully erased save slot: {CurrentPath}");
+    }
   }
 
 }

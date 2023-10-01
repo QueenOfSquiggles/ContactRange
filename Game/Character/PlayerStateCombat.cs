@@ -31,6 +31,11 @@ public partial class PlayerStateCombat : State {
     if (!_isOxygenAvailable) {
       Print.Warn("Entering combat sans oxygen!");
     }
+    void exitCombat() {
+      _stats.SetStaticStat("AirRegen", 1.0f);
+      room.OnCombatOver -= exitCombat;
+    }
+    room.OnCombatOver += exitCombat;
   }
 
   public override void _Ready() {

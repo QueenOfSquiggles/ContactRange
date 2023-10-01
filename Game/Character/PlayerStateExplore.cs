@@ -67,7 +67,6 @@ public partial class PlayerStateExplore : State {
   }
 
   private void HandleInteractionChanged() {
-    Print.Debug($"Interaction detection: {_interactionSensor.CurrentInteraction?.Name ?? "null"}");
     if (_interactionSensor.CurrentInteraction is IInteractable interact) {
       EventBus.GUI.TriggerAbleToInteract(interact.GetActiveName());
     }

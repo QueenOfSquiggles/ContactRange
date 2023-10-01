@@ -51,6 +51,7 @@ _data = {
 [node name="AlienScout" type="CharacterBody3D" node_paths=PackedStringArray("_fsm", "_stateAttacking", "_stateRecover") groups=["alien"]]
 script = ExtResource("1_pqc4a")
 _splatterVFXScene = "res://Game/Enemy/VFX/alien_splatter.tscn"
+_hitSprayVFXScene = "res://Game/Enemy/VFX/hit_spray_vfx.tscn"
 _fsm = NodePath("FiniteStateMachine")
 _stateAttacking = NodePath("FiniteStateMachine/StateAttacking")
 _stateRecover = NodePath("FiniteStateMachine/StateHitRecover")
@@ -85,6 +86,8 @@ _actor = NodePath("../..")
 [node name="StateHitRecover" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
 script = ExtResource("7_0vx8u")
 _actor = NodePath("../..")
+_speed = 3.0
+_recoveryTime = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Moving"

@@ -29,6 +29,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"ShipWall": {
+"use_external/enabled": true,
+"use_external/path": "res://Game/Assets/Materials/ship_wal_pbr.tres"
+}
+},
 "nodes": {
 "PATH:ShipDoorPart": {
 "generate/physics": true

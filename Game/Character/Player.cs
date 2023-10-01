@@ -4,6 +4,7 @@ using Squiggles.Core.CharStats;
 using Squiggles.Core.Events;
 using Squiggles.Core.Extension;
 using Squiggles.Core.FSM;
+using Squiggles.Core.Scenes.Utility;
 
 public partial class Player : CharacterBody3D {
 
@@ -21,6 +22,7 @@ public partial class Player : CharacterBody3D {
   [Export] private State _cameraStateIdle;
   [Export] private State _cameraStateMoving;
   [Export] private State _cameraStateCombat;
+  [Export(PropertyHint.File, "*.tscn")] private string _gameOverScene;
 
   public override void _Ready() {
     EventBus.Gameplay.RequestPlayerAbleToMove += (can_move) => {
@@ -60,6 +62,10 @@ public partial class Player : CharacterBody3D {
       _lightTween = GetTree().CreateTween().SetSC4XStyle();
       var lightEnergy = newValue / _stats.GetStat("MaxHealth") * 2.0f;
       _lightTween.TweenProperty(_playerLight, "light_energy", lightEnergy, 0.5f);
+      if (newValue <= 0) {
+        ShipManager.LastDeathMessage = "Killed by aliens! Try getting a med kit!";
+        SceneTransitions.LoadSceneAsync(_gameOverScene, false, "FF0000");
+      }
     }
   }
 }

@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bokxoeqmv6r1k"]
+[gd_scene load_steps=6 format=3 uid="uid://bokxoeqmv6r1k"]
 
 [ext_resource type="Texture2D" uid="uid://wuucbv3gjr2j" path="res://Game/Assets/GUI/player_health_bar/BG.PNG" id="1_am620"]
 [ext_resource type="Texture2D" uid="uid://djlm15bhxjggx" path="res://Game/Assets/GUI/player_health_bar/FG.PNG" id="2_iolo4"]
 [ext_resource type="Texture2D" uid="uid://binem87rgckhx" path="res://Game/Assets/GUI/player_health_bar/Bar.PNG" id="3_2xthq"]
+[ext_resource type="Script" path="res://Game/GUI/PlayerHealthBar.cs" id="4_rvfbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4g8hu"]
 font_size = 22
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PlayerHealthBar" type="TextureProgressBar"]
+[node name="PlayerHealthBar" type="TextureProgressBar" node_paths=PackedStringArray("_numberLabel")]
 offset_right = 105.0
 offset_bottom = 105.0
 max_value = 1.0
@@ -20,6 +21,8 @@ nine_patch_stretch = true
 texture_under = ExtResource("1_am620")
 texture_over = ExtResource("2_iolo4")
 texture_progress = ExtResource("3_2xthq")
+script = ExtResource("4_rvfbh")
+_numberLabel = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
