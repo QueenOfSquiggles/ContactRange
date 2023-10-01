@@ -5,8 +5,8 @@ uniform float viewing_angle = 0.5;
 
 
 void fragment() {
-	vec2 cam = VIEW.xz;
-	vec2 norm = NORMAL.xz;
+	vec2 cam = normalize(VIEW.xz);
+	vec2 norm = normalize(NORMAL.xz);
 	if (dot(cam, norm) < viewing_angle) {
 		discard; // viewing angle discard
 	}

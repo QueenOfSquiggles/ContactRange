@@ -24,6 +24,7 @@ public partial class PlayerStateCombat : State {
   [ExportGroup("Movement", "_movement")]
   [Export] private float _movementSpeed = 4.0f;
   [Export] private Sprite3D _combatSprite;
+  [Export] private Sprite3D[] _exploreSprites;
 
   private VirtualCamera _vcam;
   private Vector2 _inputVector;
@@ -53,6 +54,9 @@ public partial class PlayerStateCombat : State {
   public override void EnterState() {
     SetPhysicsProcess(true);
     _combatSprite.Visible = true;
+    foreach (var sprite in _exploreSprites) {
+      sprite.Visible = false;
+    }
 
     _damage = 1;
     var texture = _playerFistTexture;
@@ -71,6 +75,10 @@ public partial class PlayerStateCombat : State {
     if (_heldWeaponSprite.Texture == _playerFistTexture) {
       _heldWeaponSprite.Texture = null; // put those fists away outside of fights
     }
+    foreach (var sprite in _exploreSprites) {
+      sprite.Visible = true;
+    }
+
   }
 
   public override void _PhysicsProcess(double delta) {

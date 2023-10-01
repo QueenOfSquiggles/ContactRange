@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qif5hjoqm546"]
+[gd_scene load_steps=13 format=3 uid="uid://qif5hjoqm546"]
 
 [ext_resource type="Texture2D" uid="uid://blvuhn2t6snl1" path="res://Game/Assets/Sprites/alien_scout_sprite_sheet.png" id="1_3xrol"]
 [ext_resource type="Script" path="res://Game/Enemy/AlienScout.cs" id="1_pqc4a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="4_t88p2"]
 [ext_resource type="Script" path="res://Game/Enemy/AlienStateAttacking.cs" id="6_b835o"]
 [ext_resource type="Script" path="res://Game/Enemy/AlienStateHitRecover.cs" id="7_0vx8u"]
+[ext_resource type="PackedScene" uid="uid://dg7138iwmapsx" path="res://Core/Scenes/Character/Components/footstep_sounds_component.tscn" id="8_awwtn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yow06"]
 
@@ -95,5 +96,7 @@ autoplay = "Moving"
 libraries = {
 "": SubResource("AnimationLibrary_yrd3t")
 }
+
+[node name="FootstepSoundsComponent" parent="." instance=ExtResource("8_awwtn")]
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]

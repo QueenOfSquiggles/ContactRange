@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b0rw38d5llq87"]
 
 [ext_resource type="Shader" path="res://Game/exploring/test_gfx.gdshader" id="1_mj0h4"]
-[ext_resource type="Texture2D" uid="uid://ckx0v4wb2a30p" path="res://Game/Assets/Sprites/sprite_player.png" id="2_5qbf3"]
+[ext_resource type="Texture2D" uid="uid://c543jyboo0bck" path="res://Game/Assets/Sprites/player_explore_back.png" id="2_ko0e4"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_mj0h4")
 shader_parameter/viewing_angle = 0.6
-shader_parameter/sprite = ExtResource("2_5qbf3")
+shader_parameter/sprite = ExtResource("2_ko0e4")

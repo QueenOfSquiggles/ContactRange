@@ -8,6 +8,8 @@ using Squiggles.Core.Scenes.World;
 /// A component designed for characters that will generate 3D sounds for footsteps. Uses <see cref="GroundMaterialPoller"/> to dynamically determine the appropriate set of SFX for the current ground material. If no <see cref="GroundMaterialPoller"/> is set, only the <see cref="_stepSound"/> stream will be used.
 /// </summary>
 public partial class FootstepSoundsComponent : Node3D {
+
+  [Export] private AudioStream _defaultStepSound;
   /// <summary>
   /// The minimum distance travelled before triggering a "step"
   /// </summary>
@@ -65,6 +67,7 @@ public partial class FootstepSoundsComponent : Node3D {
     if (_groundPoller is not null) {
       _groundPoller.OnNewMaterialFound += SetMaterialSound;
     }
+    _stepSound.Stream = _defaultStepSound;
   }
 
   public override void _PhysicsProcess(double delta) {
@@ -135,7 +138,7 @@ public partial class FootstepSoundsComponent : Node3D {
 
     var double_play = _stepSound.Playing;
 
-    _stepSound.Stream = ground_material?.MaterialAudio;
+    _stepSound.Stream = ground_material?.MaterialAudio ?? _defaultStepSound;
     if (double_play) {
       TryPlayStepSound();
     }

@@ -29,12 +29,20 @@ public partial class InteractionSensor : Area3D {
   /// </summary>
   public Node3D CurrentInteraction { get; private set; }
 
+  private Timer _timer;
+
   public override void _Ready() {
     AreaEntered += OnAreaEnter;
     AreaExited += OnAreaExit;
     BodyEntered += OnBodyEnter;
     BodyExited += OnBodyExit;
     RefreshCurrent();
+    _timer = new Timer() {
+      WaitTime = 0.5f
+    };
+    AddChild(_timer);
+    _timer.Timeout += RefreshCurrent;
+    _timer.Start();
   }
 
   private void OnAreaEnter(Area3D _) => RefreshCurrent();
@@ -43,7 +51,7 @@ public partial class InteractionSensor : Area3D {
   private void OnBodyEnter(Node3D _) => RefreshCurrent();
   private void OnBodyExit(Node3D _) => RefreshCurrent();
 
-  private void RefreshCurrent() {
+  public void RefreshCurrent() {
     // any time something valid enters/exits we check all overlapping. Using Linq to filter out false positives
     var options = new List<Node3D>();
     options.AddRange(GetOverlappingBodies());
@@ -78,15 +86,15 @@ public partial class InteractionSensor : Area3D {
         return;
       }
 
-      if (_autoSelectObjects && CurrentInteraction is not null && IsInstanceValid(CurrentInteraction)) {
-        CurrentInteraction.TreeExited -= RefreshCurrent;
-        if (CurrentInteraction is ISelectable sel1) {
+      if (CurrentInteraction is not null) {
+        if (_autoSelectObjects && IsInstanceValid(CurrentInteraction) && CurrentInteraction is ISelectable sel1) {
           sel1.OnDeselect();
         }
       }
 
       CurrentInteraction = n_current;
-      CurrentInteraction.TreeExited += RefreshCurrent;
+
+
       if (_autoSelectObjects && CurrentInteraction is ISelectable sel2) {
         sel2.OnSelect();
       }

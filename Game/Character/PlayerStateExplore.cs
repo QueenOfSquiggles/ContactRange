@@ -46,6 +46,7 @@ public partial class PlayerStateExplore : State {
       return;
     }
     interact.Interact();
+    _interactionSensor.RefreshCurrent();
   }
 
   private void HandleMovement(float delta) {

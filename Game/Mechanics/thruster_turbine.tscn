@@ -1,0 +1,245 @@
+[gd_scene load_steps=20 format=3 uid="uid://bjdrnhgvsfnc8"]
+
+[ext_resource type="Script" path="res://Game/Mechanics/ThrusterTurbine.cs" id="1_50wgd"]
+[ext_resource type="PackedScene" uid="uid://pb2hr2pfnj11" path="res://Game/Assets/Models/thruster.glb" id="1_htkoh"]
+[ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="2_j1r2j"]
+[ext_resource type="Texture2D" uid="uid://css3cdep54in6" path="res://Game/Assets/KenneyAssetsPack/flame_02.png" id="4_eya66"]
+[ext_resource type="Texture2D" uid="uid://rh7nljhk2x5h" path="res://Game/Assets/KenneyAssetsPack/smoke_01.png" id="5_gb70l"]
+[ext_resource type="Texture2D" uid="uid://c10wwc1dr8q4" path="res://Game/Assets/KenneyAssetsPack/spark_01.png" id="6_mmv8x"]
+
+[sub_resource type="Animation" id="Animation_s6bqn"]
+resource_name = "OnSelect"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3D:alpha_scissor_threshold")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.21]
+}
+
+[sub_resource type="Animation" id="Animation_dl3e6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3D:alpha_scissor_threshold")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2s5td"]
+_data = {
+"OnSelect": SubResource("Animation_s6bqn"),
+"RESET": SubResource("Animation_dl3e6")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45p2t"]
+radius = 1.14834
+height = 5.11169
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_katx1"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2, 0)
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 0.1
+hue_variation_min = -0.1
+hue_variation_max = 0.3
+turbulence_enabled = true
+turbulence_noise_strength = 3.45
+turbulence_noise_scale = 3.15
+turbulence_noise_speed = Vector3(0, 1.2, 0)
+turbulence_noise_speed_random = 2.2
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl68s"]
+transparency = 1
+blend_mode = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.47451, 0.254902, 1)
+albedo_texture = ExtResource("4_eya66")
+emission_enabled = true
+emission = Color(1, 0.473656, 0.253835, 1)
+emission_energy_multiplier = 3.3
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_tagqi"]
+material = SubResource("StandardMaterial3D_fl68s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjnye"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2, 0)
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 0.1
+turbulence_noise_strength = 3.45
+turbulence_noise_scale = 3.15
+turbulence_noise_speed = Vector3(0, 1.2, 0)
+turbulence_noise_speed_random = 2.2
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3t1e"]
+transparency = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_gb70l")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_pboar"]
+material = SubResource("StandardMaterial3D_x3t1e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2e2dk"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.9
+initial_velocity_max = 9.45
+angle_min = -360.0
+angle_max = 360.0
+scale_min = 0.01
+scale_max = 0.2
+turbulence_noise_strength = 3.45
+turbulence_noise_scale = 3.15
+turbulence_noise_speed = Vector3(0, 1.2, 0)
+turbulence_noise_speed_random = 2.2
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfmkf"]
+transparency = 2
+alpha_scissor_threshold = 0.61
+alpha_antialiasing_mode = 0
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.823529, 0.152941, 1)
+albedo_texture = ExtResource("6_mmv8x")
+emission_enabled = true
+emission = Color(1, 0.960784, 0.164706, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xw4fc"]
+material = SubResource("StandardMaterial3D_jfmkf")
+
+[node name="Thruster" type="Node3D" node_paths=PackedStringArray("_fireParticles")]
+script = ExtResource("1_50wgd")
+_fireParticles = [NodePath("Flame"), NodePath("Smoke"), NodePath("Sparks")]
+_flagNameFire = "west_thruster_fire_extinguished"
+_flagNameFuel = "west_thruster_refueled"
+_itemNameFuel = "Thruster Fuel"
+_itemNameFire = "Fire Extinguisher"
+
+[node name="thruster" parent="." instance=ExtResource("1_htkoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.71928)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2s5td")
+}
+
+[node name="InteractiveTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.71928)
+script = ExtResource("2_j1r2j")
+CustomName = "Thruster Turbine"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractiveTrigger"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.56142)
+shape = SubResource("CapsuleShape3D_45p2t")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-3.09086e-08, -0.638257, 0.769823, -3.09086e-08, 0.769823, 0.638257, -1, -4.06651e-09, -4.35218e-08, 0.903782, 0.0741122, -0.690711)
+visible = false
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 1.0
+outline_modulate = Color(0.184314, 0.698039, 0.678431, 1)
+text = "Lorem Ipsum dolor sit amet quint mort balls amogus"
+font_size = 22
+outline_size = 34
+autowrap_mode = 3
+width = 150.0
+
+[node name="Flame" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.977747)
+amount = 64
+sub_emitter = NodePath("../Smoke")
+lifetime = 3.0
+explosiveness = 0.2
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_katx1")
+draw_pass_1 = SubResource("QuadMesh_tagqi")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.977747)
+emitting = false
+amount = 128
+lifetime = 3.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kjnye")
+draw_pass_1 = SubResource("QuadMesh_pboar")
+
+[node name="Sparks" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.461083, 0.887357, 0, -0.887357, 0.461083, 0, 0.334769, 0.926597)
+amount = 16
+lifetime = 0.75
+explosiveness = 0.2
+process_material = SubResource("ParticleProcessMaterial_2e2dk")
+draw_pass_1 = SubResource("QuadMesh_xw4fc")
+
+[connection signal="OnDeselected" from="InteractiveTrigger" to="AnimationPlayer" method="play_backwards" binds= ["OnSelect"]]
+[connection signal="OnInteracted" from="InteractiveTrigger" to="." method="OnInteract"]
+[connection signal="OnSelected" from="InteractiveTrigger" to="AnimationPlayer" method="play" binds= ["OnSelect"]]
+
+[editable path="thruster"]

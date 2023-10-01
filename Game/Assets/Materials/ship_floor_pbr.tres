@@ -1,14 +1,11 @@
-[gd_resource type="ORMMaterial3D" load_steps=6 format=3]
-[ext_resource path="ship_floor_pbr_albedo.png" type="Texture" id=1]
-[ext_resource path="ship_floor_pbr_orm.png" type="Texture" id=2]
-[ext_resource path="ship_floor_pbr_normal.png" type="Texture" id=3]
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://cgwb62ghpn0bo"]
+
+[ext_resource type="Texture2D" uid="uid://0h1n78lsovje" path="res://Game/Assets/Materials/ship_floor_pbr_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b1kv5elcxgake" path="res://Game/Assets/Materials/ship_floor_pbr_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c8ig763bywtbq" path="res://Game/Assets/Materials/ship_floor_pbr_normal.png" id="3"]
+
 [resource]
-albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource( 1 )
-orm_texture = ExtResource( 2 )
+albedo_texture = ExtResource("1")
+orm_texture = ExtResource("2")
 normal_enabled = true
-normal_scale = 1
-normal_texture = ExtResource( 3 )
-
-
-
+normal_texture = ExtResource("3")

@@ -29,9 +29,9 @@ script = ExtResource("3_8ohry")
 
 [sub_resource type="Resource" id="Resource_iosgp"]
 script = ExtResource("4_ctkeh")
-SlotOptions = 1
+SlotOptions = 0
 _slotInfoProvider = SubResource("Resource_bxvqg")
-AllowPlayersToReloadLastSave = true
+AllowPlayersToReloadLastSave = false
 
 [resource]
 script = ExtResource("1_rwjxr")

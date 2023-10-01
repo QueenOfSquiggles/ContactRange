@@ -101,11 +101,11 @@ public partial class RoomManager : Area3D {
     }
   }
 
-  private async void HandleAlienDie() {
-    await Task.Delay(100); // give .1 seconds for alien count to update
+  private void CheckCombatStatus() {
+    if (!_isCombatActive) { return; }
     var foundAliens = GetChildren().Where((node) => node is not null && IsInstanceValid(node) && node.IsInGroup("alien")).ToList();
     _alienCount = foundAliens.Count;
-    Print.Debug($"[{_roomName}] aliens: {_alienCount}");
+    Print.Debug($"[{_roomName}] Combat - {_alienCount} aliens left");
     if (_alienCount <= 0) {
       // until all ship systems are resotored, disallow clearing the east crew quarters
       var nextStatus = ShipManager.GetStatusFor(_roomName) - 1;
@@ -113,11 +113,22 @@ public partial class RoomManager : Area3D {
         nextStatus = Math.Max(nextStatus, 1); // east crew quarters cannot go lower than 1 until systems restored
       }
       ShipManager.UpdateStatusFor(_roomName, nextStatus); // cleared rooms reduce by one
+      Print.Debug($"[{_roomName}] handling combat end");
       HandleCombatEnd();
+    }
+    else {
+      Print.Debug($"[{_roomName}] checked, combat still needed");
     }
   }
 
+  private async void HandleAlienDie() {
+    await Task.Delay(100); // give .1 seconds for alien count to update
+    CheckCombatStatus();
+  }
+
   private void HandleCombatEnd() {
+    if (!_isCombatActive) { return; }
+
     _combatCamera.PopVCam();
     OnCombatOver?.Invoke();
     _isCombatActive = false;

@@ -56,8 +56,8 @@ public partial class Player : CharacterBody3D {
     _playerFSM.ChangeState(_playerStateCombat);
 
     void reset() { // loving these micro callbacks
-      _cameraFSM.ChangeState(_cameraStateMoving);
       _playerFSM.ChangeState(_playerStateExplore);
+      _cameraFSM.ChangeState(_cameraStateMoving);
       roomManager.OnCombatOver -= reset;
     }
 

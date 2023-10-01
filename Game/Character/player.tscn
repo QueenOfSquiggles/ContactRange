@@ -1,20 +1,22 @@
-[gd_scene load_steps=31 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=38 format=3 uid="uid://cg6vu21n6mice"]
 
-[ext_resource type="Material" uid="uid://b0rw38d5llq87" path="res://Game/exploring/test_gfx.tres" id="1_l7wkv"]
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
-[ext_resource type="Texture2D" uid="uid://ckx0v4wb2a30p" path="res://Game/Assets/Sprites/sprite_player.png" id="2_egfwr"]
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatManager.cs" id="2_v15vt"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="3_7mb8g"]
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatFloat.cs" id="3_w5dyv"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/State.cs" id="4_ioeev"]
-[ext_resource type="Texture2D" uid="uid://b0kmgsqo4syyl" path="res://icon.png" id="4_qyf3c"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
 [ext_resource type="Texture2D" uid="uid://b5b5d4477nwml" path="res://Game/Assets/Sprites/player_fist.png" id="5_d68xr"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateCombat.cs" id="6_xyxc0"]
 [ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractionSensor.cs" id="9_4exsv"]
+[ext_resource type="Shader" path="res://Game/exploring/test_gfx.gdshader" id="10_87u73"]
 [ext_resource type="Script" path="res://Game/Character/CameraStateCombat.cs" id="10_xc8ya"]
+[ext_resource type="Texture2D" uid="uid://c543jyboo0bck" path="res://Game/Assets/Sprites/player_explore_back.png" id="11_7dmrs"]
+[ext_resource type="Texture2D" uid="uid://cicm2r0fnammf" path="res://Game/Assets/Sprites/player_explore_right.png" id="12_vq642"]
+[ext_resource type="Texture2D" uid="uid://bqctrvajlx25t" path="res://Game/Assets/Sprites/player_explore_front.png" id="13_l24xh"]
+[ext_resource type="Texture2D" uid="uid://dbri1ewtg4vhu" path="res://Game/Assets/Sprites/player_combat_sprite.png" id="14_x7fng"]
 [ext_resource type="PackedScene" uid="uid://bokxoeqmv6r1k" path="res://Game/GUI/player_health_bar.tscn" id="15_nl8j6"]
 [ext_resource type="Texture2D" uid="uid://b1v2k5cosyaap" path="res://Game/Assets/GUI/player_oxygen_bar/BG.PNG" id="16_7x4py"]
 [ext_resource type="Texture2D" uid="uid://fty010we4nl3" path="res://Game/Assets/GUI/player_oxygen_bar/FG.PNG" id="17_6xixi"]
@@ -22,13 +24,39 @@
 [ext_resource type="PackedScene" uid="uid://dpyi4cm40c554" path="res://Game/GUI/player_inventory_interactive.tscn" id="18_yy23o"]
 [ext_resource type="PackedScene" uid="uid://janjfsv1wkri" path="res://Game/GUI/player_inventory_display.tscn" id="19_5ylr8"]
 [ext_resource type="PackedScene" uid="uid://bfhnnq6qcwafo" path="res://Core/Scenes/Character/Player/inventory_manager.tscn" id="19_sw61u"]
+[ext_resource type="PackedScene" uid="uid://dg7138iwmapsx" path="res://Core/Scenes/Character/Components/footstep_sounds_component.tscn" id="25_h1dqb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i5rib"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rf7dh"]
+render_priority = 0
+shader = ExtResource("10_87u73")
+shader_parameter/viewing_angle = 0.6
+shader_parameter/sprite = ExtResource("11_7dmrs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0e0fm"]
+render_priority = 0
+shader = ExtResource("10_87u73")
+shader_parameter/viewing_angle = 0.6
+shader_parameter/sprite = ExtResource("12_vq642")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43iwh"]
+render_priority = 0
+shader = ExtResource("10_87u73")
+shader_parameter/viewing_angle = 0.6
+shader_parameter/sprite = ExtResource("13_l24xh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3wl4"]
+render_priority = 0
+shader = ExtResource("10_87u73")
+shader_parameter/viewing_angle = 0.6
+shader_parameter/sprite = ExtResource("12_vq642")
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_81c7x"]
-radius = 2.0
+height = 4.0
+radius = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j6780"]
 radius = 0.2
@@ -201,7 +229,7 @@ _inventoryData = NodePath("../../InventoryManager")
 _movementAcceleration = 10.0
 _movementDeceleration = 50.0
 
-[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_inventory", "_killbox", "_heldItem", "_heldWeaponSprite", "_combatSprite")]
+[node name="StateCombat" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("_stats", "_actor", "_anim", "_inventory", "_killbox", "_heldItem", "_heldWeaponSprite", "_combatSprite", "_exploreSprites")]
 script = ExtResource("6_xyxc0")
 _stats = NodePath("../../CharStatManager")
 _actor = NodePath("../..")
@@ -212,6 +240,7 @@ _heldItem = NodePath("../../HeldItemController")
 _playerFistTexture = ExtResource("5_d68xr")
 _heldWeaponSprite = NodePath("../../HeldItemController/AttackRotation/SpringArm3D/Sprite3D")
 _combatSprite = NodePath("../../Sprites/TopFace")
+_exploreSprites = [NodePath("../../Sprites/BackFace"), NodePath("../../Sprites/RightFace"), NodePath("../../Sprites/FrontFace"), NodePath("../../Sprites/LeftFace")]
 
 [node name="StateCutscene" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("4_ioeev")
@@ -263,46 +292,53 @@ shape = SubResource("CapsuleShape3D_i5rib")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 
 [node name="BackFace" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(0.260904, 0, 0, 0, 0.260904, 0, 0, 0, 0.260904, 0.161718, 0, 0)
-material_override = ExtResource("1_l7wkv")
+transform = Transform3D(0.260904, 0, 0, 0, 0.260904, 0, 0, 0, 0.260904, 0, 0.342131, 0)
+material_override = SubResource("ShaderMaterial_rf7dh")
+cast_shadow = 0
 billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
-texture = ExtResource("2_egfwr")
+texture = ExtResource("11_7dmrs")
 
 [node name="RightFace" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(-1.14045e-08, 0, 0.260904, 0, 0.260904, 0, -0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
-material_override = ExtResource("1_l7wkv")
+transform = Transform3D(-1.14045e-08, 0, 0.260904, 0, 0.260904, 0, -0.260904, 0, -1.14045e-08, 0, 0.342131, 0)
+material_override = SubResource("ShaderMaterial_0e0fm")
+cast_shadow = 0
 billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
-texture = ExtResource("2_egfwr")
+texture = ExtResource("12_vq642")
 
 [node name="FrontFace" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(-0.260904, 0, -2.2809e-08, 0, 0.260904, 0, 2.2809e-08, 0, -0.260904, 0.161718, 0, 0)
-material_override = ExtResource("1_l7wkv")
+transform = Transform3D(-0.260904, 0, -2.2809e-08, 0, 0.260904, 0, 2.2809e-08, 0, -0.260904, 0, 0.342131, 0)
+material_override = SubResource("ShaderMaterial_43iwh")
+cast_shadow = 0
 billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
-texture = ExtResource("2_egfwr")
+texture = ExtResource("13_l24xh")
 
 [node name="LeftFace" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(-1.14045e-08, 0, -0.260904, 0, 0.260904, 0, 0.260904, 0, -1.14045e-08, 0.161718, 0, 0)
-material_override = ExtResource("1_l7wkv")
+transform = Transform3D(-1.14045e-08, 0, -0.260904, 0, 0.260904, 0, 0.260904, 0, -1.14045e-08, 0, 0.342131, 0)
+material_override = SubResource("ShaderMaterial_v3wl4")
+cast_shadow = 0
+flip_h = true
 billboard = 2
 shaded = true
 double_sided = false
 alpha_cut = 1
-texture = ExtResource("2_egfwr")
+texture = ExtResource("12_vq642")
 
 [node name="TopFace" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.14484, 5.00424e-08)
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 1.14484, 5.00424e-08)
+visible = false
 billboard = 1
+shaded = true
 double_sided = false
-texture = ExtResource("4_qyf3c")
+texture = ExtResource("14_x7fng")
 
 [node name="InteractionSensor" type="Area3D" parent="." node_paths=PackedStringArray("_derivedPosition")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
@@ -314,7 +350,8 @@ _autoSelectObjects = true
 shape = SubResource("CylinderShape3D_81c7x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5933, 0)
+light_energy = 2.0
 omni_range = 10.0
 
 [node name="HeldItemController" type="Node3D" parent="."]
@@ -409,6 +446,8 @@ script = ExtResource("3_w5dyv")
 StoredValue = 1.0
 
 [node name="InventoryManager" parent="." instance=ExtResource("19_sw61u")]
+
+[node name="FootstepSoundsComponent" parent="." instance=ExtResource("25_h1dqb")]
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]
 [connection signal="SlotUpdate" from="InventoryManager" to="." method="HandleSlotUpdate"]
