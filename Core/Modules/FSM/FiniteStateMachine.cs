@@ -1,6 +1,7 @@
 namespace Squiggles.Core.FSM;
 
 using Godot;
+using Squiggles.Core.Error;
 
 /// <summary>
 /// The root node for state machine structures. Merely serves as a controller for switching between active states. Transitions must be handled by an external script for example by a player controller that  contains this FSM.
@@ -33,5 +34,6 @@ public partial class FiniteStateMachine : Node {
       _current?.EnterState();
       _current.IsActive = true;
     }
+    Print.Debug($"FSM for {GetParent()?.Name} state is: {_current.Name}");
   }
 }

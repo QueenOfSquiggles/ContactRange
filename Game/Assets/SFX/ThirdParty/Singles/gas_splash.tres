@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cti2or3c1pxia"]
+
+[ext_resource type="AudioStream" uid="uid://03bfhmlvcbi4" path="res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 1.wav" id="1_dhbgq"]
+[ext_resource type="AudioStream" uid="uid://dt6dkj4wmj8fs" path="res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 2.wav" id="2_lf8g1"]
+[ext_resource type="AudioStream" uid="uid://cqr74mfwbxok1" path="res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 3.wav" id="3_34qs7"]
+[ext_resource type="AudioStream" uid="uid://bjsawtommrp1v" path="res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 4.wav" id="4_05nur"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_dhbgq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_lf8g1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_34qs7")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_05nur")
+stream_3/weight = 1.0

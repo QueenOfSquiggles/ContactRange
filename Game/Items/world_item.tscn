@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="1_5rny4"]
 [ext_resource type="Script" path="res://Game/Items/WorldItem.cs" id="1_udrhh"]
-[ext_resource type="Texture2D" uid="uid://c7lphyspobdd2" path="res://Core/Assets/Theme/grey_arrowDownWhite.png" id="3_bawbg"]
 [ext_resource type="Texture2D" uid="uid://bgnkyjxyt8rv2" path="res://Game/Assets/Items/potato.png" id="3_emxmm"]
+[ext_resource type="Texture2D" uid="uid://bqk21u31l7gel" path="res://Game/Assets/Items/pickup_item_icon.png" id="4_gbtpg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o54iq"]
 
@@ -27,11 +27,11 @@ texture = ExtResource("3_emxmm")
 [node name="SelectionSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.613856, 0)
 visible = false
-pixel_size = 0.0205
+pixel_size = 0.0005
 billboard = 1
 alpha_cut = 1
 alpha_scissor_threshold = 0.225
-texture = ExtResource("3_bawbg")
+texture = ExtResource("4_gbtpg")
 
 [connection signal="OnDeselected" from="InteractiveTrigger" to="SelectionSprite" method="set_visible" binds= [false]]
 [connection signal="OnInteracted" from="InteractiveTrigger" to="." method="HandleInteract"]

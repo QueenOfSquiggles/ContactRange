@@ -10,6 +10,7 @@ using Squiggles.Core.Scenes.World;
 public partial class FootstepSoundsComponent : Node3D {
 
   [Export] private AudioStream _defaultStepSound;
+  [Export] private bool _doPolling;
   /// <summary>
   /// The minimum distance travelled before triggering a "step"
   /// </summary>
@@ -64,7 +65,7 @@ public partial class FootstepSoundsComponent : Node3D {
   private Vector3 _dMotionMask = new(1, 0, 1); // masks out y motion
 
   public override void _Ready() {
-    if (_groundPoller is not null) {
+    if (_groundPoller is not null && _doPolling) {
       _groundPoller.OnNewMaterialFound += SetMaterialSound;
     }
     _stepSound.Stream = _defaultStepSound;

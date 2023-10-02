@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c43x1vv4jnrfg"]
+[gd_scene load_steps=6 format=3 uid="uid://c43x1vv4jnrfg"]
 
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="1_0e6ep"]
 [ext_resource type="Script" path="res://Game/Mechanics/SensorArrayInterface.cs" id="1_1pipd"]
 [ext_resource type="PackedScene" uid="uid://c0qi0ws1a2bu8" path="res://Game/Assets/Models/sensor_array_station.glb" id="2_ixvjq"]
+[ext_resource type="AudioStream" uid="uid://c33r7st1hmky" path="res://Game/Assets/SFX/ThirdParty/Singles/tube tv turn on 2.wav" id="4_kef1f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfl18"]
 size = Vector3(4.02699, 2.40095, 3.69088)
 
-[node name="SensorArrayInterface" type="Node3D"]
+[node name="SensorArrayInterface" type="Node3D" node_paths=PackedStringArray("_sfx")]
 script = ExtResource("1_1pipd")
+_sfx = NodePath("ReconfigSFX")
 
 [node name="sensor_array_station" parent="." instance=ExtResource("2_ixvjq")]
 transform = Transform3D(0.68472, 0, 0, 0, 0.68472, 0, 0, 0, 0.68472, -1.12934, 0, 0)
+
+[node name="SensorArray" parent="sensor_array_station" index="0"]
+ignore_occlusion_culling = true
 
 [node name="AnimationPlayer" parent="sensor_array_station" index="2"]
 autoplay = "Panel2Action"
@@ -31,6 +36,10 @@ CustomName = "Sensor Array"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractiveTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208844, 0.522111, 0)
 shape = SubResource("BoxShape3D_gfl18")
+
+[node name="ReconfigSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kef1f")
+bus = &"SFX"
 
 [connection signal="OnDeselected" from="InteractiveTrigger" to="Label3D" method="set_visible" binds= [false]]
 [connection signal="OnInteracted" from="InteractiveTrigger" to="." method="OnInteract"]

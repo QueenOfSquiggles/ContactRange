@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://70cyb1ijbc5l"]
+[gd_scene load_steps=11 format=3 uid="uid://70cyb1ijbc5l"]
 
 [ext_resource type="Texture2D" uid="uid://dlu483t2a62xn" path="res://Game/Assets/Sprites/NPCs/captain.png" id="1_pngtj"]
 [ext_resource type="Script" path="res://Game/NPC/CaptainNPC.cs" id="1_wrog5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="3_qrmgl"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="5_pg0wv"]
 [ext_resource type="Script" path="res://Game/NPC/States/StatePlayTrack.cs" id="6_mr5vj"]
+[ext_resource type="Script" path="res://Game/NPC/States/StateConsumeItem.cs" id="7_qusty"]
+[ext_resource type="Script" path="res://Game/NPC/States/StateManageShipStatus.cs" id="8_53yrd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x47wx"]
 
@@ -52,10 +54,26 @@ _trackName = "captain_wants_coffee"
 _interaction = NodePath("../../InteractiveTrigger")
 
 [node name="StateGetCoffee" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_interaction")]
+script = ExtResource("7_qusty")
+_trackWaiting = "cpn_waitCoffee"
+_trackSuccessful = "cpn_getCoffee"
+_itemNeeded = "Coffee"
+_interaction = NodePath("../../InteractiveTrigger")
+
+[node name="StateManageShipStatus" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_interaction")]
+script = ExtResource("8_53yrd")
+_trackFixSensors = "cpn_waitSensorArray"
+_trackThrusterOnFire = "cpn_waitThrusterFire"
+_trackThrusterOutOfFuel = "cpn_waitRefuel"
+_trackExterminate = "cpn_waitExterminate"
+_interaction = NodePath("../../InteractiveTrigger")
+
+[node name="EndState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_interaction")]
 script = ExtResource("6_mr5vj")
-_trackName = "pilot"
+_trackName = "cpn_silent"
 _interaction = NodePath("../../InteractiveTrigger")
 
 [connection signal="OnDeselected" from="InteractiveTrigger" to="TalkingSpriteIcon" method="set_visible" binds= [false]]
 [connection signal="OnInteracted" from="InteractiveTrigger" to="." method="OnInteract"]
 [connection signal="OnSelected" from="InteractiveTrigger" to="TalkingSpriteIcon" method="set_visible" binds= [true]]
+[connection signal="OnStateFinished" from="FiniteStateMachine/StateInitial" to="." method="RelaySignal_RequestedCoffee"]

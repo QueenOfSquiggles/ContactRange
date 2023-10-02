@@ -7,6 +7,7 @@ using System;
 
 public partial class SensorArrayInterface : Node3D {
 
+  [Export] private AudioStreamPlayer3D _sfx;
 
   private InteractiveTrigger _interactions;
   public override void _Ready() {
@@ -28,6 +29,7 @@ public partial class SensorArrayInterface : Node3D {
     }
     items.SetSelection(slot);
     if (items.RemoveItem()) {
+      _sfx.Play();
       ShipManager.UpdateFlag("sensor_array_active", true);
       _interactions.IsActive = false;
       Print.Debug("Sensor array is now online!!!");

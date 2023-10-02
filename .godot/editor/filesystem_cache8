@@ -1,8 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1696212635
+::res://::1696277201
+default_bus_layout.tres::AudioBusLayout::6894869105673220993::1696277201::0::1::::<><>::
 game_environment.tres::Environment::8950429665869568029::1696184316::0::1::::<><>::
-icon.png::CompressedTexture2D::4162525841673894331::1696077095::1696185521::1::::<><>::
-squiggles_config.tres::Resource/Resource::4209903978384973291::1696197438::0::1::::<><>::uid://b0kmgsqo4syyl
+icon.png::CompressedTexture2D::4162525841673894331::1696257739::1696257742::1::::<><>::
+squiggles_config.tres::Resource/SquigglesCoreConfigFile::4209903978384973291::1696274266::0::1::::<><>::uid://d0rwje40embmb::::res://game_environment.tres<>res://Core/MetaConfig/SquigglesCoreConfigFile.cs<>uid://dfay8qdaimsxo::::res://Game/Assets/GUI/game_icon_internal.png<>res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/GameplayOptionsSettings.cs<>res://Core/MetaConfig/SlotInfoProviderResource.cs<>res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/OptionSlider.cs<>res://Core/MetaConfig/SaveSlotSettings.cs
 ::res://addons/::1696084483
 ::res://addons/dialogic/::1696084491
 plugin.cfg::TextFile::-1::1693319150::0::1::::<><>::
@@ -556,14 +557,14 @@ UtilitySelector.cs::CSharpScript::-1::1695594547::0::1::::<><>::
 ::res://Core/Modules/Attributes/::1695665012
 MarkForRefactorAttribute.cs::CSharpScript::-1::1695665012::0::1::::<><>::
 ::res://Core/Modules/Audio/::1695860932
-SceneBGMLoader.cs::CSharpScript::-1::1695665012::0::1::::<><>::
+SceneBGMLoader.cs::CSharpScript::-1::1696271704::0::1::::SceneBGMLoader<>Node<>::
 ::res://Core/Modules/Camera/::1695861309
 CameraBrain.cs::CSharpScript::-1::1696102889::0::1::::CameraBrain<>Camera3D<>::
 CinematicSequence.cs::CSharpScript::-1::1695859994::0::1::::CinematicSequence<>Node<>::
 DynamicDOFRay.cs::CSharpScript::-1::1695860008::0::1::::DynamicDOFRay<>RayCast3D<>::
 VirtualCamera.cs::CSharpScript::-1::1696112297::0::1::::VirtualCamera<>Marker3D<>::
 ::res://Core/Modules/Character/::1695861443
-FootstepSoundsComponent.cs::CSharpScript::-1::1696192093::0::1::::<><>::
+FootstepSoundsComponent.cs::CSharpScript::-1::1696270700::0::1::::<><>::
 GroundMaterial.cs::CSharpScript::-1::1695682671::0::1::::<><>::
 GroundMaterialPoller.cs::CSharpScript::-1::1695682783::0::1::::<><>::
 ::res://Core/Modules/CharStats/::1695858963
@@ -593,9 +594,9 @@ TriggerEndOfDemo.cs::CSharpScript::-1::1695859826::0::1::::TriggerEndOfDemo<>Nod
 ::res://Core/Modules/EditorHelpers/::1694640197
 HelperEditorOnlyMesh3D.cs::CSharpScript::-1::1695605477::0::1::::HelperEditorOnlyMesh3D<>MeshInstance3D<>::
 ::res://Core/Modules/Effects/::1695861470
-CutsceneSkipper.cs::CSharpScript::-1::1695683120::0::1::::<><>::
+CutsceneSkipper.cs::CSharpScript::-1::1696254257::0::1::::CutsceneSkipper<>Node<>::
 EffectsDriver.cs::CSharpScript::-1::1695860206::0::1::::EffectsDriver<>Node<>::
-ScreenShakeDriver.cs::CSharpScript::-1::1695860218::0::1::::ScreenShakeDriver<>Node<>::
+ScreenShakeDriver.cs::CSharpScript::-1::1696255259::0::1::::ScreenShakeDriver<>Node<>::
 WorldBoundary.cs::CSharpScript::-1::1695860268::0::1::::WorldBoundary<>Area3D<>::
 ::res://Core/Modules/Error/::1694807875
 Debugging.cs::CSharpScript::-1::1695605583::0::1::::<><>::
@@ -618,7 +619,7 @@ TweenExtensions.cs::CSharpScript::-1::1695608759::0::1::::<><>::
 Vector2IExtensions.cs::CSharpScript::-1::1695608874::0::1::::<><>::
 Vector3Extensions.cs::CSharpScript::-1::1695609055::0::1::::<><>::
 ::res://Core/Modules/FSM/::1695858555
-FiniteStateMachine.cs::CSharpScript::-1::1696125391::0::1::::FiniteStateMachine<>Node<>::
+FiniteStateMachine.cs::CSharpScript::-1::1696251563::0::1::::FiniteStateMachine<>Node<>::
 HFSM_State.cs::CSharpScript::-1::1695858555::0::1::::HFSM_State<>State<>::
 State.cs::CSharpScript::-1::1696084290::0::1::::State<>Node<>::
 ::res://Core/Modules/GUI/::1695861285
@@ -652,8 +653,8 @@ WorldEntity.cs::CSharpScript::-1::1695665012::0::1::::WorldEntity<>Resource<>::
 level_bootstrap.tscn::PackedScene::4163021280618548162::1694818632::0::1::::<><>::uid://ct71a4y4m3yiv
 ::res://Core/Scenes/Audio/::1695860932
 ::res://Core/Scenes/Character/::1694640197
-::res://Core/Scenes/Character/Components/::1696193306
-footstep_sounds_component.tscn::PackedScene::7648085591723298871::1696193306::0::1::::<><>::res://Core/Modules/Character/FootstepSoundsComponent.cs<>res://Core/Modules/Character/GroundMaterialPoller.cs
+::res://Core/Scenes/Character/Components/::1696270911
+footstep_sounds_component.tscn::PackedScene::7648085591723298871::1696270911::0::1::::<><>::res://Core/Modules/Character/FootstepSoundsComponent.cs<>uid://dth706m1xmegh::::res://Game/Assets/SFX/ThirdParty/Singles/footsteps_dirt.tres<>res://Core/Modules/Character/GroundMaterialPoller.cs
 ::res://Core/Scenes/Character/Player/::1695861309
 first_person_character_controller.tscn::PackedScene::3355123924550392003::1695861309::0::1::::<><>::res://Core/Scenes/Character/Player/PlayerController.cs<>res://Core/Modules/Camera/VirtualCamera.cs
 InventoryManager.cs::CSharpScript::-1::1696184741::0::1::::<><>::
@@ -707,11 +708,11 @@ ObjectDisplay.gd::GDScript::-1::1694640197::0::1::::<>SubViewportContainer<>::
 icon-alternative-dark.png::CompressedTexture2D::1809185819130653336::1694640197::1696185518::1::::<><>::
 LaunchSequence.cs::CSharpScript::-1::1695676296::0::1::::<><>::
 launch_sequence.tscn::PackedScene::5404044492952069338::1695861981::0::1::::<><>::res://Core/Scenes/UI/LaunchSequence/LaunchSequence.cs<>res://Core/Modules/Data/LoadGraphicsSettings.cs<>res://Core/Modules/Effects/CutsceneSkipper.cs<>uid://01na5gpnckya
-::res://Core/Scenes/UI/Menus/::1696188417
+::res://Core/Scenes/UI/Menus/::1696274377
 CreditsScene.cs::CSharpScript::-1::1695679599::0::1::::<><>::
 credits_scene.tscn::PackedScene::2706242819636563168::1695861285::0::1::::<><>::res://Core/Scenes/UI/Menus/CreditsScene.cs<>res://Core/Modules/GUI/SlidingPanelComponent.cs
 MainMenu.cs::CSharpScript::-1::1695680250::0::1::::<><>::
-main_menu.tscn::PackedScene::130775380940239084::1695870471::0::1::::<><>::res://Core/Scenes/UI/Menus/MainMenu.cs<>uid://b8y0v225qjej4
+main_menu.tscn::PackedScene::130775380940239084::1696274377::0::1::::<><>::res://Core/Scenes/UI/Menus/MainMenu.cs<>uid://cmadwvieebxur::::res://Game/Assets/GUI/main_menu_bg.jpg<>uid://b8y0v225qjej4::::res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn<>uid://ci8q8yf6jrc8n::::res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn<>uid://b0kmgsqo4syyl::::res://icon.png<>res://Core/Scenes/UI/Menus/VersioningLabel.cs<>res://Core/Modules/Data/LoadControlsMappings.cs<>res://Core/Modules/Audio/SceneBGMLoader.cs<>uid://dp4083sw00s8a::::res://Game/Assets/SFX/ThirdParty/Loops/Sci-Fi 6 Loop.ogg
 menu_panorama_material.tres::ShaderMaterial::4220050200141405385::1694640197::0::1::::<><>::
 OptionsMenu.cs::CSharpScript::-1::1695680169::0::1::::<><>::
 options_menu.tscn::PackedScene::1123872561073743849::1695861981::0::1::::<><>::res://Core/Scenes/UI/Menus/OptionsMenu.cs<>res://Core/Modules/GUI/SlidingPanelComponent.cs
@@ -753,9 +754,9 @@ OptionComboSelect.cs::CSharpScript::-1::1695676671::0::1::::OptionComboSelect<>O
 OptionSlider.cs::CSharpScript::-1::1695676886::0::1::::OptionSlider<>OptionBase<>::
 ::res://Core/Scenes/Utility/::1694640197
 ::res://Core/Scenes/Utility/AccessHelp/::1695861285
-::res://Core/Scenes/Utility/Autoload/::1696176066
+::res://Core/Scenes/Utility/Autoload/::1696276672
 BGM.cs::CSharpScript::-1::1695680331::0::1::::<><>::
-bgm.tscn::PackedScene::5727187567128111210::1695861511::0::1::::<><>::res://Core/Scenes/Utility/Autoload/BGM.cs
+bgm.tscn::PackedScene::5727187567128111210::1696276672::0::1::::<><>::res://Core/Scenes/Utility/Autoload/BGM.cs
 scenes.tscn::PackedScene::2962627360442524209::1696176066::0::1::::<><>::res://Core/Scenes/Utility/Autoload/SceneTransitions.cs<>uid://b0kmgsqo4syyl
 SceneTransitions.cs::CSharpScript::-1::1696171618::0::1::::<><>::
 ::res://Core/Scenes/Utility/CameraUtilities/::1695861309
@@ -771,9 +772,11 @@ ui_effects.tscn::PackedScene::5403508255163181103::1694818632::0::1::::<><>::res
 ::res://Core/Scenes/World/::1695861470
 world_base.tscn::PackedScene::680512216323776795::1694818632::0::1::::<><>::uid://cpi11vcqc7gk3
 ::res://Core/Scenes/World/GroundMaterial/::1695861443
-::res://Game/::1696209918
+::res://Game/::1696253085
 ::res://Game/Assets/::1696205568
-::res://Game/Assets/GUI/::1696123364
+::res://Game/Assets/GUI/::1696276820
+game_icon_internal.png::CompressedTexture2D::7511723253313921284::1696272913::1696272915::1::::<><>::
+main_menu_bg.jpg::CompressedTexture2D::5615330045022739805::1696274351::1696274355::1::::<><>::
 ::res://Game/Assets/GUI/player_health_bar/::1696185519
 Bar.PNG::CompressedTexture2D::2975034424582868541::1696121473::1696185518::1::::<><>::
 BG.PNG::CompressedTexture2D::1586660112805874123::1696121472::1696185518::1::::<><>::
@@ -783,15 +786,16 @@ Bar.PNG::CompressedTexture2D::3915157045130488359::1696123388::1696185519::1::::
 BG.PNG::CompressedTexture2D::4256341347312148271::1696123387::1696185519::1::::<><>::
 FG.PNG::CompressedTexture2D::391670653424609262::1696123389::1696185519::1::::<><>::
 Selection Mask.PNG::CompressedTexture2D::3593626104387934616::1696123390::1696185519::1::::<><>::
-::res://Game/Assets/Items/::1696186134
+::res://Game/Assets/Items/::1696277124
 captains_coffee_sprite.png::CompressedTexture2D::7674428765771681867::1696176797::1696185967::1::::<><>::
 fire_extionguisher.png::CompressedTexture2D::2731618531332697228::1696178441::1696185520::1::::<><>::
 fuel_can.png::CompressedTexture2D::8193331947710010063::1696178028::1696185520::1::::<><>::
 med_kit.png::CompressedTexture2D::597334306208921009::1696177761::1696185521::1::::<><>::
+pickup_item_icon.png::CompressedTexture2D::3531772843807250843::1696276992::1696277226::1::::<><>::
 potato.png::CompressedTexture2D::2835041194663265441::1696177852::1696186134::1::::<><>::
-sensor_reconfig_disk.png::CompressedTexture2D::6821564939439247111::1696178177::1696185516::1::::<><>::
+sensor_reconfig_disk.png::CompressedTexture2D::6821564939439247111::1696178177::1696261613::1::::<><>::
 wrench.png::CompressedTexture2D::5369422628757157549::1696170431::1696185516::1::::<><>::
-::res://Game/Assets/KenneyAssetsPack/::1696201056
+::res://Game/Assets/KenneyAssetsPack/::1696264768
 flame_01.png::CompressedTexture2D::6259522528266912530::1695769360::1696200665::1::::<><>::
 flame_02.png::CompressedTexture2D::6075103164301170849::1695769360::1696200879::1::::<><>::
 flame_03.png::CompressedTexture2D::6060320418258337940::1695769360::1696200665::1::::<><>::
@@ -801,10 +805,10 @@ smoke_03.png::CompressedTexture2D::3306873132531999986::1695769360::1696200665::
 smoke_04.png::CompressedTexture2D::8783417026191201303::1695769360::1696200666::1::::<><>::
 smoke_05.png::CompressedTexture2D::6867256265541651094::1695769360::1696200665::1::::<><>::
 smoke_06.png::CompressedTexture2D::2976038671320888788::1695769360::1696200665::1::::<><>::
-smoke_07.png::CompressedTexture2D::2776256154187587442::1695769360::1696200665::1::::<><>::
-smoke_08.png::CompressedTexture2D::1560476753025829886::1695769360::1696200666::1::::<><>::
-smoke_09.png::CompressedTexture2D::8742401695673130890::1695769360::1696200665::1::::<><>::
-smoke_10.png::CompressedTexture2D::3081608877446724049::1695769360::1696200665::1::::<><>::
+smoke_07.png::CompressedTexture2D::2776256154187587442::1695769360::1696264764::1::::<><>::
+smoke_08.png::CompressedTexture2D::1560476753025829886::1695769360::1696264761::1::::<><>::
+smoke_09.png::CompressedTexture2D::8742401695673130890::1695769360::1696264768::1::::<><>::
+smoke_10.png::CompressedTexture2D::3081608877446724049::1695769360::1696264756::1::::<><>::
 spark_01.png::CompressedTexture2D::195609880956037177::1695769360::1696201056::1::::<><>::
 spark_02.png::CompressedTexture2D::4515387013081104293::1695769360::1696200665::1::::<><>::
 spark_03.png::CompressedTexture2D::7323021568669437822::1695769360::1696200665::1::::<><>::
@@ -822,21 +826,174 @@ ship_wal_pbr.tres::StandardMaterial3D::-1::1696191401::0::1::::<><>::res://Game/
 ship_wal_pbr_albedo.png::CompressedTexture2D::3367169869021265297::1696191400::1696185516::1::::<><>::
 ship_wal_pbr_normal.png::CompressedTexture2D::863786547279562918::1696191401::1696191624::1::::<><>::
 ship_wal_pbr_orm.png::CompressedTexture2D::2519292289366409726::1696191401::1696191624::1::::<><>::
-::res://Game/Assets/Models/::1696198211
-main_ship_overview.glb::PackedScene::5083018207054387894::1696185773::1696185780::1::::<><>::res://Game/Assets/Materials/ship_wal_pbr.tres<>res://Game/Assets/Materials/ship_floor_pbr.tres<>res://Game/Assets/Materials/ship_ceiling_pbr.tres
+::res://Game/Assets/Models/::1696263393
+main_ship_overview.glb::PackedScene::5083018207054387894::1696185773::1696263393::1::::<><>::
 main_ship_overview_ship_ceiling.png::CompressedTexture2D::2941083852136313293::1696099849::1696185516::1::::<><>::
 main_ship_overview_ship_floor.png::CompressedTexture2D::8601269138907844525::1696099849::1696185517::1::::<><>::
 main_ship_overview_ship_wall.png::CompressedTexture2D::64939535328850609::1696099848::1696185517::1::::<><>::
 sensor_array_station.glb::PackedScene::6561124067694288997::1696195972::1696195975::1::::<><>::
 ship_door.glb::PackedScene::8913122444791776887::1696100387::1696185511::1::::<><>::
 ship_door_ship_wall.png::CompressedTexture2D::5423335576416925690::1696100314::1696185517::1::::<><>::
+ship_hull.glb::PackedScene::9218285556579074558::1696255459::1696255463::1::::<><>::
 thruster.glb::PackedScene::1056549826981981322::1696198204::1696198211::1::::<><>::
-::res://Game/Assets/SFX/::1696205575
+::res://Game/Assets/SFX/::1696269049
 ::res://Game/Assets/SFX/NPC/::1696205580
 captain_blip.ogg::AudioStreamOggVorbis::9029013258723770703::1696205580::1696205580::1::::<><>::
 comms_blip.ogg::AudioStreamOggVorbis::3499327408025370609::1696205580::1696205580::1::::<><>::
 pilot_blip.ogg::AudioStreamOggVorbis::7239793953075893959::1696205580::1696205580::1::::<><>::
-::res://Game/Assets/Sprites/::1696202226
+::res://Game/Assets/SFX/ThirdParty/::1696269070
+::res://Game/Assets/SFX/ThirdParty/Loops/::1696271846
+Sci-Fi 1 Loop.ogg::AudioStreamOggVorbis::6530455259103392792::1696089790::1696269636::1::::<><>::
+Sci-Fi 2 Loop.ogg::AudioStreamOggVorbis::2431105423708581526::1696089791::1696271771::1::::<><>::
+Sci-Fi 3 Loop.ogg::AudioStreamOggVorbis::7847791750147661406::1696089792::1696269636::1::::<><>::
+Sci-Fi 4 Loop.ogg::AudioStreamOggVorbis::3895241790368545411::1696089793::1696269636::1::::<><>::
+Sci-Fi 5 Loop.ogg::AudioStreamOggVorbis::1290660271930135158::1696089793::1696269636::1::::<><>::
+Sci-Fi 6 Loop.ogg::AudioStreamOggVorbis::8273540016029821378::1696089794::1696271846::1::::<><>::
+Sci-Fi 7 Loop.ogg::AudioStreamOggVorbis::142391252451791259::1696089794::1696269636::1::::<><>::
+Sci-Fi 8 Loop.ogg::AudioStreamOggVorbis::4272344948754670678::1696089795::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/::1696274803
+air_duster.tres::AudioStreamRandomizer::874995359272989277::1696271603::0::1::::<><>::uid://dov5lcuxxnxh::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 1.wav<>uid://di051r6rxexld::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 2.wav<>uid://dhg0htwm4w6tf::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 3.wav<>uid://bfa83ec2d6tar::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 4.wav<>uid://blivfun2p26p8::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 5.wav<>uid://b2ww4kskd6xnl::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 6.wav<>uid://djeeer084tq6j::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 7.wav<>uid://bsoku15bj0tr6::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 8.wav<>uid://dnsotvmuj6noq::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 9.wav
+bat_hit.tres::AudioStreamRandomizer::3517572473630126853::1696269850::0::1::::<><>::uid://prmlst2o23sg::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 1.wav<>uid://id0ulvoho1g8::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 2.wav<>uid://bpmw27nnraj25::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 11.wav<>uid://dfnhy4ol4cdjj::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 12.wav<>uid://ymxxxoqq0uut::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 13.wav<>uid://c7sbicktmwfra::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 14.wav<>uid://pjx73uy78tfe::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 15.wav<>uid://dm7c2msyccg7d::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 3.wav<>uid://dme4mbu86xl7g::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 4.wav<>uid://bdtpwyoeebf7t::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 5.wav<>uid://coa6a28ges06q::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 6.wav<>uid://cj8pi3xxjsxtt::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 7.wav<>uid://ckpck25b0i7hd::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 8.wav<>uid://1fwkv6punvc8::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 9.wav<>uid://dlv2ys6ex1xfo::::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 10.wav
+body_hit_grunt.tres::AudioStreamRandomizer::4049945467276312377::1696269850::0::1::::<><>::uid://0ac5082xdpop::::res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 1.wav<>uid://d1ir622lfnha6::::res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 2.wav<>uid://b1ute7rftsxxl::::res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 3.wav
+bounce_on.tres::AudioStreamRandomizer::1247801568941934605::1696271240::0::1::::<><>::uid://dvehe0da7evjb::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 1.wav<>uid://dioepmrmn8g5p::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 2.wav<>uid://bax6l3hbnmhr1::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 3.wav<>uid://dp2idghdbb8aa::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 4.wav<>uid://qkxoa6aoyvpn::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 5.wav<>uid://ckqxawgp3py0i::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 6.wav<>uid://cbva0hwew034e::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 7.wav<>uid://dvu2scdqlekw1::::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 8.wav
+catch_ball.tres::AudioStreamRandomizer::3297102000672597117::1696271240::0::1::::<><>::uid://gw27itjo50qx::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 1.wav<>uid://c0vxcrjj8slqq::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 2.wav<>uid://cp6tv7y1wkm1t::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 11.wav<>uid://ch8yygmubyef6::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 12.wav<>uid://bp5c7xh4y2afy::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 13.wav<>uid://bkm5yais2bc3p::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 14.wav<>uid://du8nvium66owv::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 3.wav<>uid://d0du5wga5fmk3::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 4.wav<>uid://dxqmsmknvabtw::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 5.wav<>uid://tev20t0ywx8l::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 6.wav<>uid://cden5s23hrwq3::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 7.wav<>uid://2a8ew1bcu03p::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 8.wav<>uid://cx2oxiww0i5g4::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 9.wav<>uid://duilp1mxq2u3x::::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 10.wav
+closet_door.tres::AudioStreamRandomizer::6027945597172852406::1696269984::0::1::::<><>::uid://bk0bgiywi22sn::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 1.wav<>uid://dq5qmyhrph056::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 2.wav<>uid://7hrev2t2r23j::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 3.wav<>uid://c4uo76oy0sdkw::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 4.wav<>uid://ba0tcswlevbpl::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 1.wav<>uid://chfxa2fgcb6k::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 2.wav<>uid://dxuxr7gi1m8bg::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 3.wav<>uid://c1r4kg1mjlh2x::::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 4.wav
+fish.tres::AudioStreamRandomizer::1719311743507287769::1696271320::0::1::::<><>::uid://d3iq5f1sbatpq::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 1.wav<>uid://c7pscbca0rxyl::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 2.wav<>uid://ckffh6rob7vub::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 11.wav<>uid://n868ls8650df::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 12.wav<>uid://bhpxt3u2yxgd5::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 13.wav<>uid://b1xnca7tio5lu::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 14.wav<>uid://c82wd60v8r5r7::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 15.wav<>uid://b7mgvdrtt0oyg::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 16.wav<>uid://csk6kmke5l33h::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 17.wav<>uid://dlawf3uiagmfh::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 18.wav<>uid://dflctb0tgm38x::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 19.wav<>uid://tt6si6kwq670::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 20.wav<>uid://cy5w2foh46k82::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 3.wav<>uid://du27rkgc41mci::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 21.wav<>uid://cqyhgal8jjr1e::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 22.wav<>uid://b02a55tjd11qs::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 23.wav<>uid://lpctdeguyjv0::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 24.wav<>uid://bb2swqcxuxkk7::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 25.wav<>uid://cap6aiqlf4yp7::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 26.wav<>uid://bawulnbkhikds::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 27.wav<>uid://bhaa8c7uemyqf::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 28.wav<>uid://wi3gbj1b5vx4::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 29.wav<>uid://ciugg8xbfk6qe::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 30.wav<>uid://bxer6gvh20w2s::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 4.wav<>uid://dljcb06ofq8kf::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 5.wav<>uid://dtfv147e2wq6m::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 6.wav<>uid://bln6a2qbhhps0::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 7.wav<>uid://coog37yac7r5s::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 8.wav<>uid://cx0n8474c4u4h::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 9.wav<>uid://cq4av682rof8b::::res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 10.wav
+footsteps_dirt.tres::AudioStreamRandomizer::8509289961070526835::1696270229::0::1::::<><>::uid://btyhmstc3fcof::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 1.wav<>uid://begudpros0321::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 2.wav<>uid://dpbtdgcyq5p3b::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 11.wav<>uid://eq4cswxbkwll::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 12.wav<>uid://bjt58py3o6vv1::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 13.wav<>uid://baappcekabwtd::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 14.wav<>uid://dql1bnxdlxe4l::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 15.wav<>uid://c5ah08k8ehpca::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 16.wav<>uid://b0kygdw1de20n::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 17.wav<>uid://ip8lchnol7ka::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 18.wav<>uid://bxqh1led7p27o::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 19.wav<>uid://pbgkudar8x::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 20.wav<>uid://dc7xd6ief6c2u::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 3.wav<>uid://dyg3sthom8vrr::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 21.wav<>uid://dbt1sflq0iiyi::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 22.wav<>uid://bw7d42s05llwi::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 23.wav<>uid://sgem7ylhkjy7::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 24.wav<>uid://diae5tbnubiw3::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 25.wav<>uid://dtpk1apds6l3w::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 26.wav<>uid://bjoam08l6udby::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 27.wav<>uid://cjtfmkfa2obtp::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 28.wav<>uid://w1pfbgof4cij::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 4.wav<>uid://byksthpxkhxho::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 5.wav<>uid://s2xi11rb3fvu::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 6.wav<>uid://b8jdpw5f2neay::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 7.wav<>uid://cmfdbqc3us6rm::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 8.wav<>uid://cg1ge6er3qgap::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 9.wav<>uid://cl7lbj6gs3kbl::::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 10.wav
+gas_splash.tres::AudioStreamRandomizer::6124609714738366788::1696270229::0::1::::<><>::uid://03bfhmlvcbi4::::res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 1.wav<>uid://dt6dkj4wmj8fs::::res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 2.wav<>uid://cqr74mfwbxok1::::res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 3.wav<>uid://bjsawtommrp1v::::res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 4.wav
+tube tv turn on 2.wav::AudioStreamWAV::199912408135573972::1696274792::1696274803::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/::1696274803
+air duster 1.wav::AudioStreamWAV::240797031923001073::1695769386::1696269636::1::::<><>::
+air duster 2.wav::AudioStreamWAV::7774251126048789317::1695769386::1696269636::1::::<><>::
+air duster 3.wav::AudioStreamWAV::7664501680960614279::1695769386::1696269636::1::::<><>::
+air duster 4.wav::AudioStreamWAV::2739418779288908645::1695769386::1696269636::1::::<><>::
+air duster 5.wav::AudioStreamWAV::3176298043358915075::1695769386::1696269636::1::::<><>::
+air duster 6.wav::AudioStreamWAV::4328323887872984329::1695769386::1696269636::1::::<><>::
+air duster 7.wav::AudioStreamWAV::7799470099040471087::1695769386::1696269636::1::::<><>::
+air duster 8.wav::AudioStreamWAV::3679365455549987237::1695769386::1696269636::1::::<><>::
+air duster 9.wav::AudioStreamWAV::8109760908379699112::1695769386::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/Ambient/::1696271445
+ambience - car sedan idling.wav::AudioStreamWAV::4765556820717999356::1695769387::1696271445::1::::<><>::
+ambience - swamp.wav::AudioStreamWAV::1467463444673120250::1695769395::1696269637::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/BatHit/::1696269636
+bat hit 1.wav::AudioStreamWAV::1088676300053799218::1695769398::1696269636::1::::<><>::
+bat hit 2.wav::AudioStreamWAV::569258133907473077::1695769398::1696269636::1::::<><>::
+bat hit 3.wav::AudioStreamWAV::8067758572466460427::1695769398::1696269636::1::::<><>::
+bat hit 4.wav::AudioStreamWAV::8011567993030168762::1695769398::1696269636::1::::<><>::
+bat hit 5.wav::AudioStreamWAV::2637161716666537135::1695769398::1696269636::1::::<><>::
+bat hit 6.wav::AudioStreamWAV::5757368874482110818::1695769398::1696269636::1::::<><>::
+bat hit 7.wav::AudioStreamWAV::5473591974497284405::1695769398::1696269636::1::::<><>::
+bat hit 8.wav::AudioStreamWAV::5505836226555786337::1695769398::1696269636::1::::<><>::
+bat hit 9.wav::AudioStreamWAV::1836586606727135361::1695769398::1696269636::1::::<><>::
+bat hit 10.wav::AudioStreamWAV::7976374475314092308::1695769398::1696269636::1::::<><>::
+bat hit 11.wav::AudioStreamWAV::3465411563031650120::1695769398::1696269636::1::::<><>::
+bat hit 12.wav::AudioStreamWAV::7537512603418366727::1695769398::1696269636::1::::<><>::
+bat hit 13.wav::AudioStreamWAV::1710743574868605523::1695769398::1696269636::1::::<><>::
+bat hit 14.wav::AudioStreamWAV::7056118288095244582::1695769398::1696269636::1::::<><>::
+bat hit 15.wav::AudioStreamWAV::1072867193280033538::1695769398::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/::1696269636
+body hit with grunt 1.wav::AudioStreamWAV::1754897464073416655::1695769403::1696269636::1::::<><>::
+body hit with grunt 2.wav::AudioStreamWAV::9001776016535868563::1695769403::1696269636::1::::<><>::
+body hit with grunt 3.wav::AudioStreamWAV::4253780646663502997::1695769403::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/::1696269636
+bounce on 1.wav::AudioStreamWAV::8641918758380318567::1695769405::1696269636::1::::<><>::
+bounce on 2.wav::AudioStreamWAV::7749944400725817659::1695769405::1696269636::1::::<><>::
+bounce on 3.wav::AudioStreamWAV::2435804724075913224::1695769405::1696269636::1::::<><>::
+bounce on 4.wav::AudioStreamWAV::8268324324424701116::1695769405::1696269636::1::::<><>::
+bounce on 5.wav::AudioStreamWAV::1145086815606026815::1695769405::1696269636::1::::<><>::
+bounce on 6.wav::AudioStreamWAV::5509157504167207634::1695769405::1696269636::1::::<><>::
+bounce on 7.wav::AudioStreamWAV::4886427190568417398::1695769405::1696269636::1::::<><>::
+bounce on 8.wav::AudioStreamWAV::8676186936077110974::1695769405::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/::1696269952
+catch ball 1.wav::AudioStreamWAV::468246326594081739::1695769408::1696269636::1::::<><>::
+catch ball 2.wav::AudioStreamWAV::6572315360847636316::1695769408::1696269636::1::::<><>::
+catch ball 3.wav::AudioStreamWAV::8631990663972666657::1695769408::1696269636::1::::<><>::
+catch ball 4.wav::AudioStreamWAV::8921445353787598760::1695769408::1696269636::1::::<><>::
+catch ball 5.wav::AudioStreamWAV::8807396893369461392::1695769408::1696269636::1::::<><>::
+catch ball 6.wav::AudioStreamWAV::1343170157026269913::1695769408::1696269636::1::::<><>::
+catch ball 7.wav::AudioStreamWAV::4992509292451911500::1695769408::1696269636::1::::<><>::
+catch ball 8.wav::AudioStreamWAV::1897110777891329291::1695769408::1696269636::1::::<><>::
+catch ball 9.wav::AudioStreamWAV::6443814536784939377::1695769408::1696269636::1::::<><>::
+catch ball 10.wav::AudioStreamWAV::8580250004913671767::1695769408::1696269636::1::::<><>::
+catch ball 11.wav::AudioStreamWAV::5890862575900745383::1695769408::1696269636::1::::<><>::
+catch ball 12.wav::AudioStreamWAV::5333788140205260841::1695769408::1696269636::1::::<><>::
+catch ball 13.wav::AudioStreamWAV::3501364470477314682::1695769408::1696269636::1::::<><>::
+catch ball 14.wav::AudioStreamWAV::3114946035171250247::1695769408::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/::1696269953
+closet door close 1.wav::AudioStreamWAV::3139990453954585333::1695769409::1696269953::1::::<><>::
+closet door close 2.wav::AudioStreamWAV::8345209055487523463::1695769409::1696269953::1::::<><>::
+closet door close 3.wav::AudioStreamWAV::2261534118348230917::1695769409::1696269953::1::::<><>::
+closet door close 4.wav::AudioStreamWAV::6850514222249710102::1695769409::1696269953::1::::<><>::
+closet door open 1.wav::AudioStreamWAV::2439188301906929877::1695769409::1696269953::1::::<><>::
+closet door open 2.wav::AudioStreamWAV::155173031723123324::1695769409::1696269953::1::::<><>::
+closet door open 3.wav::AudioStreamWAV::8816321549580024492::1695769409::1696269953::1::::<><>::
+closet door open 4.wav::AudioStreamWAV::6634624730386045873::1695769410::1696269953::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/Fish/::1696269636
+fish 1.wav::AudioStreamWAV::9142090044278960426::1695769416::1696269636::1::::<><>::
+fish 2.wav::AudioStreamWAV::7050946563218804143::1695769416::1696269636::1::::<><>::
+fish 3.wav::AudioStreamWAV::6520689222199112397::1695769416::1696269636::1::::<><>::
+fish 4.wav::AudioStreamWAV::4010109494808298264::1695769416::1696269636::1::::<><>::
+fish 5.wav::AudioStreamWAV::7950043312279770669::1695769416::1696269636::1::::<><>::
+fish 6.wav::AudioStreamWAV::8504495029291442890::1695769416::1696269636::1::::<><>::
+fish 7.wav::AudioStreamWAV::3187218544192402177::1695769416::1696269636::1::::<><>::
+fish 8.wav::AudioStreamWAV::5784802488887889906::1695769416::1696269636::1::::<><>::
+fish 9.wav::AudioStreamWAV::6439644040949626329::1695769416::1696269636::1::::<><>::
+fish 10.wav::AudioStreamWAV::5955769002586888087::1695769416::1696269636::1::::<><>::
+fish 11.wav::AudioStreamWAV::5485369433182235917::1695769416::1696269636::1::::<><>::
+fish 12.wav::AudioStreamWAV::982521198258350159::1695769416::1696269636::1::::<><>::
+fish 13.wav::AudioStreamWAV::2910140179197678004::1695769416::1696269636::1::::<><>::
+fish 14.wav::AudioStreamWAV::4259604249427382098::1695769416::1696269636::1::::<><>::
+fish 15.wav::AudioStreamWAV::7146154205866372946::1695769416::1696269636::1::::<><>::
+fish 16.wav::AudioStreamWAV::4657638201508844806::1695769416::1696269636::1::::<><>::
+fish 17.wav::AudioStreamWAV::6058785061076735463::1695769416::1696269636::1::::<><>::
+fish 18.wav::AudioStreamWAV::7932685535821671697::1695769416::1696269636::1::::<><>::
+fish 19.wav::AudioStreamWAV::7533069880649105353::1695769416::1696269636::1::::<><>::
+fish 20.wav::AudioStreamWAV::1374726046075957045::1695769416::1696269636::1::::<><>::
+fish 21.wav::AudioStreamWAV::8620750960097463260::1695769416::1696269636::1::::<><>::
+fish 22.wav::AudioStreamWAV::5945843683909568372::1695769416::1696269636::1::::<><>::
+fish 23.wav::AudioStreamWAV::4196935153286440058::1695769416::1696269636::1::::<><>::
+fish 24.wav::AudioStreamWAV::803198474448540615::1695769416::1696269636::1::::<><>::
+fish 25.wav::AudioStreamWAV::2513480764562319988::1695769416::1696269636::1::::<><>::
+fish 26.wav::AudioStreamWAV::4805689705884170390::1695769416::1696269636::1::::<><>::
+fish 27.wav::AudioStreamWAV::2433071662683090256::1695769416::1696269636::1::::<><>::
+fish 28.wav::AudioStreamWAV::2877801675753184677::1695769416::1696269636::1::::<><>::
+fish 29.wav::AudioStreamWAV::1562380440240532479::1695769416::1696269636::1::::<><>::
+fish 30.wav::AudioStreamWAV::5376016457145287712::1695769416::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/::1696269636
+footstep dirt 1.wav::AudioStreamWAV::3770001202289449041::1695769416::1696269636::1::::<><>::
+footstep dirt 2.wav::AudioStreamWAV::2680782836779726344::1695769417::1696269636::1::::<><>::
+footstep dirt 3.wav::AudioStreamWAV::7367103315472558970::1695769417::1696269636::1::::<><>::
+footstep dirt 4.wav::AudioStreamWAV::1598748127939384729::1695769417::1696269636::1::::<><>::
+footstep dirt 5.wav::AudioStreamWAV::4092723936394662736::1695769417::1696269636::1::::<><>::
+footstep dirt 6.wav::AudioStreamWAV::1320549568575928834::1695769417::1696269636::1::::<><>::
+footstep dirt 7.wav::AudioStreamWAV::4721442063543189984::1695769417::1696269636::1::::<><>::
+footstep dirt 8.wav::AudioStreamWAV::5625614161347967514::1695769417::1696269636::1::::<><>::
+footstep dirt 9.wav::AudioStreamWAV::5248021331165696519::1695769417::1696269636::1::::<><>::
+footstep dirt 10.wav::AudioStreamWAV::5611648929145674069::1695769416::1696269636::1::::<><>::
+footstep dirt 11.wav::AudioStreamWAV::8215318382990864869::1695769416::1696269636::1::::<><>::
+footstep dirt 12.wav::AudioStreamWAV::315550763447892889::1695769416::1696269636::1::::<><>::
+footstep dirt 13.wav::AudioStreamWAV::3059224720962085904::1695769416::1696269636::1::::<><>::
+footstep dirt 14.wav::AudioStreamWAV::2387358337173509033::1695769416::1696269636::1::::<><>::
+footstep dirt 15.wav::AudioStreamWAV::8306572850674280829::1695769417::1696269636::1::::<><>::
+footstep dirt 16.wav::AudioStreamWAV::6878978090547767064::1695769417::1696269636::1::::<><>::
+footstep dirt 17.wav::AudioStreamWAV::4163253667515599835::1695769417::1696269636::1::::<><>::
+footstep dirt 18.wav::AudioStreamWAV::594499836379572972::1695769417::1696269636::1::::<><>::
+footstep dirt 19.wav::AudioStreamWAV::4034266165139454994::1695769417::1696269636::1::::<><>::
+footstep dirt 20.wav::AudioStreamWAV::912872186285165::1695769417::1696269636::1::::<><>::
+footstep dirt 21.wav::AudioStreamWAV::8857913794414925679::1695769417::1696269636::1::::<><>::
+footstep dirt 22.wav::AudioStreamWAV::7270285138516986472::1695769417::1696269636::1::::<><>::
+footstep dirt 23.wav::AudioStreamWAV::3996870717974622584::1695769417::1696269636::1::::<><>::
+footstep dirt 24.wav::AudioStreamWAV::1276051467838925076::1695769417::1696269636::1::::<><>::
+footstep dirt 25.wav::AudioStreamWAV::7721070242077668688::1695769417::1696269636::1::::<><>::
+footstep dirt 26.wav::AudioStreamWAV::8524469370415665714::1695769417::1696269636::1::::<><>::
+footstep dirt 27.wav::AudioStreamWAV::3047044359123393142::1695769417::1696269636::1::::<><>::
+footstep dirt 28.wav::AudioStreamWAV::5444089684940477049::1695769417::1696269636::1::::<><>::
+::res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/::1696269636
+gas splash 1.wav::AudioStreamWAV::1812593700755811057::1695769421::1696269636::1::::<><>::
+gas splash 2.wav::AudioStreamWAV::8557046318020606664::1695769421::1696269636::1::::<><>::
+gas splash 3.wav::AudioStreamWAV::5932952658211565294::1695769421::1696269636::1::::<><>::
+gas splash 4.wav::AudioStreamWAV::3055319383607238285::1695769421::1696269636::1::::<><>::
+::res://Game/Assets/Sprites/::1696257864
 alien_scout_sprite_sheet.png::CompressedTexture2D::3203077462378069604::1696113865::1696185517::1::::<><>::
 player_combat_sprite.png::CompressedTexture2D::7265077728071563902::1696192548::1696192551::1::::<><>::
 player_explore_back.png::CompressedTexture2D::6940091042098508538::1696190562::1696190761::1::::<><>::
@@ -844,78 +1001,111 @@ player_explore_front.png::CompressedTexture2D::3514756022183592579::1696190907::
 player_explore_right.png::CompressedTexture2D::5339258624108837117::1696190729::1696190766::1::::<><>::
 player_fist.png::CompressedTexture2D::4495978807226556323::1696188827::1696188831::1::::<><>::
 sprite_player.png::CompressedTexture2D::5523767475845466273::1696082607::1696185517::1::::<><>::
-::res://Game/Assets/Sprites/NPCs/::1696212518
+::res://Game/Assets/Sprites/NPCs/::1696212672
 captain.png::CompressedTexture2D::7974448111401038751::1696202481::1696212672::1::::<><>::
 comms_officer.png::CompressedTexture2D::7696281318442677515::1696203281::1696210603::1::::<><>::
 comms_officer_loop.dtl::Resource::-1::1696212174::0::1::::<><>::
 pilot.png::CompressedTexture2D::695561750559639329::1696203290::1696209927::1::::<><>::
 talking_icon.png::CompressedTexture2D::2422522052391371869::1696210083::1696210091::1::::<><>::
+::res://Game/Assets/Sprites/Props/::1696268665
+bed.png::CompressedTexture2D::4803852517362449307::1696258903::1696259710::1::::<><>::
+buttons_panel.png::CompressedTexture2D::3846712102517166026::1696258266::1696268665::1::::<><>::
+ceilingLight.png::CompressedTexture2D::4998268352733788867::1696259256::1696259296::1::::<><>::
+dresser.png::CompressedTexture2D::4996922022458102660::1696259096::1696259653::1::::<><>::
+gurney.png::CompressedTexture2D::4763617705561685446::1696261727::1696261762::1::::<><>::
+lockerBank.png::CompressedTexture2D::5996664246387501918::1696260154::1696260165::1::::<><>::
+navigationalSign.png::CompressedTexture2D::7836029561455639586::1696260331::1696260366::1::::<><>::
+plantsBamboo.png::CompressedTexture2D::4905688850847998739::1696258478::1696259820::1::::<><>::
+plantsWallSpiderPlant.png::CompressedTexture2D::1661900992370653377::1696258735::1696259734::1::::<><>::
+simpleDesk.png::CompressedTexture2D::3447573834273516404::1696258024::1696261467::1::::<><>::
 ::res://Game/Assets/VFX/::1696185518
 alien_blood_particle0.png::CompressedTexture2D::8253055596433456846::1696115755::1696185517::1::::<><>::
 alien_splatter.png::CompressedTexture2D::566520843801653703::1696115608::1696185518::1::::<><>::
-::res://Game/Character/::1696212620
+::res://Game/Character/::1696277013
 CameraStateCombat.cs::CSharpScript::-1::1696106406::0::1::::<><>::
-Player.cs::CSharpScript::-1::1696211932::0::1::::<><>::
-player.tscn::PackedScene::5259282371244379736::1696212620::0::1::::<><>::res://Game/Character/Player.cs<>res://Core/Modules/CharStats/CharStatManager.cs<>res://Core/Modules/FSM/FiniteStateMachine.cs<>res://Core/Modules/CharStats/CharStatFloat.cs<>res://Game/Character/PlayerStateExplore.cs<>res://Core/Modules/Camera/VirtualCamera.cs<>uid://b5b5d4477nwml::::res://Game/Assets/Sprites/player_fist.png<>res://Game/Character/StateCutscene.cs<>res://Game/Character/PlayerStateCombat.cs<>res://Game/Character/StateCameraControls.cs<>res://Core/Modules/Interaction/InteractionSensor.cs<>res://Game/exploring/test_gfx.gdshader<>res://Game/Character/CameraStateCombat.cs<>uid://c543jyboo0bck::::res://Game/Assets/Sprites/player_explore_back.png<>uid://cicm2r0fnammf::::res://Game/Assets/Sprites/player_explore_right.png<>uid://bqctrvajlx25t::::res://Game/Assets/Sprites/player_explore_front.png<>uid://dbri1ewtg4vhu::::res://Game/Assets/Sprites/player_combat_sprite.png<>uid://bokxoeqmv6r1k::::res://Game/GUI/player_health_bar.tscn<>uid://b1v2k5cosyaap::::res://Game/Assets/GUI/player_oxygen_bar/BG.PNG<>uid://fty010we4nl3::::res://Game/Assets/GUI/player_oxygen_bar/FG.PNG<>uid://bv1scgt7wvdj8::::res://Game/Assets/GUI/player_oxygen_bar/Bar.PNG<>uid://dpyi4cm40c554::::res://Game/GUI/player_inventory_interactive.tscn<>uid://janjfsv1wkri::::res://Game/GUI/player_inventory_display.tscn<>uid://bfhnnq6qcwafo::::res://Core/Scenes/Character/Player/inventory_manager.tscn<>uid://dg7138iwmapsx::::res://Core/Scenes/Character/Components/footstep_sounds_component.tscn
+Player.cs::CSharpScript::-1::1696276611::0::1::::<><>::
+player.tscn::PackedScene::5259282371244379736::1696277013::0::1::::<><>::res://Game/Character/Player.cs<>uid://bxx3alyuua71f::::res://Game/Assets/SFX/ThirdParty/Singles/body_hit_grunt.tres<>res://Core/Modules/CharStats/CharStatManager.cs<>uid://r1pdyve0em02::::res://Game/Assets/SFX/ThirdParty/Singles/bounce_on.tres<>res://Core/Modules/FSM/FiniteStateMachine.cs<>res://Core/Modules/CharStats/CharStatFloat.cs<>uid://bm8e12g6obnd2::::res://Game/Assets/SFX/ThirdParty/Singles/catch_ball.tres<>res://Game/Character/PlayerStateExplore.cs<>res://Core/Modules/Camera/VirtualCamera.cs<>uid://b5b5d4477nwml::::res://Game/Assets/Sprites/player_fist.png<>res://Game/Character/StateCutscene.cs<>res://Game/Character/PlayerStateCombat.cs<>res://Game/Character/StateCameraControls.cs<>res://Core/Modules/Interaction/InteractionSensor.cs<>res://Game/exploring/test_gfx.gdshader<>res://Game/Character/CameraStateCombat.cs<>uid://c543jyboo0bck::::res://Game/Assets/Sprites/player_explore_back.png<>uid://cicm2r0fnammf::::res://Game/Assets/Sprites/player_explore_right.png<>uid://bqctrvajlx25t::::res://Game/Assets/Sprites/player_explore_front.png<>uid://dbri1ewtg4vhu::::res://Game/Assets/Sprites/player_combat_sprite.png<>uid://bokxoeqmv6r1k::::res://Game/GUI/player_health_bar.tscn<>uid://b1v2k5cosyaap::::res://Game/Assets/GUI/player_oxygen_bar/BG.PNG<>uid://fty010we4nl3::::res://Game/Assets/GUI/player_oxygen_bar/FG.PNG<>uid://bv1scgt7wvdj8::::res://Game/Assets/GUI/player_oxygen_bar/Bar.PNG<>uid://dpyi4cm40c554::::res://Game/GUI/player_inventory_interactive.tscn<>uid://janjfsv1wkri::::res://Game/GUI/player_inventory_display.tscn<>uid://bfhnnq6qcwafo::::res://Core/Scenes/Character/Player/inventory_manager.tscn<>uid://bqm15kscl7aw1::::res://Core/Scenes/UI/HUD/hud_components/alert_panel.tscn<>uid://dg7138iwmapsx::::res://Core/Scenes/Character/Components/footstep_sounds_component.tscn<>uid://dth706m1xmegh::::res://Game/Assets/SFX/ThirdParty/Singles/footsteps_dirt.tres
 PlayerStateCombat.cs::CSharpScript::-1::1696196360::0::1::::<><>::
 PlayerStateExplore.cs::CSharpScript::-1::1696197269::0::1::::<><>::
 StateCameraControls.cs::CSharpScript::-1::1696202109::0::1::::<><>::
 StateCutscene.cs::CSharpScript::-1::1696211865::0::1::::<><>::
-::res://Game/Dialog/::1696212396
+::res://Game/Cutscene/::1696253652
+CutsceneInstancer.cs::CSharpScript::-1::1696253626::0::1::::<><>::
+cutscene_instancer.tscn::PackedScene::7200767363276374495::1696253652::0::1::::<><>::res://Game/Cutscene/CutsceneInstancer.cs
+::res://Game/Cutscene/scenes/::1696266306
+asteroid_hit_cutscene.tscn::PackedScene::1699741306140273553::1696257059::0::1::::<><>::res://Core/Modules/Camera/VirtualCamera.cs<>res://Core/Modules/Effects/EffectsDriver.cs<>res://Core/Modules/Camera/CinematicSequence.cs<>uid://css3cdep54in6
+GameWonCutscene.cs::CSharpScript::-1::1696265571::0::1::::<><>::
+game_won_cutscene.tscn::PackedScene::8466812295573592601::1696266306::0::1::::<><>::res://Core/Modules/Camera/VirtualCamera.cs<>res://Game/Cutscene/scenes/GameWonCutscene.cs<>res://Core/Modules/Effects/EffectsDriver.cs<>res://Core/Modules/Camera/CinematicSequence.cs<>uid://d4ln20wgoafva::::res://Game/Assets/Models/ship_hull.glb<>uid://dws5cw6evuecg::::res://Game/Assets/KenneyAssetsPack/smoke_09.png
+test_cutscene.tscn::PackedScene::8300898887337840198::1696256310::0::1::::<><>::res://Core/Modules/Camera/VirtualCamera.cs<>res://Core/Modules/Effects/EffectsDriver.cs<>res://Core/Modules/Effects/CutsceneSkipper.cs<>res://Core/Modules/Camera/CinematicSequence.cs<>uid://d4ln20wgoafva
+::res://Game/Dialog/::1696267208
 captain_wants_coffee.dtl::Resource::-1::1696212396::0::1::::<><>::
+cpn_getCoffee.dtl::Resource::-1::1696251235::0::1::::<><>::
+cpn_silent.dtl::Resource::-1::1696252659::0::1::::<><>::
+cpn_waitCoffee.dtl::Resource::-1::1696251075::0::1::::<><>::
+cpn_waitExterminate.dtl::Resource::-1::1696267208::0::1::::<><>::
+cpn_waitRefuel.dtl::Resource::-1::1696267041::0::1::::<><>::
+cpn_waitSensorArray.dtl::Resource::-1::1696251224::0::1::::<><>::
+cpn_waitThrusterFire.dtl::Resource::-1::1696266976::0::1::::<><>::
 pilot.dtl::Resource::-1::1696205653::0::1::::<><>::
-::res://Game/Dialog/chars/::1696212636
+::res://Game/Dialog/chars/::1696251270
 captain.dch::Resource::-1::1696212378::0::1::::<><>::
 comms_officer.dch::Resource::-1::1696212636::0::1::::<><>::
-me.dch::Resource::-1::1696212383::0::1::::<><>::
+me.dch::Resource::-1::1696251270::0::1::::<><>::
 pilot.dch::Resource::-1::1696206055::0::1::::<><>::
-::res://Game/Enemy/::1696193306
-AlienScout.cs::CSharpScript::-1::1696189697::0::1::::<><>::
-AlienStateAttacking.cs::CSharpScript::-1::1696189598::0::1::::<><>::
+::res://Game/Enemy/::1696276671
+AlienScout.cs::CSharpScript::-1::1696274906::0::1::::<><>::
+AlienStateAttacking.cs::CSharpScript::-1::1696267911::0::1::::<><>::
 AlienStateHitRecover.cs::CSharpScript::-1::1696189880::0::1::::<><>::
-alien_scout.tscn::PackedScene::1139894061246650961::1696193306::0::1::::<><>::uid://blvuhn2t6snl1
+alien_scout.tscn::PackedScene::1139894061246650961::1696276671::0::1::::<><>::uid://blvuhn2t6snl1::::res://Game/Assets/Sprites/alien_scout_sprite_sheet.png<>res://Game/Enemy/AlienScout.cs<>res://Core/Modules/CharStats/CharStatManager.cs<>res://Core/Modules/CharStats/CharStatFloat.cs<>res://Core/Modules/FSM/FiniteStateMachine.cs<>res://Game/Enemy/AlienStateAttacking.cs<>res://Game/Enemy/AlienStateHitRecover.cs<>uid://dg7138iwmapsx::::res://Core/Scenes/Character/Components/footstep_sounds_component.tscn<>uid://dth706m1xmegh::::res://Game/Assets/SFX/ThirdParty/Singles/footsteps_dirt.tres<>uid://yq32wc3p3j8d::::res://Game/Assets/SFX/ThirdParty/Singles/fish.tres
 ::res://Game/Enemy/VFX/::1696125131
 alien_splatter.tscn::PackedScene::113463556909676501::1696125131::0::1::::<><>::uid://dpt3vcua8euj3
 hit_spray_vfx.tscn::PackedScene::3879716580524567924::1696125131::0::1::::<><>::uid://dpt3vcua8euj3
-::res://Game/exploring/::1696212658
-test_gfx.gdshader::Shader::-1::1696212658::0::1::::<><>::
+::res://Game/exploring/::1696277013
+test_gfx.gdshader::Shader::-1::1696277013::0::1::::<><>::
 test_gfx.tres::ShaderMaterial::4177623711816308554::1696190864::0::1::::<><>::res://Game/exploring/test_gfx.gdshader<>uid://c543jyboo0bck
 test_gfx.tscn::PackedScene::4051539887056418265::1696093080::0::1::::<><>::uid://b0rw38d5llq87
-::res://Game/GUI/::1696187336
+::res://Game/GUI/::1696276672
 PlayerHealthBar.cs::CSharpScript::-1::1696123649::0::1::::<><>::
 PlayerInventoryDisplay.cs::CSharpScript::-1::1696171890::0::1::::<><>::
 PlayerInventoryInteractive.cs::CSharpScript::-1::1696187689::0::1::::<><>::
 PlayerInventorySlotDisplay.cs::CSharpScript::-1::1696187137::0::1::::<><>::
 player_health_bar.tscn::PackedScene::3391129999499247754::1696125131::0::1::::<><>::uid://wuucbv3gjr2j
 player_inventory_display.tscn::PackedScene::632505277206395234::1696179302::0::1::::<><>::res://Game/GUI/PlayerInventoryDisplay.cs<>uid://ciq8uu1uqixej
-player_inventory_interactive.tscn::PackedScene::8262177420648100561::1696187336::0::1::::<><>::res://Game/GUI/PlayerInventoryInteractive.cs<>uid://dvq2x62knaaa4
+player_inventory_interactive.tscn::PackedScene::8262177420648100561::1696276672::0::1::::<><>::res://Game/GUI/PlayerInventoryInteractive.cs<>uid://0r3ppw03qawu::::res://Game/GUI/player_inv_slot_display.tscn<>uid://b8y0v225qjej4::::res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn
 player_inv_slot_display.tscn::PackedScene::1791543198485742176::1696182796::0::1::::<><>::uid://bgnkyjxyt8rv2
 ::res://Game/Items/::1696188081
 Item.cs::CSharpScript::-1::1696169965::0::1::::Item<>Resource<>::
 WorldItem.cs::CSharpScript::-1::1696187750::0::1::::<><>::
 world_item.tscn::PackedScene::567071366717477427::1696187336::0::1::::<><>::res://Core/Modules/Interaction/InteractiveTrigger.cs<>res://Game/Items/WorldItem.cs<>uid://c7lphyspobdd2
-::res://Game/Level/::1696212400
+::res://Game/Level/::1696276671
 ShipLevel.VoxelGI_data.res::VoxelGIData::399882574539639138::1696130590::0::1::::<><>::
-ship_level.tscn::PackedScene::6031607914570395712::1696212400::0::1::::<><>::res://Game/Mechanics/ShipManager.cs<>uid://ceoitjyqpk3d7::::res://Game/Assets/Models/main_ship_overview.glb<>uid://cg6vu21n6mice::::res://Game/Character/player.tscn<>res://Core/Scenes/UI/Menus/pause_menu_controller.gd<>res://Core/Modules/Camera/VirtualCamera.cs<>uid://b7g536tu4rgcr::::res://Game/Mechanics/room_manager.tscn<>res://Core/Modules/Camera/CameraBrain.cs<>uid://c43x1vv4jnrfg::::res://Game/Mechanics/sensor_array_interface.tscn<>uid://ydtho7tbl1kg::::res://Game/Mechanics/ship_door.tscn<>uid://d0rwje40embmb::::res://game_environment.tres<>uid://icxt2o6p052n::::res://Game/Items/world_item.tscn<>uid://bjdrnhgvsfnc8::::res://Game/Mechanics/thruster_turbine.tscn<>uid://cmn54ipxkq27t::::res://Game/Registry/Item/FireExtinguisher.tres<>uid://jp25e16d5qe1::::res://Game/Registry/Item/FuelCan.tres<>uid://bnyupnwohm20n::::res://Game/NPC/simple_npc.tscn<>uid://cnolrjx55kql1::::res://Game/Registry/Item/SensorReconfigDisc.tres<>uid://dhwevm8i63fkt::::res://Game/Assets/Sprites/NPCs/comms_officer.png
-::res://Game/Mechanics/::1696212400
-RoomManager.cs::CSharpScript::-1::1696202041::0::1::::<><>::
+ship_level.tscn::PackedScene::6031607914570395712::1696276671::0::1::::<><>::res://Game/Mechanics/ShipManager.cs<>uid://ceoitjyqpk3d7::::res://Game/Assets/Models/main_ship_overview.glb<>uid://cg6vu21n6mice::::res://Game/Character/player.tscn<>res://Core/Scenes/UI/Menus/pause_menu_controller.gd<>res://Core/Modules/Effects/ScreenShakeDriver.cs<>res://Core/Modules/Camera/VirtualCamera.cs<>uid://b7g536tu4rgcr::::res://Game/Mechanics/room_manager.tscn<>res://Core/Modules/Camera/CameraBrain.cs<>uid://c43x1vv4jnrfg::::res://Game/Mechanics/sensor_array_interface.tscn<>uid://ydtho7tbl1kg::::res://Game/Mechanics/ship_door.tscn<>uid://d0rwje40embmb::::res://game_environment.tres<>uid://icxt2o6p052n::::res://Game/Items/world_item.tscn<>uid://bu2m1y8notlre::::res://Game/Assets/Sprites/Props/buttons_panel.png<>uid://cdhg0qo4yhj3p::::res://Game/Assets/Sprites/Props/ceilingLight.png<>uid://bjdrnhgvsfnc8::::res://Game/Mechanics/thruster_turbine.tscn<>uid://cmn54ipxkq27t::::res://Game/Registry/Item/FireExtinguisher.tres<>uid://u5355jbueg6e::::res://Game/Assets/SFX/ThirdParty/Singles/Ambient/ambience - swamp.wav<>uid://jp25e16d5qe1::::res://Game/Registry/Item/FuelCan.tres<>uid://bwwwjarpq43n8::::res://Game/Registry/Item/Coffee.tres<>uid://bnyupnwohm20n::::res://Game/NPC/simple_npc.tscn<>uid://cnolrjx55kql1::::res://Game/Registry/Item/SensorReconfigDisc.tres<>uid://70cyb1ijbc5l::::res://Game/NPC/captain_npc.tscn<>uid://dhwevm8i63fkt::::res://Game/Assets/Sprites/NPCs/comms_officer.png<>uid://daudt657xsra2::::res://Game/Cutscene/cutscene_instancer.tscn<>uid://yhmqxtl846lh::::res://Game/Cutscene/scenes/asteroid_hit_cutscene.tscn<>uid://cdgsttpmn38ia::::res://Game/Assets/Sprites/Props/dresser.png<>uid://dyntonmmhacgn::::res://Game/Registry/Item/Wrench.tres<>uid://capa0p780ymdv::::res://Game/Assets/Sprites/Props/bed.png<>uid://xxbjcd80svor::::res://Game/Assets/Sprites/Props/plantsWallSpiderPlant.png<>uid://bpebbjgfav8ua::::res://Game/Assets/Sprites/Props/simpleDesk.png<>uid://b84sc8kq65egk::::res://Game/Assets/Sprites/Props/gurney.png<>uid://cb5l8jkul2lvv::::res://Game/Assets/Sprites/Props/plantsBamboo.png<>uid://cro3giyrb46va::::res://Game/Assets/Sprites/Props/lockerBank.png<>uid://dcw1ds2xut5vd::::res://Game/Registry/Item/MedicalKit.tres<>uid://djv3i55nlcmas::::res://Game/Assets/Sprites/Props/navigationalSign.png<>uid://dsvnfqxixqjnl::::res://Game/Cutscene/scenes/game_won_cutscene.tscn<>res://Core/Modules/Audio/SceneBGMLoader.cs<>uid://bavv7lrt87obm::::res://Game/Assets/SFX/ThirdParty/Loops/Sci-Fi 2 Loop.ogg
+::res://Game/Mechanics/::1696276672
+RoomManager.cs::CSharpScript::-1::1696269018::0::1::::<><>::
 room_manager.tscn::PackedScene::4646723117170102789::1696193403::0::1::::<><>::res://Game/Mechanics/RoomManager.cs
-SensorArrayInterface.cs::CSharpScript::-1::1696198973::0::1::::<><>::
-sensor_array_interface.tscn::PackedScene::6867564468239401804::1696212400::0::1::::<><>::res://Core/Modules/Interaction/InteractiveTrigger.cs<>res://Game/Mechanics/SensorArrayInterface.cs<>uid://c0qi0ws1a2bu8::::res://Game/Assets/Models/sensor_array_station.glb
+SensorArrayInterface.cs::CSharpScript::-1::1696274849::0::1::::<><>::
+sensor_array_interface.tscn::PackedScene::6867564468239401804::1696276672::0::1::::<><>::res://Core/Modules/Interaction/InteractiveTrigger.cs<>res://Game/Mechanics/SensorArrayInterface.cs<>uid://c0qi0ws1a2bu8::::res://Game/Assets/Models/sensor_array_station.glb<>uid://c33r7st1hmky::::res://Game/Assets/SFX/ThirdParty/Singles/tube tv turn on 2.wav
 ShipDoor.cs::CSharpScript::-1::1696093833::0::1::::<><>::
-ShipManager.cs::CSharpScript::-1::1696174527::0::1::::<><>::
+ShipManager.cs::CSharpScript::-1::1696267550::0::1::::<><>::
 ship_door.occ::ArrayOccluder3D::4739424526593908734::1696093449::0::1::::<><>::
-ship_door.tscn::PackedScene::1691892289620569098::1696129009::0::1::::<><>::res://Game/Assets/Materials/ship_wal_pbr.tres<>res://Game/Mechanics/ShipDoor.cs
-ThrusterTurbine.cs::CSharpScript::-1::1696201691::0::1::::<><>::
-thruster_turbine.tscn::PackedScene::3025369191806052481::1696212400::0::1::::<><>::res://Game/Mechanics/ThrusterTurbine.cs<>uid://pb2hr2pfnj11::::res://Game/Assets/Models/thruster.glb<>res://Core/Modules/Interaction/InteractiveTrigger.cs<>uid://css3cdep54in6::::res://Game/Assets/KenneyAssetsPack/flame_02.png<>uid://rh7nljhk2x5h::::res://Game/Assets/KenneyAssetsPack/smoke_01.png<>uid://c10wwc1dr8q4::::res://Game/Assets/KenneyAssetsPack/spark_01.png
-::res://Game/Menu/::1696176066
+ship_door.tscn::PackedScene::1691892289620569098::1696272929::0::1::::<><>::res://Game/Assets/Materials/ship_wal_pbr.tres<>res://Game/Mechanics/ShipDoor.cs<>uid://mp4bs4lbu0bh::::res://Game/Assets/SFX/ThirdParty/Singles/air_duster.tres
+ThrusterTurbine.cs::CSharpScript::-1::1696274586::0::1::::<><>::
+thruster_turbine.tscn::PackedScene::3025369191806052481::1696276671::0::1::::<><>::res://Game/Mechanics/ThrusterTurbine.cs<>uid://pb2hr2pfnj11::::res://Game/Assets/Models/thruster.glb<>res://Core/Modules/Interaction/InteractiveTrigger.cs<>uid://css3cdep54in6::::res://Game/Assets/KenneyAssetsPack/flame_02.png<>uid://rh7nljhk2x5h::::res://Game/Assets/KenneyAssetsPack/smoke_01.png<>uid://c10wwc1dr8q4::::res://Game/Assets/KenneyAssetsPack/spark_01.png<>uid://b85qa3oeaytdk::::res://Game/Assets/SFX/ThirdParty/Singles/Ambient/ambience - car sedan idling.wav<>uid://b2ww4kskd6xnl::::res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 6.wav<>uid://cti2or3c1pxia::::res://Game/Assets/SFX/ThirdParty/Singles/gas_splash.tres
+::res://Game/Menu/::1696274451
 GameOverScreen.cs::CSharpScript::-1::1696128257::0::1::::<><>::
-game_over_screen.tscn::PackedScene::67955010224924173::1696176066::0::1::::<><>::res://Game/Menu/GameOverScreen.cs<>uid://ci8q8yf6jrc8n
-::res://Game/NPC/::1696212658
-captain_npc.tscn::PackedScene::2297816826371599143::1696212658::0::1::::<><>::
+GameWonScreen.cs::CSharpScript::-1::1696266325::0::1::::<><>::
+game_over_screen.tscn::PackedScene::67955010224924173::1696274451::0::1::::<><>::res://Game/Menu/GameOverScreen.cs<>uid://ci8q8yf6jrc8n::::res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn<>uid://cmadwvieebxur::::res://Game/Assets/GUI/main_menu_bg.jpg<>uid://b8y0v225qjej4::::res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn
+game_won_screen.tscn::PackedScene::1673579508619575106::1696274440::0::1::::<><>::uid://b8y0v225qjej4::::res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn<>res://Game/Menu/GameWonScreen.cs<>uid://cmadwvieebxur::::res://Game/Assets/GUI/main_menu_bg.jpg<>uid://ci8q8yf6jrc8n::::res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn
+::res://Game/NPC/::1696267252
+CaptainNPC.cs::CSharpScript::-1::1696257477::0::1::::<><>::
+captain_npc.tscn::PackedScene::2297816826371599143::1696267252::0::1::::<><>::uid://dlu483t2a62xn::::res://Game/Assets/Sprites/NPCs/captain.png<>res://Game/NPC/CaptainNPC.cs<>uid://barqt4ocluwdp::::res://Game/Assets/Sprites/NPCs/talking_icon.png<>res://Core/Modules/Interaction/InteractiveTrigger.cs<>res://Core/Modules/FSM/FiniteStateMachine.cs<>res://Game/NPC/States/StatePlayTrack.cs<>res://Game/NPC/States/StateConsumeItem.cs<>res://Game/NPC/States/StateManageShipStatus.cs
 SimpleNPC.cs::CSharpScript::-1::1696212111::0::1::::<><>::
 simple_npc.gd::GDScript::-1::1696210792::0::1::::<>Node3D<>::
-simple_npc.tscn::PackedScene::3349662561284062427::1696212400::0::1::::<><>::res://Core/Modules/Interaction/InteractiveTrigger.cs<>uid://j562hjjgsxk8::::res://Game/Assets/Sprites/NPCs/pilot.png<>res://Game/NPC/SimpleNPC.cs<>uid://barqt4ocluwdp::::res://Game/Assets/Sprites/NPCs/talking_icon.png
+simple_npc.tscn::PackedScene::3349662561284062427::1696253651::0::1::::<><>::res://Core/Modules/Interaction/InteractiveTrigger.cs<>uid://j562hjjgsxk8
+::res://Game/NPC/States/::1696266392
+StateConsumeItem.cs::CSharpScript::-1::1696252810::0::1::::<><>::
+StateManageShipStatus.cs::CSharpScript::-1::1696267078::0::1::::<><>::
+StatePlayTrack.cs::CSharpScript::-1::1696252432::0::1::::<><>::
 ::res://Game/Registry/::1696167554
 ::res://Game/Registry/Item/::1696185990
 Coffee.tres::Resource/Resource::3977343427270895315::1696185990::0::1::::<><>::uid://dhlsyq6qn3brv

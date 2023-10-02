@@ -1,0 +1,349 @@
+[gd_scene load_steps=15 format=3 uid="uid://dsvnfqxixqjnl"]
+
+[ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="1_iix6e"]
+[ext_resource type="Script" path="res://Game/Cutscene/scenes/GameWonCutscene.cs" id="1_j8t6j"]
+[ext_resource type="Script" path="res://Core/Modules/Effects/EffectsDriver.cs" id="2_yr1bi"]
+[ext_resource type="Script" path="res://Core/Modules/Camera/CinematicSequence.cs" id="3_vpqg0"]
+[ext_resource type="PackedScene" uid="uid://d4ln20wgoafva" path="res://Game/Assets/Models/ship_hull.glb" id="4_c0shv"]
+[ext_resource type="Texture2D" uid="uid://dws5cw6evuecg" path="res://Game/Assets/KenneyAssetsPack/smoke_09.png" id="5_vyd1w"]
+
+[sub_resource type="Curve" id="Curve_sdvli"]
+max_value = 7.0
+_data = [Vector2(0, 7), 0.0, 0.0, 0, 0, Vector2(0.993399, 0), -14.2828, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_idn8k"]
+curve = SubResource("Curve_sdvli")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lwonr"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, -1)
+spread = 4.2
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 18.65
+initial_velocity_max = 50.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+scale_min = 5.1
+scale_max = 7.0
+scale_curve = SubResource("CurveTexture_idn8k")
+hue_variation_min = -0.1
+hue_variation_max = 0.25
+attractor_interaction_enabled = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xc51"]
+transparency = 1
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.117647, 0.976471, 1, 1)
+albedo_texture = ExtResource("5_vyd1w")
+emission_enabled = true
+emission = Color(0.116876, 0.977616, 1, 1)
+emission_energy_multiplier = 4.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0hgk7"]
+material = SubResource("StandardMaterial3D_8xc51")
+size = Vector2(4, 4)
+
+[sub_resource type="Animation" id="Animation_t8e1s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship_hull:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -500, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship_hull:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Asteroid:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ship_hull/ThrusterParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ship_hull/ThrusterParticles2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v3717"]
+resource_name = "scene"
+length = 7.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectsDriver")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6.8, 6.80216, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.3, 0.3, 10.0, -1],
+"method": &"RumbleController"
+}, {
+"args": [8.0, 2.0, 10.0],
+"method": &"ShakeScreen"
+}, {
+"args": [],
+"method": &"ClearEffects"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CinematicSequence")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Start"
+}, {
+"args": [],
+"method": &"End"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.2, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-71.386, -467.218, -14.806), Vector3(-71.386, -467.218, -14.806), Vector3(-71.386, -467.218, -14.806)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.2, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.523599, -1.5708, 0), Vector3(-0.523599, -1.5708, 0), Vector3(0.0349066, -2.16421, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ship_hull:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6, 6.03333, 6.06667, 6.1, 6.13333, 6.16667, 6.2, 6.23333, 6.26667, 6.3, 6.33333, 6.36667, 6.4, 6.43333, 6.46667, 6.5, 6.53333, 6.56667, 6.6, 6.63333, 6.66667, 6.7, 6.73333, 6.76667, 6.8, 6.83333, 6.86667, 6.9, 6.93333, 6.96667, 7, 7.03333, 7.06667, 7.1, 7.13333, 7.16667, 7.2, 7.23333, 7.26667, 7.3, 7.33333, 7.36667, 7.4, 7.43333, 7.46667, 7.5, 7.53333, 7.56667, 7.6, 7.63333, 7.66667, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -500, 0), Vector3(0, -500, 0), Vector3(0, -500.063, -0.126767), Vector3(0, -500.245, -0.490776), Vector3(0, -500.534, -1.06759), Vector3(0, -500.916, -1.83276), Vector3(0, -501.381, -2.76186), Vector3(0, -501.915, -3.83044), Vector3(0, -502.507, -5.01407), Vector3(0, -503.144, -6.2883), Vector3(0, -503.814, -7.6287), Vector3(0, -504.505, -9.01083), Vector3(0, -505.205, -10.4102), Vector3(0, -505.901, -11.8025), Vector3(0, -506.582, -13.1632), Vector3(0, -507.234, -14.4678), Vector3(0, -507.846, -15.692), Vector3(0, -508.406, -16.8113), Vector3(0, -508.901, -17.8012), Vector3(0, -509.319, -18.6373), Vector3(0, -509.648, -19.2952), Vector3(0, -509.875, -19.7505), Vector3(0, -509.989, -19.9786), Vector3(0, -509.978, -19.9552), Vector3(0, -509.828, -19.6558), Vector3(0, -509.528, -19.056), Vector3(0, -509.066, -18.1313), Vector3(0, -508.429, -16.8573), Vector3(0, -507.605, -15.2096), Vector3(0, -506.582, -13.1637), Vector3(0, -505.348, -10.6952), Vector3(0, -503.89, -7.77962), Vector3(0, -502.196, -4.39255), Vector3(0, -500.255, -0.509541), Vector3(0, -498.053, 3.89385), Vector3(0, -495.579, 8.84204), Vector3(0, -492.82, 14.3595), Vector3(0, -489.765, 20.4707), Vector3(0, -486.4, 27.1999), Vector3(0, -482.714, 34.5718), Vector3(0, -478.695, 42.6106), Vector3(0, -474.33, 51.341), Vector3(0, -469.606, 60.7872), Vector3(0, -464.513, 70.9737), Vector3(0, -459.038, 81.925), Vector3(0, -453.167, 93.6655), Vector3(0, -446.89, 106.22), Vector3(0, -440.194, 119.612), Vector3(0, -433.067, 133.867), Vector3(0, -425.496, 149.008), Vector3(0, -417.469, 165.062), Vector3(0, -408.975, 182.051), Vector3(0, -400, 200)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ship_hull:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.261799, 0, 0)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(7.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoToWinScreen"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Asteroid:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ship_hull/ThrusterParticles:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ship_hull/ThrusterParticles2:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 6.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cj81x"]
+_data = {
+"RESET": SubResource("Animation_t8e1s"),
+"scene": SubResource("Animation_v3717")
+}
+
+[node name="TestCutscene" type="Node3D"]
+script = ExtResource("1_j8t6j")
+_winScreenFile = "res://Game/Menu/game_won_screen.tscn"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.841511, 0.387961, -0.37596, 0, 0.695913, 0.718126, 0.540241, -0.604311, 0.585618, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+script = ExtResource("1_iix6e")
+_pushCamOnReady = true
+LerpCamera = false
+_lerpDuration = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D"]
+
+[node name="EffectsDriver" type="Node" parent="."]
+script = ExtResource("2_yr1bi")
+
+[node name="CinematicSequence" type="Node" parent="."]
+script = ExtResource("3_vpqg0")
+
+[node name="ship_hull" parent="." instance=ExtResource("4_c0shv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+
+[node name="ThrusterParticles" type="GPUParticles3D" parent="ship_hull"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -24.5, 0.399994, -63.9999)
+emitting = false
+amount = 256
+lifetime = 3.0
+explosiveness = 0.09
+randomness = 0.35
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+process_material = SubResource("ParticleProcessMaterial_lwonr")
+draw_pass_1 = SubResource("QuadMesh_0hgk7")
+
+[node name="ThrusterParticles2" type="GPUParticles3D" parent="ship_hull"]
+transform = Transform3D(1, 0, 0, 0, 0.999999, -2.98023e-08, 0, 2.98023e-08, 0.999999, 24.5, 0.399994, -63.9999)
+emitting = false
+amount = 256
+lifetime = 3.0
+explosiveness = 0.09
+randomness = 0.35
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+process_material = SubResource("ParticleProcessMaterial_lwonr")
+draw_pass_1 = SubResource("QuadMesh_0hgk7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "scene"
+libraries = {
+"": SubResource("AnimationLibrary_cj81x")
+}

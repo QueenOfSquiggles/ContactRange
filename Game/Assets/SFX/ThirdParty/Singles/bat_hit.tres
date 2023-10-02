@@ -1,0 +1,50 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=16 format=3 uid="uid://bqd6503811hcv"]
+
+[ext_resource type="AudioStream" uid="uid://prmlst2o23sg" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 1.wav" id="1_65ntg"]
+[ext_resource type="AudioStream" uid="uid://id0ulvoho1g8" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 2.wav" id="2_nn7in"]
+[ext_resource type="AudioStream" uid="uid://bpmw27nnraj25" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 11.wav" id="3_x4wc2"]
+[ext_resource type="AudioStream" uid="uid://dfnhy4ol4cdjj" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 12.wav" id="4_rb7ni"]
+[ext_resource type="AudioStream" uid="uid://ymxxxoqq0uut" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 13.wav" id="5_rkh7u"]
+[ext_resource type="AudioStream" uid="uid://c7sbicktmwfra" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 14.wav" id="6_xirwv"]
+[ext_resource type="AudioStream" uid="uid://pjx73uy78tfe" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 15.wav" id="7_sfej7"]
+[ext_resource type="AudioStream" uid="uid://dm7c2msyccg7d" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 3.wav" id="8_wfmuj"]
+[ext_resource type="AudioStream" uid="uid://dme4mbu86xl7g" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 4.wav" id="9_dcufv"]
+[ext_resource type="AudioStream" uid="uid://bdtpwyoeebf7t" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 5.wav" id="10_vlj6a"]
+[ext_resource type="AudioStream" uid="uid://coa6a28ges06q" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 6.wav" id="11_f8327"]
+[ext_resource type="AudioStream" uid="uid://cj8pi3xxjsxtt" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 7.wav" id="12_e7uxb"]
+[ext_resource type="AudioStream" uid="uid://ckpck25b0i7hd" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 8.wav" id="13_lgckj"]
+[ext_resource type="AudioStream" uid="uid://1fwkv6punvc8" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 9.wav" id="14_15f85"]
+[ext_resource type="AudioStream" uid="uid://dlv2ys6ex1xfo" path="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 10.wav" id="15_8vhp7"]
+
+[resource]
+streams_count = 15
+stream_0/stream = ExtResource("1_65ntg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_nn7in")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_wfmuj")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_dcufv")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_vlj6a")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("11_f8327")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("12_e7uxb")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("13_lgckj")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("14_15f85")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("15_8vhp7")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_x4wc2")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_rb7ni")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_rkh7u")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_xirwv")
+stream_13/weight = 1.0
+stream_14/stream = ExtResource("7_sfej7")
+stream_14/weight = 1.0

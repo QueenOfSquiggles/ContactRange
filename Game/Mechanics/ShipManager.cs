@@ -9,7 +9,8 @@ using Squiggles.Core.Scenes.Utility;
 
 public partial class ShipManager : Node {
 
-  private ShipManager _instance;
+  [Export] private PackedScene _gameWinCutscene;
+  private static ShipManager _instance;
 
   public static event Action<string, int> OnRoomStatusUpdated;
   public static event Action<string, bool> OnFlagUpdated;
@@ -30,8 +31,6 @@ public partial class ShipManager : Node {
   };
 
   private static readonly Dictionary<string, bool> _flags = new() {
-    {"coffee_requested", false},
-    {"coffee_returned", false},
     {"sensor_array_active", false},
     {"west_thruster_fire_extinguished", false},
     {"east_thruster_fire_extinguished", false},
@@ -45,19 +44,38 @@ public partial class ShipManager : Node {
   public static bool GetFlagFor(string key) => _flags[key];
   public static void UpdateStatusFor(string key, int value) {
     _statusRooms[key] = value;
+    Print.Debug($"[ShipManager] room status [{key}] = {value}");
     OnRoomStatusUpdated?.Invoke(key, value);
+    var allInfected = true;
+    var allCleared = true;
     foreach (var roomStatus in _statusRooms.Values) {
       if (roomStatus != 2) {
-        return; // any room not completely overrun cancels
+        allInfected = false;
+      }
+      if (roomStatus != 0) {
+        allCleared = false;
       }
     }
-    // all rooms infected
-    LastDeathMessage = "Aliens overtook the ship! Make sure to push them back when you can!!!";
-    SceneTransitions.LoadSceneAsync("res://Game/Menu/game_over_screen.tscn");
+    if (allCleared) {
+      // TODO: do win condition
+      Print.Error("Should do win screen/cutscene here!!!!!", _instance);
+      var node = _instance._gameWinCutscene.Instantiate();
+      _instance.AddChild(node);
+    }
+    else
+    if (allInfected) {
+      // all rooms infected
+      LastDeathMessage = "Aliens overtook the ship! Make sure to push them back when you can!!!";
+      SceneTransitions.LoadSceneAsync("res://Game/Menu/game_over_screen.tscn");
+    }
   }
 
   public static void UpdateFlag(string key, bool value) {
     _flags[key] = value;
+    Print.Debug($"[ShipManager] flag status [{key}] = {value}");
+    if ((key != "ship_systems_restored") && _flags["sensor_array_active"] && _flags["west_thruster_fire_extinguished"] && _flags["east_thruster_fire_extinguished"] && _flags["west_thruster_refueled"] && _flags["east_thruster_refueled"]) {
+      UpdateFlag("ship_systems_restored", true);
+    }
     OnFlagUpdated?.Invoke(key, value);
   }
 

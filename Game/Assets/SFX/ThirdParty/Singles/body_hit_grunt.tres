@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bxx3alyuua71f"]
+
+[ext_resource type="AudioStream" uid="uid://0ac5082xdpop" path="res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 1.wav" id="1_yt4px"]
+[ext_resource type="AudioStream" uid="uid://d1ir622lfnha6" path="res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 2.wav" id="2_dsgn7"]
+[ext_resource type="AudioStream" uid="uid://b1ute7rftsxxl" path="res://Game/Assets/SFX/ThirdParty/Singles/BodyHitGrunt/body hit with grunt 3.wav" id="3_66yxu"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_yt4px")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_dsgn7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_66yxu")
+stream_2/weight = 1.0

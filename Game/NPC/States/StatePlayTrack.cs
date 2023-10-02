@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
 using Godot;
+using Squiggles.Core.Error;
 using Squiggles.Core.Events;
 using Squiggles.Core.FSM;
 using Squiggles.Core.Scenes.Interactables;
@@ -14,22 +16,29 @@ public partial class StatePlayTrack : State {
     _dialogic = GetNode("/root/Dialogic");
   }
 
-  public override void EnterState() => _interaction.OnInteracted += OnInteraction;
+  public override void EnterState() => ConnectInteraction();
+
+  private async void ConnectInteraction() {
+    await Task.Delay(500);
+    _interaction.OnInteracted += OnInteraction;
+  }
+
 
   private void OnInteraction() {
     EventBus.Gameplay.TriggerRequestPlayerAbleToMove(false);
+    _dialogic.Connect("timeline_ended", Callable.From(() => OnTrackEnd()), (uint)ConnectFlags.OneShot);
     _dialogic.Call("start", _trackName);
-    var call = Callable.From(OnTrackEnd);
-    if (!_dialogic.IsConnected("timeline_ended", call)) {
-      _dialogic.Connect("timeline_ended", call, (uint)ConnectFlags.OneShot);
-      // call OnTrackEnd when "timeline_ended"
-    }
+    Print.Debug($"[{Name}] Captain dialog started: {_trackName}");
   }
 
-  private void OnTrackEnd() => EmitSignal(nameof(OnStateFinished));
+  private void OnTrackEnd() {
+    Print.Debug($"[{Name}] Captain dialog ended: {_trackName}");
+    EventBus.Gameplay.TriggerRequestPlayerAbleToMove(true);
+    EmitSignal(nameof(OnStateFinished));
+  }
 
   public override void ExitState() {
-    EventBus.Gameplay.TriggerRequestPlayerAbleToMove(true);
+    Print.Debug($"[{Name}] Captain state exiting");
     _interaction.OnInteracted -= OnInteraction;
   }
 }

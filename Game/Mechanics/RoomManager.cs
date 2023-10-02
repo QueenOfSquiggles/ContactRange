@@ -42,18 +42,15 @@ public partial class RoomManager : Area3D {
     ShipManager.OnRoomStatusUpdated += HandleRoomStatusUpdate;
     HandleRoomStatusUpdate(_roomName, ShipManager.GetStatusFor(_roomName));
     BodyEntered += (body) => {
-      if (body is Player player) {
+      if (body is Player player && !_isCombatActive) {
         HandlePlayerEnter(player);
-      }
-      else if (body.IsInGroup("alien")) {
-        _alienCount++;
-        Print.Debug($"[{_roomName}] aliens: {_alienCount}");
       }
     };
     var diff = GameplaySettings.GetFloat("difficulty") / 10f;
-    _chanceInfectAdjacent = diff;
+    _chanceInfectAdjacent = diff + 0.2f;
     _timeKillLifeSupport = Mathf.Lerp(120, 30, diff);
     _timeInfectAdjacent = Mathf.Lerp(60, 15, diff);
+    Print.Debug($"Difficulty Settings: {diff:N2} --> Chance Infect = {_chanceInfectAdjacent:N2}; Time Kill O2 = {_timeKillLifeSupport:N0}; Time Infect Adjacent = {_timeInfectAdjacent:N0}");
   }
 
   private void HandlePlayerEnter(Player player) {
@@ -61,7 +58,6 @@ public partial class RoomManager : Area3D {
       // room is safe
       return;
     }
-    _timer?.Dispose();
     _isCombatActive = true;
     player.OnEnterRoom(this);
     _combatCamera.PushVCam();
@@ -109,6 +105,7 @@ public partial class RoomManager : Area3D {
     if (_alienCount <= 0) {
       // until all ship systems are resotored, disallow clearing the east crew quarters
       var nextStatus = ShipManager.GetStatusFor(_roomName) - 1;
+      _timer.TimeLeft = 500000f; // force to not work.
       if (_roomName == "east_crew_quarters" && !ShipManager.GetFlagFor("ship_systems_restored")) {
         nextStatus = Math.Max(nextStatus, 1); // east crew quarters cannot go lower than 1 until systems restored
       }

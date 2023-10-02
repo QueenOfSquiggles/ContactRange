@@ -1,9 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://cg6vu21n6mice"]
+[gd_scene load_steps=43 format=3 uid="uid://cg6vu21n6mice"]
 
 [ext_resource type="Script" path="res://Game/Character/Player.cs" id="1_min2i"]
+[ext_resource type="AudioStream" uid="uid://bxx3alyuua71f" path="res://Game/Assets/SFX/ThirdParty/Singles/body_hit_grunt.tres" id="2_sxhbb"]
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatManager.cs" id="2_v15vt"]
+[ext_resource type="AudioStream" uid="uid://r1pdyve0em02" path="res://Game/Assets/SFX/ThirdParty/Singles/bounce_on.tres" id="3_1rksj"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="3_7mb8g"]
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatFloat.cs" id="3_w5dyv"]
+[ext_resource type="AudioStream" uid="uid://bm8e12g6obnd2" path="res://Game/Assets/SFX/ThirdParty/Singles/catch_ball.tres" id="4_kwevs"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
 [ext_resource type="Texture2D" uid="uid://b5b5d4477nwml" path="res://Game/Assets/Sprites/player_fist.png" id="5_d68xr"]
@@ -24,7 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://dpyi4cm40c554" path="res://Game/GUI/player_inventory_interactive.tscn" id="18_yy23o"]
 [ext_resource type="PackedScene" uid="uid://janjfsv1wkri" path="res://Game/GUI/player_inventory_display.tscn" id="19_5ylr8"]
 [ext_resource type="PackedScene" uid="uid://bfhnnq6qcwafo" path="res://Core/Scenes/Character/Player/inventory_manager.tscn" id="19_sw61u"]
+[ext_resource type="PackedScene" uid="uid://bqm15kscl7aw1" path="res://Core/Scenes/UI/HUD/hud_components/alert_panel.tscn" id="23_ab8pf"]
 [ext_resource type="PackedScene" uid="uid://dg7138iwmapsx" path="res://Core/Scenes/Character/Components/footstep_sounds_component.tscn" id="25_h1dqb"]
+[ext_resource type="AudioStream" uid="uid://dth706m1xmegh" path="res://Game/Assets/SFX/ThirdParty/Singles/footsteps_dirt.tres" id="26_s7p7u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7wqgi"]
 
@@ -93,7 +98,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
+tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:flip_v")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -105,7 +110,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
+tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -117,7 +122,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
+tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -157,7 +162,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:flip_v")
+tracks/2/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:flip_v")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -169,7 +174,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:modulate")
+tracks/3/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:modulate")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -181,7 +186,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D:scale")
+tracks/4/path = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem:scale")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -197,13 +202,16 @@ _data = {
 "SwingAttack": SubResource("Animation_umlae")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_inventory", "_heldWeapon", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat", "_cameraStateCutscene") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_inventory", "_heldWeapon", "_hitSfx", "_itemPickupSfx", "_itemDropSfx", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat", "_cameraStateCutscene") groups=["player"]]
 collision_layer = 5
 script = ExtResource("1_min2i")
 _playerLight = NodePath("OmniLight3D")
 _stats = NodePath("CharStatManager")
 _inventory = NodePath("InventoryManager")
-_heldWeapon = NodePath("HeldItemController/AttackRotation/SpringArm3D/Sprite3D")
+_heldWeapon = NodePath("HeldItemController/AttackRotation/SpringArm3D/HeldItem")
+_hitSfx = NodePath("HitSFX")
+_itemPickupSfx = NodePath("ItemDropSFX")
+_itemDropSfx = NodePath("ItemPickupSFX")
 _playerFSM = NodePath("PlayerStateMachine")
 _playerStateExplore = NodePath("PlayerStateMachine/StateExplore")
 _playerStateCombat = NodePath("PlayerStateMachine/StateCombat")
@@ -214,6 +222,23 @@ _cameraStateMoving = NodePath("CameraArm/CameraStateMachine/StateMoving")
 _cameraStateCombat = NodePath("PlayerStateMachine/StateCombat")
 _cameraStateCutscene = NodePath("CameraArm/CameraStateMachine/StateCutscene")
 _gameOverScene = "res://Game/Menu/game_over_screen.tscn"
+
+[node name="HitSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_sxhbb")
+bus = &"SFX"
+
+[node name="ItemDropSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_1rksj")
+bus = &"SFX"
+
+[node name="ItemPickupSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kwevs")
+bus = &"SFX"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5933, 0)
+light_energy = 2.0
+omni_range = 10.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
 script = ExtResource("3_7mb8g")
@@ -239,7 +264,7 @@ _inventory = NodePath("../../InventoryManager")
 _killbox = NodePath("../../HeldItemController/AttackRotation/Killbox")
 _heldItem = NodePath("../../HeldItemController")
 _playerFistTexture = ExtResource("5_d68xr")
-_heldWeaponSprite = NodePath("../../HeldItemController/AttackRotation/SpringArm3D/Sprite3D")
+_heldWeaponSprite = NodePath("../../HeldItemController/AttackRotation/SpringArm3D/HeldItem")
 _combatSprite = NodePath("../../Sprites/TopFace")
 _exploreSprites = [NodePath("../../Sprites/BackFace"), NodePath("../../Sprites/RightFace"), NodePath("../../Sprites/FrontFace"), NodePath("../../Sprites/LeftFace")]
 
@@ -339,6 +364,7 @@ texture = ExtResource("12_vq642")
 [node name="TopFace" type="Sprite3D" parent="Sprites"]
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 1.14484, 5.00424e-08)
 visible = false
+ignore_occlusion_culling = true
 billboard = 1
 shaded = true
 double_sided = false
@@ -353,11 +379,6 @@ _autoSelectObjects = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionSensor"]
 shape = SubResource("CylinderShape3D_81c7x")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5933, 0)
-light_energy = 2.0
-omni_range = 10.0
-
 [node name="HeldItemController" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)
 
@@ -368,8 +389,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("SphereShape3D_j6780")
 spring_length = 1.945
 
-[node name="Sprite3D" type="Sprite3D" parent="HeldItemController/AttackRotation/SpringArm3D"]
+[node name="HeldItem" type="Sprite3D" parent="HeldItemController/AttackRotation/SpringArm3D"]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 8.07454e-08, 0, 1.84724)
+ignore_occlusion_culling = true
+billboard = 1
+shaded = true
+
+[node name="HeldItem2" type="Sprite3D" parent="HeldItemController/AttackRotation/SpringArm3D"]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 8.07454e-08, 0, 1.84724)
+ignore_occlusion_culling = true
 billboard = 1
 shaded = true
 
@@ -425,6 +453,10 @@ _valueKey = "air"
 _valueMaxKey = "AirMax"
 _pollForDynStat = true
 
+[node name="AlertPanel" parent="." instance=ExtResource("23_ab8pf")]
+offset_left = -274.0
+offset_bottom = 107.0
+
 [node name="PlayerInventoryDisplay" parent="." instance=ExtResource("19_5ylr8")]
 
 [node name="PlayerInventoryInteractive" parent="." instance=ExtResource("18_yy23o")]
@@ -452,6 +484,14 @@ StoredValue = 1.0
 [node name="InventoryManager" parent="." instance=ExtResource("19_sw61u")]
 
 [node name="FootstepSoundsComponent" parent="." instance=ExtResource("25_h1dqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.333779, 0)
+_defaultStepSound = ExtResource("26_s7p7u")
+_minDistanceStepSound = 2.0
+
+[node name="StepSound" parent="FootstepSoundsComponent" index="0"]
+volume_db = -5.0
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]
 [connection signal="SlotUpdate" from="InventoryManager" to="." method="HandleSlotUpdate"]
+
+[editable path="FootstepSoundsComponent"]

@@ -1,0 +1,89 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=29 format=3 uid="uid://dth706m1xmegh"]
+
+[ext_resource type="AudioStream" uid="uid://btyhmstc3fcof" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 1.wav" id="1_el8ec"]
+[ext_resource type="AudioStream" uid="uid://begudpros0321" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 2.wav" id="2_uu1he"]
+[ext_resource type="AudioStream" uid="uid://dpbtdgcyq5p3b" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 11.wav" id="3_2m46h"]
+[ext_resource type="AudioStream" uid="uid://eq4cswxbkwll" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 12.wav" id="4_pkxk7"]
+[ext_resource type="AudioStream" uid="uid://bjt58py3o6vv1" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 13.wav" id="5_irm1u"]
+[ext_resource type="AudioStream" uid="uid://baappcekabwtd" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 14.wav" id="6_urubl"]
+[ext_resource type="AudioStream" uid="uid://dql1bnxdlxe4l" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 15.wav" id="7_wuyfx"]
+[ext_resource type="AudioStream" uid="uid://c5ah08k8ehpca" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 16.wav" id="8_580hw"]
+[ext_resource type="AudioStream" uid="uid://b0kygdw1de20n" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 17.wav" id="9_g6ybv"]
+[ext_resource type="AudioStream" uid="uid://ip8lchnol7ka" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 18.wav" id="10_bs0o4"]
+[ext_resource type="AudioStream" uid="uid://bxqh1led7p27o" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 19.wav" id="11_mjixv"]
+[ext_resource type="AudioStream" uid="uid://pbgkudar8x" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 20.wav" id="12_pblod"]
+[ext_resource type="AudioStream" uid="uid://dc7xd6ief6c2u" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 3.wav" id="13_qfb72"]
+[ext_resource type="AudioStream" uid="uid://dyg3sthom8vrr" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 21.wav" id="14_lnk6b"]
+[ext_resource type="AudioStream" uid="uid://dbt1sflq0iiyi" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 22.wav" id="15_jhq50"]
+[ext_resource type="AudioStream" uid="uid://bw7d42s05llwi" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 23.wav" id="16_mdnkm"]
+[ext_resource type="AudioStream" uid="uid://sgem7ylhkjy7" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 24.wav" id="17_8jafg"]
+[ext_resource type="AudioStream" uid="uid://diae5tbnubiw3" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 25.wav" id="18_qbx87"]
+[ext_resource type="AudioStream" uid="uid://dtpk1apds6l3w" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 26.wav" id="19_opwfr"]
+[ext_resource type="AudioStream" uid="uid://bjoam08l6udby" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 27.wav" id="20_j424l"]
+[ext_resource type="AudioStream" uid="uid://cjtfmkfa2obtp" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 28.wav" id="21_0cb11"]
+[ext_resource type="AudioStream" uid="uid://w1pfbgof4cij" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 4.wav" id="22_04hnx"]
+[ext_resource type="AudioStream" uid="uid://byksthpxkhxho" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 5.wav" id="23_4xxh8"]
+[ext_resource type="AudioStream" uid="uid://s2xi11rb3fvu" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 6.wav" id="24_ss0r0"]
+[ext_resource type="AudioStream" uid="uid://b8jdpw5f2neay" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 7.wav" id="25_1d0ea"]
+[ext_resource type="AudioStream" uid="uid://cmfdbqc3us6rm" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 8.wav" id="26_4pc6u"]
+[ext_resource type="AudioStream" uid="uid://cg1ge6er3qgap" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 9.wav" id="27_dgfhf"]
+[ext_resource type="AudioStream" uid="uid://cl7lbj6gs3kbl" path="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 10.wav" id="28_gry07"]
+
+[resource]
+streams_count = 28
+stream_0/stream = ExtResource("1_el8ec")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_uu1he")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_qfb72")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("22_04hnx")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("23_4xxh8")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("24_ss0r0")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("25_1d0ea")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("26_4pc6u")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("27_dgfhf")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("28_gry07")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_2m46h")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_pkxk7")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_irm1u")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_urubl")
+stream_13/weight = 1.0
+stream_14/stream = ExtResource("7_wuyfx")
+stream_14/weight = 1.0
+stream_15/stream = ExtResource("8_580hw")
+stream_15/weight = 1.0
+stream_16/stream = ExtResource("9_g6ybv")
+stream_16/weight = 1.0
+stream_17/stream = ExtResource("10_bs0o4")
+stream_17/weight = 1.0
+stream_18/stream = ExtResource("11_mjixv")
+stream_18/weight = 1.0
+stream_19/stream = ExtResource("12_pblod")
+stream_19/weight = 1.0
+stream_20/stream = ExtResource("14_lnk6b")
+stream_20/weight = 1.0
+stream_21/stream = ExtResource("15_jhq50")
+stream_21/weight = 1.0
+stream_22/stream = ExtResource("16_mdnkm")
+stream_22/weight = 1.0
+stream_23/stream = ExtResource("17_8jafg")
+stream_23/weight = 1.0
+stream_24/stream = ExtResource("18_qbx87")
+stream_24/weight = 1.0
+stream_25/stream = ExtResource("19_opwfr")
+stream_25/weight = 1.0
+stream_26/stream = ExtResource("20_j424l")
+stream_26/weight = 1.0
+stream_27/stream = ExtResource("21_0cb11")
+stream_27/weight = 1.0

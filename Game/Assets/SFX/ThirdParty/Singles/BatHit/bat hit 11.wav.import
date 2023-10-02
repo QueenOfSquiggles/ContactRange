@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpmw27nnraj25"
+path="res://.godot/imported/bat hit 11.wav-62eb3c1fe002e7c3adc2e14de8a1619f.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/BatHit/bat hit 11.wav"
+dest_files=["res://.godot/imported/bat hit 11.wav-62eb3c1fe002e7c3adc2e14de8a1619f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

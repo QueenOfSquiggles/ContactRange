@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://coog37yac7r5s"
+path="res://.godot/imported/fish 8.wav-f738880edb33a3db2eb8ede5cfa77590.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 8.wav"
+dest_files=["res://.godot/imported/fish 8.wav-f738880edb33a3db2eb8ede5cfa77590.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

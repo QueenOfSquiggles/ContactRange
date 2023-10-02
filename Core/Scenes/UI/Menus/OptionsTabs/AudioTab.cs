@@ -2,6 +2,7 @@ namespace Squiggles.Core.Scenes.UI.Menus;
 
 using Godot;
 using Squiggles.Core.Data;
+using Squiggles.Core.Error;
 using Squiggles.Core.Events;
 
 /// <summary>
@@ -49,6 +50,7 @@ public partial class AudioTab : PanelContainer {
 
       var sci = new SliderComboAdapter(slider);
       AudioBuses.Instance.Volumes[i] = sci.SliderValue;
+      Print.Debug($"Setting bus {i} to {sci.SliderValue}dB");
     }
     AudioBuses.SaveSettings();
   }

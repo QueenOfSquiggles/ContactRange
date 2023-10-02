@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bax6l3hbnmhr1"
+path="res://.godot/imported/bounce on 3.wav-3132ef724e6b8a98cc308ce734762b66.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 3.wav"
+dest_files=["res://.godot/imported/bounce on 3.wav-3132ef724e6b8a98cc308ce734762b66.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

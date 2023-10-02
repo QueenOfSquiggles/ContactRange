@@ -42,6 +42,44 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Game/Assets/Materials/ship_wal_pbr.tres"
 }
+},
+"nodes": {
+"PATH:Biomass": {
+"generate/occluder": 1
+},
+"PATH:Cafeteria": {
+"generate/occluder": 1
+},
+"PATH:CaptainsQuarters": {
+"generate/occluder": 1
+},
+"PATH:CommandCenter": {
+"generate/occluder": 1
+},
+"PATH:CrewQuartersEast": {
+"generate/occluder": 1
+},
+"PATH:CrewQuartersWest": {
+"generate/occluder": 1
+},
+"PATH:EngineeringWorkshop": {
+"generate/occluder": 1
+},
+"PATH:MainStorage": {
+"generate/occluder": 1
+},
+"PATH:MedicalBay": {
+"generate/occluder": 1
+},
+"PATH:SensorArray": {
+"generate/occluder": 1
+},
+"PATH:ThrusterEast": {
+"generate/occluder": 1
+},
+"PATH:ThrustersWest": {
+"generate/occluder": 1
+}
 }
 }
 gltf/embedded_image_handling=1

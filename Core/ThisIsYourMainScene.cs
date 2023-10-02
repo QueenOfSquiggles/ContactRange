@@ -63,6 +63,7 @@ public partial class ThisIsYourMainScene : Node {
       var path = config.RegistryPathPattern.Replace("%s", reg);
       RegistrationManager.RegisterRegistryType(reg, path);
     }
+    config?.GameplayConfig.LoadSettings();
     RegistrationManager.ReloadRegistries();
   }
 

@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=9 format=3 uid="uid://cr48nbc5kxrry"]
+
+[ext_resource type="AudioStream" uid="uid://bk0bgiywi22sn" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 1.wav" id="1_x4u0g"]
+[ext_resource type="AudioStream" uid="uid://dq5qmyhrph056" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 2.wav" id="2_gm1je"]
+[ext_resource type="AudioStream" uid="uid://7hrev2t2r23j" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 3.wav" id="3_p7dni"]
+[ext_resource type="AudioStream" uid="uid://c4uo76oy0sdkw" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door close 4.wav" id="4_hx8ny"]
+[ext_resource type="AudioStream" uid="uid://ba0tcswlevbpl" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 1.wav" id="5_o0det"]
+[ext_resource type="AudioStream" uid="uid://chfxa2fgcb6k" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 2.wav" id="6_xtnxu"]
+[ext_resource type="AudioStream" uid="uid://dxuxr7gi1m8bg" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 3.wav" id="7_7k7uf"]
+[ext_resource type="AudioStream" uid="uid://c1r4kg1mjlh2x" path="res://Game/Assets/SFX/ThirdParty/Singles/ClosetDoor/closet door open 4.wav" id="8_nnqso"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_x4u0g")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_gm1je")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_p7dni")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_hx8ny")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_o0det")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_xtnxu")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_7k7uf")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_nnqso")
+stream_7/weight = 1.0

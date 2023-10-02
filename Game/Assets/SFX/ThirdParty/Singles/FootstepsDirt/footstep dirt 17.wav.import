@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0kygdw1de20n"
+path="res://.godot/imported/footstep dirt 17.wav-93c6ad6fc7a53b532d49acebea51451e.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/FootstepsDirt/footstep dirt 17.wav"
+dest_files=["res://.godot/imported/footstep dirt 17.wav-93c6ad6fc7a53b532d49acebea51451e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

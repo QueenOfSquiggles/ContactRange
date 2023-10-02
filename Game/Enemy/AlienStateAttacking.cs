@@ -9,10 +9,8 @@ public partial class AlienStateAttacking : State {
   [Export] private CharacterBody3D _actor;
   [Export] private float _speed = 1.5f;
   [Export] private float _damage = 0.5f;
-  [Export] private float _attackSpeed = 1.5f;
 
   private Node3D _player;
-  private SceneTreeTimer _timer;
 
   public override void EnterState() {
     SetPhysicsProcess(true);
@@ -28,13 +26,9 @@ public partial class AlienStateAttacking : State {
     if (data is null) { return; }
 
     if (data.GetCollider() is Player player) {
-      var flag = _timer is null || _timer.TimeLeft <= 0.0f;
-      _timer ??= GetTree().CreateTimer(_attackSpeed);
       EmitSignal(nameof(OnStateFinished)); // try to retreat for a moment anyway
-      if (flag) {
-        var stats = player.GetComponent<CharStatManager>();
-        stats?.ModifyStaticStat("Health", -_damage); // delta must be negative to reduce bc that's how math works.
-      }
+      var stats = player.GetComponent<CharStatManager>();
+      stats?.ModifyStaticStat("Health", -_damage); // delta must be negative to reduce bc that's how math works.
     }
   }
 

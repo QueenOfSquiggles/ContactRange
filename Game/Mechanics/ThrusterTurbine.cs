@@ -7,6 +7,8 @@ using System;
 
 public partial class ThrusterTurbine : Node3D {
   [Export] private GpuParticles3D[] _fireParticles = Array.Empty<GpuParticles3D>();
+  [Export] private AudioStreamPlayer3D _extinguishSFX;
+  [Export] private AudioStreamPlayer3D _refuelSFX;
 
   [ExportGroup("Flag Keys", "_flagName")]
   [Export] private string _flagNameFire;
@@ -51,9 +53,11 @@ public partial class ThrusterTurbine : Node3D {
       foreach (var particle in _fireParticles) {
         particle.Emitting = false;
       }
+      _extinguishSFX.Play();
       RefreshFlags();
     }
     else if (!_isRefueled && TryConsumeItem(_itemNameFuel)) {
+      _refuelSFX.Play();
       Print.Debug("Checking for refueling");
       ShipManager.UpdateFlag(_flagNameFuel, true);
       RefreshFlags();

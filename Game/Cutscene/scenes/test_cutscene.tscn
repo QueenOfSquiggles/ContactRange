@@ -1,0 +1,245 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqjaueh7sji1k"]
+
+[ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="1_gn5wk"]
+[ext_resource type="Script" path="res://Core/Modules/Effects/EffectsDriver.cs" id="2_4bynv"]
+[ext_resource type="Script" path="res://Core/Modules/Effects/CutsceneSkipper.cs" id="3_oxfnl"]
+[ext_resource type="Script" path="res://Core/Modules/Camera/CinematicSequence.cs" id="4_lmg2u"]
+[ext_resource type="PackedScene" uid="uid://d4ln20wgoafva" path="res://Game/Assets/Models/ship_hull.glb" id="5_44vcg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_petkf"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="Animation" id="Animation_v3717"]
+resource_name = "scene"
+length = 7.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectsDriver")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.5, 4.6, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [1.0, 1.0, 0.1, -1],
+"method": &"RumbleController"
+}, {
+"args": [8.0, 2.0, 5.0],
+"method": &"ShakeScreen"
+}, {
+"args": [],
+"method": &"ClearEffects"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PopVCam"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutsceneSkipper")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Start"
+}, {
+"args": [],
+"method": &"Stop"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CinematicSequence")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"Start"
+}, {
+"args": [],
+"method": &"End"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3.7, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -500, 41), Vector3(0, -467.218, 41), Vector3(0, -467.218, -14.8063), Vector3(-71.386, -467.218, -14.806)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 3.7, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.785398, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-0.523599, -1.5708, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Asteroid:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.2, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-70.855, -453.488, 22.342), Vector3(-43.7336, -453.488, 22.342), Vector3(64.6231, -744.192, -97.3725)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ship_hull:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 4.4, 4.5, 4.7, 5.6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -500, 0), Vector3(0, -500, 0), Vector3(0, -511.228, 0), Vector3(0, -511.228, 0), Vector3(0, -483.647, 0), Vector3(0, -500, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ship_hull:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.4, 4.5, 4.7, 5.6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.61659), Vector3(0, 0, 0.61659), Vector3(0, 0, -0.262079), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t8e1s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Asteroid:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-70.855, -453.488, 22.342)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship_hull:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -500, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ship_hull:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cj81x"]
+_data = {
+"RESET": SubResource("Animation_t8e1s"),
+"scene": SubResource("Animation_v3717")
+}
+
+[node name="TestCutscene" type="Node3D"]
+
+[node name="Camera3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+script = ExtResource("1_gn5wk")
+_pushCamOnReady = true
+_lerpDuration = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D"]
+
+[node name="EffectsDriver" type="Node" parent="."]
+script = ExtResource("2_4bynv")
+
+[node name="CutsceneSkipper" type="Node" parent="." node_paths=PackedStringArray("_anim")]
+script = ExtResource("3_oxfnl")
+_anim = NodePath("../AnimationPlayer")
+
+[node name="CinematicSequence" type="Node" parent="."]
+script = ExtResource("4_lmg2u")
+
+[node name="ship_hull" parent="." instance=ExtResource("5_44vcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+
+[node name="Asteroid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.855, -453.488, 22.342)
+mesh = SubResource("SphereMesh_petkf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "scene"
+libraries = {
+"": SubResource("AnimationLibrary_cj81x")
+}

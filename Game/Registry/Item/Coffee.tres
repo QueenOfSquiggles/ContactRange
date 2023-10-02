@@ -10,4 +10,4 @@ Texture = ExtResource("1_a42ht")
 IsWeapon = false
 IsHealth = true
 DamageValue = 0
-HealValue = 4
+HealValue = 1

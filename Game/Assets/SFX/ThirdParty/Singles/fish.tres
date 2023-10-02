@@ -1,0 +1,95 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=31 format=3 uid="uid://yq32wc3p3j8d"]
+
+[ext_resource type="AudioStream" uid="uid://d3iq5f1sbatpq" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 1.wav" id="1_fw3lf"]
+[ext_resource type="AudioStream" uid="uid://c7pscbca0rxyl" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 2.wav" id="2_r5kgw"]
+[ext_resource type="AudioStream" uid="uid://ckffh6rob7vub" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 11.wav" id="3_ua2fn"]
+[ext_resource type="AudioStream" uid="uid://n868ls8650df" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 12.wav" id="4_v1jbo"]
+[ext_resource type="AudioStream" uid="uid://bhpxt3u2yxgd5" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 13.wav" id="5_7y4jl"]
+[ext_resource type="AudioStream" uid="uid://b1xnca7tio5lu" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 14.wav" id="6_se5hu"]
+[ext_resource type="AudioStream" uid="uid://c82wd60v8r5r7" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 15.wav" id="7_jah2q"]
+[ext_resource type="AudioStream" uid="uid://b7mgvdrtt0oyg" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 16.wav" id="8_iedju"]
+[ext_resource type="AudioStream" uid="uid://csk6kmke5l33h" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 17.wav" id="9_xerjk"]
+[ext_resource type="AudioStream" uid="uid://dlawf3uiagmfh" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 18.wav" id="10_ea42w"]
+[ext_resource type="AudioStream" uid="uid://dflctb0tgm38x" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 19.wav" id="11_o40r6"]
+[ext_resource type="AudioStream" uid="uid://tt6si6kwq670" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 20.wav" id="12_1rfr2"]
+[ext_resource type="AudioStream" uid="uid://cy5w2foh46k82" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 3.wav" id="13_3tlau"]
+[ext_resource type="AudioStream" uid="uid://du27rkgc41mci" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 21.wav" id="14_ltm4m"]
+[ext_resource type="AudioStream" uid="uid://cqyhgal8jjr1e" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 22.wav" id="15_18dhh"]
+[ext_resource type="AudioStream" uid="uid://b02a55tjd11qs" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 23.wav" id="16_2vgcp"]
+[ext_resource type="AudioStream" uid="uid://lpctdeguyjv0" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 24.wav" id="17_w0vbc"]
+[ext_resource type="AudioStream" uid="uid://bb2swqcxuxkk7" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 25.wav" id="18_kb28v"]
+[ext_resource type="AudioStream" uid="uid://cap6aiqlf4yp7" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 26.wav" id="19_qo2fw"]
+[ext_resource type="AudioStream" uid="uid://bawulnbkhikds" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 27.wav" id="20_bp6q4"]
+[ext_resource type="AudioStream" uid="uid://bhaa8c7uemyqf" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 28.wav" id="21_mksfq"]
+[ext_resource type="AudioStream" uid="uid://wi3gbj1b5vx4" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 29.wav" id="22_76erh"]
+[ext_resource type="AudioStream" uid="uid://ciugg8xbfk6qe" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 30.wav" id="23_lodj1"]
+[ext_resource type="AudioStream" uid="uid://bxer6gvh20w2s" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 4.wav" id="24_wp2bi"]
+[ext_resource type="AudioStream" uid="uid://dljcb06ofq8kf" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 5.wav" id="25_k818e"]
+[ext_resource type="AudioStream" uid="uid://dtfv147e2wq6m" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 6.wav" id="26_01bv6"]
+[ext_resource type="AudioStream" uid="uid://bln6a2qbhhps0" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 7.wav" id="27_ewk8q"]
+[ext_resource type="AudioStream" uid="uid://coog37yac7r5s" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 8.wav" id="28_d5y7g"]
+[ext_resource type="AudioStream" uid="uid://cx0n8474c4u4h" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 9.wav" id="29_j11og"]
+[ext_resource type="AudioStream" uid="uid://cq4av682rof8b" path="res://Game/Assets/SFX/ThirdParty/Singles/Fish/fish 10.wav" id="30_i0pdo"]
+
+[resource]
+streams_count = 30
+stream_0/stream = ExtResource("1_fw3lf")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_r5kgw")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_3tlau")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("24_wp2bi")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("25_k818e")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("26_01bv6")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("27_ewk8q")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("28_d5y7g")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("29_j11og")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("30_i0pdo")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_ua2fn")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_v1jbo")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_7y4jl")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_se5hu")
+stream_13/weight = 1.0
+stream_14/stream = ExtResource("7_jah2q")
+stream_14/weight = 1.0
+stream_15/stream = ExtResource("8_iedju")
+stream_15/weight = 1.0
+stream_16/stream = ExtResource("9_xerjk")
+stream_16/weight = 1.0
+stream_17/stream = ExtResource("10_ea42w")
+stream_17/weight = 1.0
+stream_18/stream = ExtResource("11_o40r6")
+stream_18/weight = 1.0
+stream_19/stream = ExtResource("12_1rfr2")
+stream_19/weight = 1.0
+stream_20/stream = ExtResource("14_ltm4m")
+stream_20/weight = 1.0
+stream_21/stream = ExtResource("15_18dhh")
+stream_21/weight = 1.0
+stream_22/stream = ExtResource("16_2vgcp")
+stream_22/weight = 1.0
+stream_23/stream = ExtResource("17_w0vbc")
+stream_23/weight = 1.0
+stream_24/stream = ExtResource("18_kb28v")
+stream_24/weight = 1.0
+stream_25/stream = ExtResource("19_qo2fw")
+stream_25/weight = 1.0
+stream_26/stream = ExtResource("20_bp6q4")
+stream_26/weight = 1.0
+stream_27/stream = ExtResource("21_mksfq")
+stream_27/weight = 1.0
+stream_28/stream = ExtResource("22_76erh")
+stream_28/weight = 1.0
+stream_29/stream = ExtResource("23_lodj1")
+stream_29/weight = 1.0

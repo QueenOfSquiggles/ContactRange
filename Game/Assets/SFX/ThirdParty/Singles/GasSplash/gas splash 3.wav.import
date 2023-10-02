@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqr74mfwbxok1"
+path="res://.godot/imported/gas splash 3.wav-d53e3dfc133826b622489561891c2c39.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/GasSplash/gas splash 3.wav"
+dest_files=["res://.godot/imported/gas splash 3.wav-d53e3dfc133826b622489561891c2c39.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,32 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=10 format=3 uid="uid://mp4bs4lbu0bh"]
+
+[ext_resource type="AudioStream" uid="uid://dov5lcuxxnxh" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 1.wav" id="1_58x0v"]
+[ext_resource type="AudioStream" uid="uid://di051r6rxexld" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 2.wav" id="2_kc8gt"]
+[ext_resource type="AudioStream" uid="uid://dhg0htwm4w6tf" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 3.wav" id="3_naimt"]
+[ext_resource type="AudioStream" uid="uid://bfa83ec2d6tar" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 4.wav" id="4_bmxkm"]
+[ext_resource type="AudioStream" uid="uid://blivfun2p26p8" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 5.wav" id="5_w12qf"]
+[ext_resource type="AudioStream" uid="uid://b2ww4kskd6xnl" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 6.wav" id="6_riqrg"]
+[ext_resource type="AudioStream" uid="uid://djeeer084tq6j" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 7.wav" id="7_hc63j"]
+[ext_resource type="AudioStream" uid="uid://bsoku15bj0tr6" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 8.wav" id="8_7g4xv"]
+[ext_resource type="AudioStream" uid="uid://dnsotvmuj6noq" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 9.wav" id="9_n0ngg"]
+
+[resource]
+streams_count = 9
+stream_0/stream = ExtResource("1_58x0v")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_kc8gt")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_naimt")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_bmxkm")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_w12qf")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_riqrg")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_hc63j")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_7g4xv")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("9_n0ngg")
+stream_8/weight = 1.0

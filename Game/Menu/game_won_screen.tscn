@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://x3xu0fg4hleg"]
+
+[ext_resource type="PackedScene" uid="uid://b8y0v225qjej4" path="res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn" id="1_ce2sf"]
+[ext_resource type="Script" path="res://Game/Menu/GameWonScreen.cs" id="1_miieb"]
+[ext_resource type="Texture2D" uid="uid://cmadwvieebxur" path="res://Game/Assets/GUI/main_menu_bg.jpg" id="2_atufw"]
+[ext_resource type="PackedScene" uid="uid://ci8q8yf6jrc8n" path="res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn" id="2_tx1ns"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hikn"]
+font_size = 48
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkm1u"]
+font_size = 23
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameWonScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_miieb")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_atufw")
+expand_mode = 1
+flip_v = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -264.0
+offset_right = 112.5
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You win!"
+label_settings = SubResource("LabelSettings_4hikn")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -67.5
+offset_right = 314.0
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You restored the ship's systems and eliminated the alien threat!
+
+On top of that you managed not to bother the captain too much, so you kept your job!"
+label_settings = SubResource("LabelSettings_wkm1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BtnMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -104.0
+offset_right = 100.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Return to main menu"
+
+[node name="RequestFocusOnParent" parent="BtnMainMenu" instance=ExtResource("1_ce2sf")]
+
+[node name="UIEffects" parent="BtnMainMenu" instance=ExtResource("2_tx1ns")]
+
+[connection signal="pressed" from="BtnMainMenu" to="." method="LoadMainMenu"]

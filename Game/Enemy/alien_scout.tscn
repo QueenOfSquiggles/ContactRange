@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qif5hjoqm546"]
+[gd_scene load_steps=15 format=3 uid="uid://qif5hjoqm546"]
 
 [ext_resource type="Texture2D" uid="uid://blvuhn2t6snl1" path="res://Game/Assets/Sprites/alien_scout_sprite_sheet.png" id="1_3xrol"]
 [ext_resource type="Script" path="res://Game/Enemy/AlienScout.cs" id="1_pqc4a"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Game/Enemy/AlienStateAttacking.cs" id="6_b835o"]
 [ext_resource type="Script" path="res://Game/Enemy/AlienStateHitRecover.cs" id="7_0vx8u"]
 [ext_resource type="PackedScene" uid="uid://dg7138iwmapsx" path="res://Core/Scenes/Character/Components/footstep_sounds_component.tscn" id="8_awwtn"]
+[ext_resource type="AudioStream" uid="uid://dth706m1xmegh" path="res://Game/Assets/SFX/ThirdParty/Singles/footsteps_dirt.tres" id="9_fhoga"]
+[ext_resource type="AudioStream" uid="uid://yq32wc3p3j8d" path="res://Game/Assets/SFX/ThirdParty/Singles/fish.tres" id="10_qnq7t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yow06"]
 
@@ -49,10 +51,11 @@ _data = {
 "RESET": SubResource("Animation_vkon4")
 }
 
-[node name="AlienScout" type="CharacterBody3D" node_paths=PackedStringArray("_fsm", "_stateAttacking", "_stateRecover") groups=["alien"]]
+[node name="AlienScout" type="CharacterBody3D" node_paths=PackedStringArray("_hitSFX", "_fsm", "_stateAttacking", "_stateRecover") groups=["alien"]]
 script = ExtResource("1_pqc4a")
 _splatterVFXScene = "res://Game/Enemy/VFX/alien_splatter.tscn"
 _hitSprayVFXScene = "res://Game/Enemy/VFX/hit_spray_vfx.tscn"
+_hitSFX = NodePath("HitSFX")
 _fsm = NodePath("FiniteStateMachine")
 _stateAttacking = NodePath("FiniteStateMachine/StateAttacking")
 _stateRecover = NodePath("FiniteStateMachine/StateHitRecover")
@@ -62,6 +65,7 @@ shape = SubResource("CapsuleShape3D_yow06")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+ignore_occlusion_culling = true
 billboard = 1
 shaded = true
 double_sided = false
@@ -74,7 +78,7 @@ script = ExtResource("2_0ky0k")
 
 [node name="Health" type="Node" parent="CharStatManager"]
 script = ExtResource("3_f8v4e")
-StoredValue = 4.0
+StoredValue = 8.0
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
 script = ExtResource("4_t88p2")
@@ -83,7 +87,6 @@ _initialState = NodePath("StateAttacking")
 [node name="StateAttacking" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
 script = ExtResource("6_b835o")
 _actor = NodePath("../..")
-_attackSpeed = 0.5
 
 [node name="StateHitRecover" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("_actor")]
 script = ExtResource("7_0vx8u")
@@ -98,5 +101,11 @@ libraries = {
 }
 
 [node name="FootstepSoundsComponent" parent="." instance=ExtResource("8_awwtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06848, 0)
+_defaultStepSound = ExtResource("9_fhoga")
+
+[node name="HitSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_qnq7t")
+bus = &"SFX"
 
 [connection signal="OnStatChange" from="CharStatManager" to="." method="HandleStatChange"]

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SquigglesCoreConfigFile" load_steps=12 format=3 uid="uid://b08krd8tp3xxr"]
 
-[ext_resource type="Texture2D" uid="uid://b0kmgsqo4syyl" path="res://icon.png" id="1_56bxt"]
 [ext_resource type="Environment" uid="uid://d0rwje40embmb" path="res://game_environment.tres" id="1_etob1"]
 [ext_resource type="Script" path="res://Core/MetaConfig/SquigglesCoreConfigFile.cs" id="1_rwjxr"]
+[ext_resource type="Texture2D" uid="uid://dfay8qdaimsxo" path="res://Game/Assets/GUI/game_icon_internal.png" id="2_ejtp8"]
 [ext_resource type="Script" path="res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/GameplayOptionsSettings.cs" id="2_iuqrw"]
 [ext_resource type="Script" path="res://Core/MetaConfig/SlotInfoProviderResource.cs" id="3_8ohry"]
 [ext_resource type="Script" path="res://Core/Scenes/UI/Menus/OptionsTabs/GameplayTabResources/OptionSlider.cs" id="3_p5wxs"]
@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_c68e4"]
 script = ExtResource("3_p5wxs")
-DefaultValue = 2.5
+DefaultValue = 6.5
 MinValue = 1.0
 MaxValue = 10.0
 StepValue = 0.5
@@ -36,11 +36,11 @@ AllowPlayersToReloadLastSave = false
 [resource]
 script = ExtResource("1_rwjxr")
 PlayScene = "res://Game/Level/ship_level.tscn"
-GameLogo = ExtResource("1_56bxt")
+GameLogo = ExtResource("2_ejtp8")
 EnableReticle = false
 EnableColourCorrection = true
 DefaultEnvironment = ExtResource("1_etob1")
-RemapControlsNames = PackedStringArray()
+RemapControlsNames = PackedStringArray("forwards", "backwards", "left", "right", "interact", "open_inventory")
 HideUIMappings = true
 GameplayConfig = SubResource("Resource_vrqsf")
 RegistryPathPattern = "res://Game/Registry/%s/"
@@ -50,4 +50,4 @@ AuthorGamesURL = ""
 SaveSlotHandlingSettings = SubResource("Resource_iosgp")
 LaunchSceneOverride = ""
 MainMenuOverride = ""
-CreditsLines = PackedStringArray("")
+CreditsLines = PackedStringArray("Made in 72 hours for Ludum Dare #54 \"Limited Space\"", "\"Kenney Game Assets\" (GUI clicks and and small elements)", "\"FilmCow Royalty Free Sound Effects Library\" (in-game SFX)", "\"Free Sci-Fi Game Music Pack\" (In-game music loops)", "All else me (QueenOfSquiggles)", "Built with Squiggles Core 4X", "(My custom framework built on top of Godot using C#)", "- - -", "Due to using mainly 3rd party music & sfx I opted out of audio rankings")

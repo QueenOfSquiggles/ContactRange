@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjdrnhgvsfnc8"]
+[gd_scene load_steps=23 format=3 uid="uid://bjdrnhgvsfnc8"]
 
 [ext_resource type="Script" path="res://Game/Mechanics/ThrusterTurbine.cs" id="1_50wgd"]
 [ext_resource type="PackedScene" uid="uid://pb2hr2pfnj11" path="res://Game/Assets/Models/thruster.glb" id="1_htkoh"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://css3cdep54in6" path="res://Game/Assets/KenneyAssetsPack/flame_02.png" id="4_eya66"]
 [ext_resource type="Texture2D" uid="uid://rh7nljhk2x5h" path="res://Game/Assets/KenneyAssetsPack/smoke_01.png" id="5_gb70l"]
 [ext_resource type="Texture2D" uid="uid://c10wwc1dr8q4" path="res://Game/Assets/KenneyAssetsPack/spark_01.png" id="6_mmv8x"]
+[ext_resource type="AudioStream" uid="uid://b85qa3oeaytdk" path="res://Game/Assets/SFX/ThirdParty/Singles/Ambient/ambience - car sedan idling.wav" id="7_uh46j"]
+[ext_resource type="AudioStream" uid="uid://b2ww4kskd6xnl" path="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 6.wav" id="8_of0qg"]
+[ext_resource type="AudioStream" uid="uid://cti2or3c1pxia" path="res://Game/Assets/SFX/ThirdParty/Singles/gas_splash.tres" id="9_51kj2"]
 
 [sub_resource type="Animation" id="Animation_s6bqn"]
 resource_name = "OnSelect"
@@ -69,7 +72,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_45p2t"]
-radius = 1.14834
+radius = 1.54883
 height = 5.11169
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_katx1"]
@@ -90,7 +93,7 @@ turbulence_noise_speed_random = 2.2
 sub_emitter_mode = 2
 sub_emitter_amount_at_end = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl68s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irdhd"]
 transparency = 1
 blend_mode = 1
 shading_mode = 2
@@ -106,7 +109,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_tagqi"]
-material = SubResource("StandardMaterial3D_fl68s")
+material = SubResource("StandardMaterial3D_irdhd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kjnye"]
 lifetime_randomness = 1.0
@@ -173,9 +176,11 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_xw4fc"]
 material = SubResource("StandardMaterial3D_jfmkf")
 
-[node name="Thruster" type="Node3D" node_paths=PackedStringArray("_fireParticles")]
+[node name="Thruster" type="Node3D" node_paths=PackedStringArray("_fireParticles", "_extinguishSFX", "_refuelSFX")]
 script = ExtResource("1_50wgd")
 _fireParticles = [NodePath("Flame"), NodePath("Smoke"), NodePath("Sparks")]
+_extinguishSFX = NodePath("ExtinguishSFX")
+_refuelSFX = NodePath("RefuelSFX")
 _flagNameFire = "west_thruster_fire_extinguished"
 _flagNameFuel = "west_thruster_refueled"
 _itemNameFuel = "Thruster Fuel"
@@ -183,6 +188,9 @@ _itemNameFire = "Fire Extinguisher"
 
 [node name="thruster" parent="." instance=ExtResource("1_htkoh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.71928)
+
+[node name="MainTurbine" parent="thruster" index="0"]
+ignore_occlusion_culling = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -237,6 +245,20 @@ lifetime = 0.75
 explosiveness = 0.2
 process_material = SubResource("ParticleProcessMaterial_2e2dk")
 draw_pass_1 = SubResource("QuadMesh_xw4fc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_uh46j")
+autoplay = true
+max_distance = 8.0
+bus = &"SFX"
+
+[node name="ExtinguishSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_of0qg")
+bus = &"SFX"
+
+[node name="RefuelSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_51kj2")
+bus = &"SFX"
 
 [connection signal="OnDeselected" from="InteractiveTrigger" to="AnimationPlayer" method="play_backwards" binds= ["OnSelect"]]
 [connection signal="OnInteracted" from="InteractiveTrigger" to="." method="OnInteract"]

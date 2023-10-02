@@ -1,0 +1,47 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=15 format=3 uid="uid://bm8e12g6obnd2"]
+
+[ext_resource type="AudioStream" uid="uid://gw27itjo50qx" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 1.wav" id="1_tgctt"]
+[ext_resource type="AudioStream" uid="uid://c0vxcrjj8slqq" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 2.wav" id="2_evovu"]
+[ext_resource type="AudioStream" uid="uid://cp6tv7y1wkm1t" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 11.wav" id="3_to0u2"]
+[ext_resource type="AudioStream" uid="uid://ch8yygmubyef6" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 12.wav" id="4_rwxhl"]
+[ext_resource type="AudioStream" uid="uid://bp5c7xh4y2afy" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 13.wav" id="5_lbg0y"]
+[ext_resource type="AudioStream" uid="uid://bkm5yais2bc3p" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 14.wav" id="6_kmduw"]
+[ext_resource type="AudioStream" uid="uid://du8nvium66owv" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 3.wav" id="7_u3nm7"]
+[ext_resource type="AudioStream" uid="uid://d0du5wga5fmk3" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 4.wav" id="8_gb1tg"]
+[ext_resource type="AudioStream" uid="uid://dxqmsmknvabtw" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 5.wav" id="9_y68lp"]
+[ext_resource type="AudioStream" uid="uid://tev20t0ywx8l" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 6.wav" id="10_edovh"]
+[ext_resource type="AudioStream" uid="uid://cden5s23hrwq3" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 7.wav" id="11_4jqud"]
+[ext_resource type="AudioStream" uid="uid://2a8ew1bcu03p" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 8.wav" id="12_1hvwc"]
+[ext_resource type="AudioStream" uid="uid://cx2oxiww0i5g4" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 9.wav" id="13_pd4b8"]
+[ext_resource type="AudioStream" uid="uid://duilp1mxq2u3x" path="res://Game/Assets/SFX/ThirdParty/Singles/CatchBall/catch ball 10.wav" id="14_45d0q"]
+
+[resource]
+streams_count = 14
+stream_0/stream = ExtResource("1_tgctt")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_evovu")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_u3nm7")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_gb1tg")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_y68lp")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("10_edovh")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("11_4jqud")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("12_1hvwc")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("13_pd4b8")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("14_45d0q")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_to0u2")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_rwxhl")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_lbg0y")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_kmduw")
+stream_13/weight = 1.0

@@ -128,6 +128,6 @@ public partial class PlayerStateCombat : State {
     if (body == _actor) { return; } // don't hurt yourself out there kiddo!
     var enemyStats = body.GetComponent<CharStatManager>();
     if (enemyStats is null || !enemyStats.HasStat("Health")) { return; }
-    enemyStats.ModifyStaticStat("Health", -1);
+    enemyStats.ModifyStaticStat("Health", -_damage);
   }
 }

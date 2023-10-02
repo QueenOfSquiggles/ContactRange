@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://76hdycthuxh"]
+[gd_scene load_steps=7 format=3 uid="uid://76hdycthuxh"]
 
 [ext_resource type="Script" path="res://Game/Menu/GameOverScreen.cs" id="1_vf10o"]
 [ext_resource type="PackedScene" uid="uid://ci8q8yf6jrc8n" path="res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn" id="2_c48oc"]
+[ext_resource type="Texture2D" uid="uid://cmadwvieebxur" path="res://Game/Assets/GUI/main_menu_bg.jpg" id="2_yfykv"]
 [ext_resource type="PackedScene" uid="uid://b8y0v225qjej4" path="res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn" id="3_4qjit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s7iiq"]
@@ -23,14 +24,16 @@ script = ExtResource("1_vf10o")
 _mainMenu = "res://Core/Scenes/UI/Menus/main_menu.tscn"
 _deathMessage = NodePath("Reason")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_yfykv")
+expand_mode = 1
+flip_h = true
 
 [node name="DeathNotice" type="Label" parent="."]
 layout_mode = 1
@@ -97,7 +100,7 @@ offset_right = 50.5
 offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Return to Main Menu"
+text = "Return to Main Menu (erases progress)"
 
 [node name="UIEffects2" parent="BtnMainMenu" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("2_c48oc")]
 _sfxSelect = NodePath("../../BtnTryAgain/UIEffects/Select")

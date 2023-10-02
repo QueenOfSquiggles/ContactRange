@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://daudt657xsra2"]
+
+[ext_resource type="Script" path="res://Game/Cutscene/CutsceneInstancer.cs" id="1_iuewc"]
+
+[node name="CutsceneInstancer" type="Area3D"]
+script = ExtResource("1_iuewc")

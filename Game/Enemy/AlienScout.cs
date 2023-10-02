@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 public partial class AlienScout : CharacterBody3D {
   [Export(PropertyHint.File, "*.tscn")] private string _splatterVFXScene;
   [Export(PropertyHint.File, "*.tscn")] private string _hitSprayVFXScene;
+  [Export] private AudioStreamPlayer3D _hitSFX;
   [Export] private FiniteStateMachine _fsm;
   [Export] private AlienStateAttacking _stateAttacking;
   [Export] private AlienStateHitRecover _stateRecover;
@@ -24,6 +25,7 @@ public partial class AlienScout : CharacterBody3D {
 
   public async void HandleStatChange(string key, float value) {
     if (key == "Health") {
+      _hitSFX.Play();
       if (value <= 0.0f) {
         // death
         var packed = await GetVFX(_splatterVFXScene);
@@ -34,7 +36,7 @@ public partial class AlienScout : CharacterBody3D {
         QueueFree();
       }
       else {
-        _fsm.ChangeState(_stateRecover);
+        // _fsm.ChangeState(_stateRecover);
         var packed = await GetVFX(_hitSprayVFXScene);
         var node = packed.Instantiate() as Node3D;
         GetParent().AddChild(node);

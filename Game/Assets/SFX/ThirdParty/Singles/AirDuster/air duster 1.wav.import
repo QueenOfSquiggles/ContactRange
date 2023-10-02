@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dov5lcuxxnxh"
+path="res://.godot/imported/air duster 1.wav-23c6d3d5c5483a892e1399cb194dff5b.sample"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Singles/AirDuster/air duster 1.wav"
+dest_files=["res://.godot/imported/air duster 1.wav-23c6d3d5c5483a892e1399cb194dff5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

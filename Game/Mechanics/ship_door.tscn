@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ydtho7tbl1kg"]
+[gd_scene load_steps=15 format=3 uid="uid://ydtho7tbl1kg"]
 
 [ext_resource type="Material" path="res://Game/Assets/Materials/ship_wal_pbr.tres" id="1_qqeva"]
 [ext_resource type="Script" path="res://Game/Mechanics/ShipDoor.cs" id="2_014tb"]
+[ext_resource type="AudioStream" uid="uid://mp4bs4lbu0bh" path="res://Game/Assets/SFX/ThirdParty/Singles/air_duster.tres" id="3_xcf6b"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_banh3"]
 _surfaces = [{
@@ -91,6 +92,20 @@ tracks/1/keys = {
 "method": &"start"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorOpen")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_18gtu"]
 resource_name = "DoorOpen"
@@ -119,6 +134,20 @@ tracks/1/keys = {
 "values": [{
 "args": [-1],
 "method": &"start"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorOpen")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -179,5 +208,9 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_xcf6b")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="AnimationPlayer" method="play" binds= ["DoorClose"]]

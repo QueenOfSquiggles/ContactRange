@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvq5cfbo7paw6"
+path="res://.godot/imported/Sci-Fi 4 Loop.ogg-043eff990d72511add73de986e5c1002.oggvorbisstr"
+
+[deps]
+
+source_file="res://Game/Assets/SFX/ThirdParty/Loops/Sci-Fi 4 Loop.ogg"
+dest_files=["res://.godot/imported/Sci-Fi 4 Loop.ogg-043eff990d72511add73de986e5c1002.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

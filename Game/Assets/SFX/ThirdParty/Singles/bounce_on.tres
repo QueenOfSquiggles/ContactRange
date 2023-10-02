@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=9 format=3 uid="uid://r1pdyve0em02"]
+
+[ext_resource type="AudioStream" uid="uid://dvehe0da7evjb" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 1.wav" id="1_tuh62"]
+[ext_resource type="AudioStream" uid="uid://dioepmrmn8g5p" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 2.wav" id="2_lstpp"]
+[ext_resource type="AudioStream" uid="uid://bax6l3hbnmhr1" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 3.wav" id="3_efpqr"]
+[ext_resource type="AudioStream" uid="uid://dp2idghdbb8aa" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 4.wav" id="4_og14f"]
+[ext_resource type="AudioStream" uid="uid://qkxoa6aoyvpn" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 5.wav" id="5_ohsuf"]
+[ext_resource type="AudioStream" uid="uid://ckqxawgp3py0i" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 6.wav" id="6_uay25"]
+[ext_resource type="AudioStream" uid="uid://cbva0hwew034e" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 7.wav" id="7_sm152"]
+[ext_resource type="AudioStream" uid="uid://dvu2scdqlekw1" path="res://Game/Assets/SFX/ThirdParty/Singles/BounceOn/bounce on 8.wav" id="8_qwprk"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_tuh62")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_lstpp")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_efpqr")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_og14f")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_ohsuf")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_uay25")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_sm152")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_qwprk")
+stream_7/weight = 1.0
