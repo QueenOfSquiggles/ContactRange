@@ -26,15 +26,18 @@ public partial class Player : CharacterBody3D {
   [Export] private State _cameraStateIdle;
   [Export] private State _cameraStateMoving;
   [Export] private State _cameraStateCombat;
+  [Export] private State _cameraStateCutscene;
   [Export(PropertyHint.File, "*.tscn")] private string _gameOverScene;
 
   public override void _Ready() {
     EventBus.Gameplay.RequestPlayerAbleToMove += (can_move) => {
       if (can_move) {
         _playerFSM.ChangeState(_playerStateExplore);
+        _cameraFSM.ChangeState(_cameraStateMoving);
       }
       else {
         _playerFSM.ChangeState(_playerStateCutscene);
+        _cameraFSM.ChangeState(_cameraStateCutscene);
       }
     };
     _cameraStateIdle.OnStateFinished += () => _cameraFSM.ChangeState(_cameraStateMoving);

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnyupnwohm20n"]
+
+[ext_resource type="Script" path="res://Core/Modules/Interaction/InteractiveTrigger.cs" id="1_4a3a1"]
+[ext_resource type="Texture2D" uid="uid://j562hjjgsxk8" path="res://Game/Assets/Sprites/NPCs/pilot.png" id="1_rbt53"]
+[ext_resource type="Script" path="res://Game/NPC/SimpleNPC.cs" id="1_wetc7"]
+[ext_resource type="Texture2D" uid="uid://barqt4ocluwdp" path="res://Game/Assets/Sprites/NPCs/talking_icon.png" id="3_wc6sk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxs2b"]
+radius = 3.44663
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e2c56"]
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("_sprite")]
+script = ExtResource("1_wetc7")
+_spriteTexture = ExtResource("1_rbt53")
+_dialogTrack = "pilot"
+_sprite = NodePath("SimpleNPC")
+
+[node name="SimpleNPC" type="Sprite3D" parent="."]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0.4, 0)
+billboard = 2
+shaded = true
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.36
+texture_filter = 5
+texture = ExtResource("1_rbt53")
+
+[node name="InteractiveTrigger" type="Area3D" parent="SimpleNPC"]
+script = ExtResource("1_4a3a1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleNPC/InteractiveTrigger"]
+shape = SubResource("SphereShape3D_cxs2b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118511, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_e2c56")
+
+[node name="TalkIcon" type="Sprite3D" parent="."]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 2.07249, 0)
+visible = false
+billboard = 2
+shaded = true
+texture = ExtResource("3_wc6sk")
+
+[connection signal="OnDeselected" from="SimpleNPC/InteractiveTrigger" to="TalkIcon" method="set_visible" binds= [false]]
+[connection signal="OnInteracted" from="SimpleNPC/InteractiveTrigger" to="." method="OnInteract"]
+[connection signal="OnSelected" from="SimpleNPC/InteractiveTrigger" to="TalkIcon" method="set_visible" binds= [true]]

@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatManager.cs" id="2_v15vt"]
 [ext_resource type="Script" path="res://Core/Modules/FSM/FiniteStateMachine.cs" id="3_7mb8g"]
 [ext_resource type="Script" path="res://Core/Modules/CharStats/CharStatFloat.cs" id="3_w5dyv"]
-[ext_resource type="Script" path="res://Core/Modules/FSM/State.cs" id="4_ioeev"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateExplore.cs" id="5_6iq0t"]
 [ext_resource type="Script" path="res://Core/Modules/Camera/VirtualCamera.cs" id="5_7vxki"]
 [ext_resource type="Texture2D" uid="uid://b5b5d4477nwml" path="res://Game/Assets/Sprites/player_fist.png" id="5_d68xr"]
+[ext_resource type="Script" path="res://Game/Character/StateCutscene.cs" id="6_fd6a0"]
 [ext_resource type="Script" path="res://Game/Character/PlayerStateCombat.cs" id="6_xyxc0"]
 [ext_resource type="Script" path="res://Game/Character/StateCameraControls.cs" id="7_57tf4"]
 [ext_resource type="Script" path="res://Core/Modules/Interaction/InteractionSensor.cs" id="9_4exsv"]
@@ -197,7 +197,7 @@ _data = {
 "SwingAttack": SubResource("Animation_umlae")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_inventory", "_heldWeapon", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_playerLight", "_stats", "_inventory", "_heldWeapon", "_playerFSM", "_playerStateExplore", "_playerStateCombat", "_playerStateCutscene", "_cameraFSM", "_cameraStateIdle", "_cameraStateMoving", "_cameraStateCombat", "_cameraStateCutscene") groups=["player"]]
 collision_layer = 5
 script = ExtResource("1_min2i")
 _playerLight = NodePath("OmniLight3D")
@@ -212,6 +212,7 @@ _cameraFSM = NodePath("CameraArm/CameraStateMachine")
 _cameraStateIdle = NodePath("CameraArm/CameraStateMachine/StateIdle")
 _cameraStateMoving = NodePath("CameraArm/CameraStateMachine/StateMoving")
 _cameraStateCombat = NodePath("PlayerStateMachine/StateCombat")
+_cameraStateCutscene = NodePath("CameraArm/CameraStateMachine/StateCutscene")
 _gameOverScene = "res://Game/Menu/game_over_screen.tscn"
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
@@ -243,7 +244,7 @@ _combatSprite = NodePath("../../Sprites/TopFace")
 _exploreSprites = [NodePath("../../Sprites/BackFace"), NodePath("../../Sprites/RightFace"), NodePath("../../Sprites/FrontFace"), NodePath("../../Sprites/LeftFace")]
 
 [node name="StateCutscene" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("4_ioeev")
+script = ExtResource("6_fd6a0")
 
 [node name="CameraArm" type="Node3D" parent="."]
 transform = Transform3D(0.969016, 0, 0.246999, 0, 1, 0, -0.246999, 0, 0.969016, -0.00339079, 1.13238, -0.00134277)
@@ -283,6 +284,9 @@ _extraSensitivityScalar = 0.3
 _maxAngleDegrees = 45.0
 _minAngleDegrees = -45.0
 _isActiveDuringMovement = true
+
+[node name="StateCutscene" type="Node" parent="CameraArm/CameraStateMachine"]
+script = ExtResource("6_fd6a0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73375, 0)

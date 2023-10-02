@@ -1,0 +1,39 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Default": {
+"mode": 0,
+"name": "Default",
+"pitch_base": 1.0,
+"pitch_variance": 0.2,
+"skip_characters": 0.0,
+"sound_path": "res://Game/Assets/SFX/NPC/pilot_blip.ogg",
+"volume_base": -2.0,
+"volume_variance": 0.0
+}
+},
+"style": "Default"
+},
+"default_portrait": "Main",
+"description": "",
+"display_name": "Pilot",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Main": {
+"ignore_char_scale": false,
+"image": "res://Game/Assets/Sprites/NPCs/pilot.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "Default"
+}
+},
+"scale": 1.0
+}

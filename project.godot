@@ -21,13 +21,49 @@ Scenes="*res://Core/Scenes/Utility/Autoload/scenes.tscn"
 BGM="*res://Core/Scenes/Utility/Autoload/bgm.tscn"
 Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 
+[dialogic]
+
+settings/text_speed=0.01
+text/skippable=true
+text/skippable_delay=0.1
+text/autoadvance_delay=1.0
+text/hide_empty_textbox=true
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+animations/join_default_length=0.5
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/join_default_wait=true
+text/autocolor_names=false
+text/autopauses={
+"!?,.": 0.1
+}
+variables={}
+layout/styles={
+"Default": {
+"export_overrides": {
+"box_modulate": "Color(0.247059, 0.0588235, 0.294118, 0.843137)",
+"box_size": "Vector2(600, 150)",
+"name_label_font_size": "26.0",
+"text_alignment": "1",
+"text_size": "22.0"
+},
+"inherits": ""
+}
+}
+layout/default_style="Default"
+glossary/default_case_sensitive=true
+
 [dotnet]
 
 project/assembly_name="ContactRange"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/squiggles_core_autoloads/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/rebuild_cs_on_focus/plugin.cfg", "res://addons/squiggles_core_autoloads/plugin.cfg")
 
 [gui]
 
