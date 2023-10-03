@@ -14,7 +14,7 @@ static func get_editor_scale() -> float:
 	return get_dialogic_plugin().get_editor_interface().get_editor_scale()
 
 
-static func get_dialogic_plugin() -> EditorPlugin:
+static func get_dialogic_plugin():
 	var tree: SceneTree = Engine.get_main_loop()
 	if tree.get_root().get_child(0).has_node('DialogicPlugin'):
 		return tree.get_root().get_child(0).get_node('DialogicPlugin')
